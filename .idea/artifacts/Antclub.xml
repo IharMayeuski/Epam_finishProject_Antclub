@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Antclub">
+    <output-path>$PROJECT_DIR$/out/artifacts/Antclub</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Antclub" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/jstl-1.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/log4j-api-2.11.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/log4j-core-2.11.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-5.1.47.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/lib/testng-6.14.3.jar" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="Antclub/web/Web" />
+    </root>
+  </artifact>
+</component>
