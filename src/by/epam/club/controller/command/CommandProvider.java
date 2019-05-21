@@ -1,7 +1,7 @@
 package by.epam.club.controller.command;
 
 
-import by.epam.club.controller.command.impl.ToDefaultPage;
+import by.epam.club.controller.command.impl.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,8 +13,17 @@ public class CommandProvider {
 
     private CommandProvider() {
         commands.put("default_page", new ToDefaultPage());
+        commands.put("to_admin_page", new ToAdminPage());
+        commands.put("to_user_page", new ToUserPage());
+        commands.put("to_guest_page", new ToGuestPage());
+        commands.put("go_to_registrationPage", new ToRegistrationPage());
 
-     }
+        commands.put("logOut", new LogOut());
+
+        commands.put("find_user", new AuthorizationUser());
+        commands.put("create_new_user", new RegistrationUser());
+
+    }
 
     public static CommandProvider getInstance() {
         return instance;

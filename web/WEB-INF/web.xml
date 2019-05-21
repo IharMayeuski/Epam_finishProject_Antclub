@@ -16,8 +16,8 @@
 
 
 
-    <error-page>
+    <!--<error-page>
         <location>/WEB-INF/jsp/error.jsp</location>
-    </error-page>
+    </error-page>-->
 </web-app>
 
