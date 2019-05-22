@@ -14,25 +14,16 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.TimeZone;
 
-import static by.epam.club.command.SqlFunction.MARK_USER_LIKE_DELETED;
-import static by.epam.club.command.SqlFunction.QUERY_CHECK_USER;
+import static by.epam.club.dao.impl.SqlFunction.*;
 
 public class UserDaoImpl implements UserDao {
-    //private static final String QUERY_CHECK_USER = "SELECT id,login,email, date_registration,role_id  WHERE login=? and password=?";
-    private static final String QUERY_CHECK_USER_LOGIN = "SELECT login FROM user WHERE login=?";
-    private static final String QUERY_CHECK_USER_EMAIL = "SELECT email FROM user WHERE email=?";
-
-    // private static final String DELETE_USER = "DELETE FROM user WHERE id=?"; todo statement ругается на слово delete
-    private static final String DELETE_CHECK_USER_FOR_DELETING = "SELECT id FROM user WHERE id=?";
-
-
-    private static final String INSERT_NEW_USER = "INSERT INTO user (login, email, password, date_registration, role_id, userBlock_block_id, deleted_account_id) VALUES (?,?,?,?,?,?,?)";
-    // private static final String All_USERS = "SELECT userId,name,familyName,email,password,role FROM User";
-    private int USER_ROLE = 2;
+    private int ROLE_USER = 2;
     private int UNBLOCKED = 1;
-    private int DELETED = 1;
+    private int ACTIVE_ACCOUNT = 1;
 
     private PasswordEncryption encryption = new PasswordEncryption();
     private PreparedStatement st;
@@ -55,16 +46,14 @@ public class UserDaoImpl implements UserDao {
             if (rs.next()) {
                 user = createUserData(rs);
             }
-
         } catch (ConnectionPoolException | SQLException e) {
             throw new DaoException(e);
-
-        } finally {
+        } finally {//todo уточнить, что делать в файнали со throw
             if (connectionPool != null) {
                 try {
                     connectionPool.returnConnection(con);
                 } catch (ConnectionPoolException e) {
-                    throw new DaoException(e);//todo уточнить, что делать в файнали со throw
+                    throw new DaoException(e);
                 }
             }
         }
@@ -75,36 +64,38 @@ public class UserDaoImpl implements UserDao {
     public boolean createUser(String login, String email, String password) throws DaoException {
         String newPass = encryption.create(password);
         Date date = new Date();
+        boolean value = false;
 
         try {
             connectionPool = ConnectionPool.getInstance();
             con = connectionPool.takeConnection();
             con.setAutoCommit(false);
 
-            st = con.prepareStatement(QUERY_CHECK_USER_LOGIN);
+            st = con.prepareStatement(QUERY_CHECK_USER_LOGIN.getQuery());
             st.setString(1, login);
 
             rs = st.executeQuery();
             if (rs.next())
                 throw new DaoException("we have user with this login");
 
-            st = con.prepareStatement(QUERY_CHECK_USER_EMAIL);
+            st = con.prepareStatement(QUERY_CHECK_USER_EMAIL.getQuery());
             st.setString(1, email);
             rs = st.executeQuery();
             if (rs.next())
                 throw new DaoException("we have user with this email");
 
-            st = con.prepareStatement(INSERT_NEW_USER);
+            st = con.prepareStatement(INSERT_NEW_USER.getQuery());
             st.setString(1, login);
             st.setString(2, email);
             st.setString(3, newPass);
             st.setLong(4, date.toInstant().toEpochMilli());
-            st.setInt(5, USER_ROLE);
+            st.setInt(5, ROLE_USER);
             st.setInt(6, UNBLOCKED);
-            st.setInt(7, DELETED);
+            st.setInt(7, ACTIVE_ACCOUNT);
 
             st.executeUpdate();
             con.commit();
+            value=true;
         } catch (ConnectionPoolException | SQLException e) {
             try {
                 con.rollback();
@@ -122,11 +113,12 @@ public class UserDaoImpl implements UserDao {
                 }
             }
         }
-        return true;
+        return value;
     }
 
     @Override
-    public boolean deleteUser(User user) throws DaoException {
+    public boolean markUserDeleted(User user) throws DaoException {
+        boolean value = false;
         try {
             connectionPool = ConnectionPool.getInstance();
             con = connectionPool.takeConnection();
@@ -135,23 +127,72 @@ public class UserDaoImpl implements UserDao {
             st.setInt(1, user.getId());
             st.executeUpdate();
             con.commit();
+            value = true;
         } catch (ConnectionPoolException | SQLException e) {
             try {
                 con.rollback();
             } catch (SQLException e1) {
                 throw new DaoException(e1);
             }
-        } finally {
+        } finally {//todo уточнить, что делать в файнали со throw
             if (connectionPool != null) {
                 try {
                     connectionPool.returnConnection(con);
                 } catch (ConnectionPoolException e) {
-                    throw new DaoException(e);//todo уточнить, что делать в файнали со throw
+                    throw new DaoException(e);
                 }
             }
         }
-        return true;
+        return value;
     }
+
+    @Override
+    public Set<User> takeAllUser() throws DaoException {
+        Set<User> users = new HashSet<>();
+        try {
+            connectionPool = ConnectionPool.getInstance();
+            con = connectionPool.takeConnection();
+            st = con.prepareStatement(QUERY_FIND_ALL_USER.getQuery());
+
+            rs = st.executeQuery();
+            while (rs.next()) {
+                User user = createUserData(rs);
+                users.add(user);
+            }
+        } catch (ConnectionPoolException | SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
+    }
+
+    @Override
+    public User findUserByLogin(String login) throws DaoException {
+        User user = null;
+        try {
+            connectionPool = ConnectionPool.getInstance();
+            con = connectionPool.takeConnection();
+            st = con.prepareStatement(QUERY_FIND_USER_BY_LOGIN.getQuery());
+            st.setString(1, login);
+            rs = st.executeQuery();
+            if (rs.next()) {
+                user = createUserData(rs);
+            } else {
+                throw new DaoException("We don't have user with this login: " + login);
+            }
+        } catch (ConnectionPoolException | SQLException e) {
+            throw new DaoException(e);
+        } finally {//todo уточнить, что делать в файнали со throw
+            if (connectionPool != null) {
+                try {
+                    connectionPool.returnConnection(con);
+                } catch (ConnectionPoolException e) {
+                    throw new DaoException(e);
+                }
+            }
+        }
+        return user;
+    }
+
 
     private User createUserData(ResultSet rs) throws DaoException {
         User user = new User();
@@ -177,6 +218,4 @@ public class UserDaoImpl implements UserDao {
 
         return user;
     }
-
-
 }

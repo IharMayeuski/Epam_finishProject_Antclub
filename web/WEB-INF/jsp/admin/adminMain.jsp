@@ -61,8 +61,6 @@
 </a><br>
 <a  class="text float-right ">Date registration:
     <c:out value="${sessionScope.user.date_registration}"/>
-    <a  class="text float-right ">iD:
-        <c:out value="${sessionScope.user.id}"/>
 
 </a><br>
 

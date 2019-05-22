@@ -8,14 +8,16 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+//todo before test Please to change user with id_3:  user.deleted_account_id change on 1
 public class UserDaoImplTest {
     private static final Logger LOGGER = LogManager.getLogger();
     private UserDaoImpl userDao;
     private User user;
+
     private String LOGIN = "test2";
     private String EMAIL = "test2@test.test";
     private String PASSWORD = "test";
-    private int ID_FOR_MARKING_DELETING=3;//todo before test Please to change user.deleted_account_id in position_1
+    private int ID_FOR_MARKING_DELETING = 3;
 
     @BeforeClass
     public void setUp() {
@@ -24,18 +26,31 @@ public class UserDaoImplTest {
     }
 
     @Test
-    public void testCheck() {
+    public void testCheckPositive() {
+        try {
+            Assert.assertEquals(userDao.check("admin", "admin").getLogin(), "admin");
+            LOGGER.info("Test check user is completed successfully");
+        } catch (DaoException e) {
+            System.out.println(e);
+            LOGGER.info(e);
+        }
     }
 
     @Test
-    public void testCreateUser() {
+    public void testCheckNegative() {
         try {
-            Assert.assertTrue(userDao.createUser(LOGIN,EMAIL,PASSWORD));
-            LOGGER.info("Test create user is completed successfully");
+            Assert.assertNull(userDao.check("admin", "admin2"));
+            LOGGER.info("Test check user negative test is completed successfully");
         } catch (DaoException e) {
-            System.out.println("excep");
-            LOGGER.info("Test create user is failed");
+            System.out.println(e);
+            LOGGER.info(e);
         }
+    }
+
+    @Test
+    public void testCreateUser() throws DaoException {
+        Assert.assertTrue(userDao.createUser(LOGIN, EMAIL, PASSWORD));
+
     }
 
     @Test
@@ -43,12 +58,33 @@ public class UserDaoImplTest {
         user.setId(ID_FOR_MARKING_DELETING);
 
         try {
-            Assert.assertTrue(userDao.deleteUser(user));
+            Assert.assertTrue(userDao.markUserDeleted(user));
             LOGGER.info("Test_Mark_deleted_user is completed");
         } catch (DaoException e) {
-            System.out.println("excep2");
+            System.out.println(e);//todo удалить
+            LOGGER.info(e);
+        }
+    }
 
-            LOGGER.info("Test_Mark_deleted_user is failed");
+    @Test
+    public void testTakeAllUser() {
+        try {
+            Assert.assertNotNull(userDao.takeAllUser());
+            LOGGER.info("Test take all is completed successfully");
+        } catch (DaoException e) {
+            System.out.println(e);//todo удалить
+            LOGGER.info(e);
+        }
+    }
+
+    @Test
+    public void testFindByLogin() {
+        try {
+            Assert.assertNotNull(userDao.findUserByLogin("admin"));
+            LOGGER.info("Test take all is completed successfully");
+        } catch (DaoException e) {
+            System.out.println(e);//todo удалить
+            LOGGER.info(e);
         }
     }
 }
