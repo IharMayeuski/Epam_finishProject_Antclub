@@ -5,7 +5,11 @@ public enum SqlFunction {
             append("INNER JOIN role r ON u.role_id= r.role_id ").
             append("INNER JOIN userblock b ON b.block_id=u.userBlock_block_id ").
             append("INNER JOIN deleted_account a ON a.account_id=u.deleted_account_id ").
-            append("WHERE u.login=? and u.password=?").toString());
+            append("WHERE u.login=? and u.password=?").toString()),
+
+    MARK_USER_LIKE_DELETED (new StringBuilder().append
+            ("UPDATE user SET deleted_account_id=2 WHERE id=?").toString());
+
 
 
 

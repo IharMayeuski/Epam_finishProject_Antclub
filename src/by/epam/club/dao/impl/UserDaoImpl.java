@@ -1,6 +1,5 @@
 package by.epam.club.dao.impl;
 
-import by.epam.club.command.SqlFunction;
 import by.epam.club.dao.UserDao;
 import by.epam.club.dao.pool.ConnectionPool;
 import by.epam.club.dao.pool.ConnectionProxy;
@@ -17,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
+import static by.epam.club.command.SqlFunction.MARK_USER_LIKE_DELETED;
 import static by.epam.club.command.SqlFunction.QUERY_CHECK_USER;
 
 public class UserDaoImpl implements UserDao {
@@ -24,8 +24,9 @@ public class UserDaoImpl implements UserDao {
     private static final String QUERY_CHECK_USER_LOGIN = "SELECT login FROM user WHERE login=?";
     private static final String QUERY_CHECK_USER_EMAIL = "SELECT email FROM user WHERE email=?";
 
-   // private static final String DELETE_USER = "DELETE FROM user WHERE id=?"; todo statement ругается на слово delete
+    // private static final String DELETE_USER = "DELETE FROM user WHERE id=?"; todo statement ругается на слово delete
     private static final String DELETE_CHECK_USER_FOR_DELETING = "SELECT id FROM user WHERE id=?";
+
 
     private static final String INSERT_NEW_USER = "INSERT INTO user (login, email, password, date_registration, role_id, userBlock_block_id, deleted_account_id) VALUES (?,?,?,?,?,?,?)";
     // private static final String All_USERS = "SELECT userId,name,familyName,email,password,role FROM User";
@@ -111,6 +112,15 @@ public class UserDaoImpl implements UserDao {
                 throw new DaoException(message);
             }
             throw new DaoException(e);
+
+        } finally {
+            if (connectionPool != null) {
+                try {
+                    connectionPool.returnConnection(con);
+                } catch (ConnectionPoolException e) {
+                    throw new DaoException(e);//todo уточнить, что делать в файнали со throw
+                }
+            }
         }
         return true;
     }
@@ -120,28 +130,28 @@ public class UserDaoImpl implements UserDao {
         try {
             connectionPool = ConnectionPool.getInstance();
             con = connectionPool.takeConnection();
-            st = con.prepareStatement(DELETE_CHECK_USER_FOR_DELETING);
+            con.setAutoCommit(false);
+            st = con.prepareStatement(MARK_USER_LIKE_DELETED.getQuery());
             st.setInt(1, user.getId());
-            rs = st.executeQuery();
-            if (rs.next()) {
-                rs=null;
-                st=null;
-                //st = con.prepareStatement(DELETE_USER); //todo statement ругается на слово delete
-                st.setInt(1, user.getId());
-                st.executeUpdate();
-                con.commit();
-            }
+            st.executeUpdate();
+            con.commit();
         } catch (ConnectionPoolException | SQLException e) {
-            try { //todo такие повторения тоже выносить в отдельные методы,как?
+            try {
                 con.rollback();
-            } catch (SQLException message) {
-                throw new DaoException(message);
+            } catch (SQLException e1) {
+                throw new DaoException(e1);
             }
-            throw new DaoException(e);
+        } finally {
+            if (connectionPool != null) {
+                try {
+                    connectionPool.returnConnection(con);
+                } catch (ConnectionPoolException e) {
+                    throw new DaoException(e);//todo уточнить, что делать в файнали со throw
+                }
+            }
         }
         return true;
     }
-
 
     private User createUserData(ResultSet rs) throws DaoException {
         User user = new User();
