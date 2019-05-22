@@ -1,5 +1,6 @@
 package by.epam.club.dao.impl;
 
+import by.epam.club.command.SqlFunction;
 import by.epam.club.dao.UserDao;
 import by.epam.club.dao.pool.ConnectionPool;
 import by.epam.club.dao.pool.ConnectionProxy;
@@ -8,7 +9,6 @@ import by.epam.club.exception.ConnectionPoolException;
 import by.epam.club.exception.DaoException;
 import by.epam.club.tool.PasswordEncryption;
 
-import java.math.BigDecimal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,16 +17,21 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
+import static by.epam.club.command.SqlFunction.QUERY_CHECK_USER;
+
 public class UserDaoImpl implements UserDao {
-    private static final String QUERY_CHECK_USER = "SELECT id,login,email, date_registration,role_id, userBlock_block_id FROM user WHERE login=? and password=?";
+    //private static final String QUERY_CHECK_USER = "SELECT id,login,email, date_registration,role_id  WHERE login=? and password=?";
     private static final String QUERY_CHECK_USER_LOGIN = "SELECT login FROM user WHERE login=?";
     private static final String QUERY_CHECK_USER_EMAIL = "SELECT email FROM user WHERE email=?";
-    private static final String DELETE_USER = "DELETE FROM user WHERE id=?";
 
-    private static final String INSERT_NEW_USER = "insert into user (login, email, password, date_registration, role_id, userBlock_block_id) VALUES (?,?,?,?,?,?)";
+   // private static final String DELETE_USER = "DELETE FROM user WHERE id=?"; todo statement ругается на слово delete
+    private static final String DELETE_CHECK_USER_FOR_DELETING = "SELECT id FROM user WHERE id=?";
+
+    private static final String INSERT_NEW_USER = "INSERT INTO user (login, email, password, date_registration, role_id, userBlock_block_id, deleted_account_id) VALUES (?,?,?,?,?,?,?)";
     // private static final String All_USERS = "SELECT userId,name,familyName,email,password,role FROM User";
     private int USER_ROLE = 2;
     private int UNBLOCKED = 1;
+    private int DELETED = 1;
 
     private PasswordEncryption encryption = new PasswordEncryption();
     private PreparedStatement st;
@@ -42,13 +47,12 @@ public class UserDaoImpl implements UserDao {
         try {
             connectionPool = ConnectionPool.getInstance();
             con = connectionPool.takeConnection();
-            st = con.prepareStatement(QUERY_CHECK_USER);
+            st = con.prepareStatement(QUERY_CHECK_USER.getQuery());
             st.setString(1, log);
             st.setString(2, newPass);
             rs = st.executeQuery();
             if (rs.next()) {
                 user = createUserData(rs);
-
             }
 
         } catch (ConnectionPoolException | SQLException e) {
@@ -96,6 +100,8 @@ public class UserDaoImpl implements UserDao {
             st.setLong(4, date.toInstant().toEpochMilli());
             st.setInt(5, USER_ROLE);
             st.setInt(6, UNBLOCKED);
+            st.setInt(7, DELETED);
+
             st.executeUpdate();
             con.commit();
         } catch (ConnectionPoolException | SQLException e) {
@@ -114,14 +120,26 @@ public class UserDaoImpl implements UserDao {
         try {
             connectionPool = ConnectionPool.getInstance();
             con = connectionPool.takeConnection();
-            st = con.prepareStatement(QUERY_CHECK_USER);
+            st = con.prepareStatement(DELETE_CHECK_USER_FOR_DELETING);
             st.setInt(1, user.getId());
             rs = st.executeQuery();
+            if (rs.next()) {
+                rs=null;
+                st=null;
+                //st = con.prepareStatement(DELETE_USER); //todo statement ругается на слово delete
+                st.setInt(1, user.getId());
+                st.executeUpdate();
+                con.commit();
+            }
         } catch (ConnectionPoolException | SQLException e) {
+            try { //todo такие повторения тоже выносить в отдельные методы,как?
+                con.rollback();
+            } catch (SQLException message) {
+                throw new DaoException(message);
+            }
             throw new DaoException(e);
-
         }
-        return false;
+        return true;
     }
 
 
@@ -137,14 +155,16 @@ public class UserDaoImpl implements UserDao {
             user.setLogin(rs.getString(2));
             user.setEmail(rs.getString(3));
             user.setDate_registration(date);
-            user.setRole(rs.getInt(5));
-            user.setBlock(rs.getInt(6));
+            user.setRole(rs.getString(5));
+            user.setBlock(rs.getString(6));
+            user.setDeleted(rs.getString(7));
+
+            System.out.println(user.toString());//todo удалить, стоит для контроля
 
         } catch (SQLException e) {
-            System.out.println("3");
             throw new DaoException(e);
         }
-        System.out.println(user.toString());
+
         return user;
     }
 

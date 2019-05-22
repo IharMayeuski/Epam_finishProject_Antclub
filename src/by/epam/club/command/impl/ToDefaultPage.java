@@ -1,6 +1,7 @@
-package by.epam.club.controller.command.impl;
+package by.epam.club.command.impl;
 
-import by.epam.club.controller.command.Commander;
+import by.epam.club.command.Commander;
+import by.epam.club.tool.CreatorFullURL;
 import by.epam.club.exception.ControllerException;
 
 import javax.servlet.RequestDispatcher;
@@ -9,13 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class ToAdminPage implements Commander {
-    private static final String ADMIN_PAGE = "/WEB-INF/jsp/admin/adminMain.jsp";
+
+public class ToDefaultPage implements Commander {
+    private static final String DEFAULT_PAGE= "/WEB-INF/jsp/default.jsp";
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ControllerException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher(ADMIN_PAGE);//todo почему не работает логаут?
 
+        String url = CreatorFullURL.create(request);
+        request.getSession(true).setAttribute("prev_request", url);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher(DEFAULT_PAGE);
         try {
             dispatcher.forward(request, response);
         } catch (ServletException | IOException e) {
@@ -23,3 +28,4 @@ public class ToAdminPage implements Commander {
         }
     }
 }
+

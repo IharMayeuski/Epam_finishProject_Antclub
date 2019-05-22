@@ -1,4 +1,4 @@
-package by.epam.club.controller.command.impl;
+package by.epam.club.command.impl;
 
 import by.epam.club.entity.User;
 import by.epam.club.exception.ControllerException;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class AuthorizationUser implements by.epam.club.controller.command.Commander {
+public class AuthorizationUser implements by.epam.club.command.Commander {
     private static final String PARAMETER_LOGIN = "login";
     private static final String PARAMETER_PASSWORD = "password";
 
@@ -36,37 +36,35 @@ public class AuthorizationUser implements by.epam.club.controller.command.Comman
         //String loc = (String) session.getAttribute("local");//todo организовать локаль
 
         try {
-           User user = service.checkUser(login, password);
+            User user = service.checkUser(login, password);
+            session.setAttribute("user", user);
             if (user != null) {
-                session.setAttribute("user", user);
-                switch (user.getRole()) {
-                    case 1:
-                        page = ADMIN_PAGE;
-                        break;
-                    case 2:
-                        page = USER_PAGE;
-                        break;
-                    default:
-                        request.setAttribute("error", "can't identify your role!");
-                        page = DEFAULT_PAGE;
+                if (user.getRole().equals("admin")) {
+                    page = ADMIN_PAGE;
+                } else {
+                    page = USER_PAGE;
                 }
+
+                if (user.getDeleted().equals("deleted")) {
+                    request.setAttribute("error", "this account is deleted");
+                    page = DEFAULT_PAGE;
+                }
+
             } else {
                 request.setAttribute("error", "login or password error");
-                page = DEFAULT_PAGE;
             }
-            ///////////////////////////////todo разобраться с F5
+            ///////////////////////////////todo разобраться
             String url = CreatorFullURL.create(request);
             request.getSession(true).setAttribute("prev_request", url);
             ////////////////////////////////
 
         } catch (ServiceException e) {
             request.setAttribute("error", "login or password error");
-            page = DEFAULT_PAGE;
-        }finally {
+        } finally {
             try {
                 RequestDispatcher dispatcher = request.getRequestDispatcher(page);
                 dispatcher.forward(request, response); //todo как быть со throw в файнали?
-            }catch (ServletException | IOException e) {
+            } catch (ServletException | IOException e) {
                 throw new ControllerException(e);
             }
         }

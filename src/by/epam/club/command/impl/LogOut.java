@@ -1,6 +1,6 @@
-package by.epam.club.controller.command.impl;
+package by.epam.club.command.impl;
 
-import by.epam.club.controller.command.Commander;
+import by.epam.club.command.Commander;
 import by.epam.club.exception.ControllerException;
 
 import javax.servlet.RequestDispatcher;
@@ -17,9 +17,7 @@ public class LogOut implements Commander {
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ControllerException {
         HttpSession session = request.getSession(true);
         session.invalidate();
-
         RequestDispatcher dispatcher = request.getRequestDispatcher(DEFAULT_PAGE);//todo почему не работает логаут?
-
         try {
             dispatcher.forward(request, response);
         } catch (ServletException | IOException e) {

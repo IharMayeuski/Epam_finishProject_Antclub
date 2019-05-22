@@ -40,11 +40,9 @@ public class ConnectionPool {
             pool = new ArrayBlockingQueue<>(poolSize);
             for (int i = 0; i < poolSize; i++)
                 pool.offer(new ConnectionProxy(DriverManager.getConnection(url, login, password)));
-        } catch (
-                ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             throw new ConnectionPoolException("can't find driver", e);
-        } catch (
-                SQLException e) {
+        } catch (SQLException e) {
             throw new ConnectionPoolException("can't connect to your DB", e);
         }
     }

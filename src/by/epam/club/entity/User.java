@@ -5,8 +5,9 @@ public class User {
     private String login;
     private String email;
     private String date_registration;
-    private int role;
-    private int block;
+    private String role;
+    private String block;
+    private String deleted;
 
     public int getId() {
         return id;
@@ -40,20 +41,28 @@ public class User {
         this.date_registration = date_registration;
     }
 
-    public int getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(int role) {
+    public void setRole(String role) {
         this.role = role;
     }
 
-    public int getBlock() {
+    public String getBlock() {
         return block;
     }
 
-    public void setBlock(int block) {
+    public void setBlock(String block) {
         this.block = block;
+    }
+
+    public String getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(String deleted) {
+        this.deleted = deleted;
     }
 
     @Override
@@ -64,11 +73,12 @@ public class User {
         User user = (User) o;
 
         if (getId() != user.getId()) return false;
-        if (getRole() != user.getRole()) return false;
-        if (getBlock() != user.getBlock()) return false;
         if (!getLogin().equals(user.getLogin())) return false;
         if (!getEmail().equals(user.getEmail())) return false;
-        return getDate_registration().equals(user.getDate_registration());
+        if (!getDate_registration().equals(user.getDate_registration())) return false;
+        if (getRole() != null ? !getRole().equals(user.getRole()) : user.getRole() != null) return false;
+        if (getBlock() != null ? !getBlock().equals(user.getBlock()) : user.getBlock() != null) return false;
+        return getDeleted() != null ? getDeleted().equals(user.getDeleted()) : user.getDeleted() == null;
     }
 
     @Override
@@ -77,8 +87,9 @@ public class User {
         result = 31 * result + getLogin().hashCode();
         result = 31 * result + getEmail().hashCode();
         result = 31 * result + getDate_registration().hashCode();
-        result = 31 * result + getRole();
-        result = 31 * result + getBlock();
+        result = 31 * result + (getRole() != null ? getRole().hashCode() : 0);
+        result = 31 * result + (getBlock() != null ? getBlock().hashCode() : 0);
+        result = 31 * result + (getDeleted() != null ? getDeleted().hashCode() : 0);
         return result;
     }
 
@@ -89,8 +100,9 @@ public class User {
         sb.append(", login='").append(login).append('\'');
         sb.append(", email='").append(email).append('\'');
         sb.append(", date_registration='").append(date_registration).append('\'');
-        sb.append(", role=").append(role);
-        sb.append(", block=").append(block);
+        sb.append(", role='").append(role).append('\'');
+        sb.append(", block='").append(block).append('\'');
+        sb.append(", deleted='").append(deleted).append('\'');
         sb.append('}');
         return sb.toString();
     }

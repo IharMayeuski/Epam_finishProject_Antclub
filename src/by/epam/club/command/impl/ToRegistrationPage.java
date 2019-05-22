@@ -1,6 +1,6 @@
-package by.epam.club.controller.command.impl;
+package by.epam.club.command.impl;
 
-import by.epam.club.controller.command.Commander;
+import by.epam.club.command.Commander;
 import by.epam.club.exception.ControllerException;
 
 import javax.servlet.RequestDispatcher;

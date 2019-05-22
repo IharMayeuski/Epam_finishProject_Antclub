@@ -1,7 +1,7 @@
-package by.epam.club.controller.command;
+package by.epam.club.command;
 
 
-import by.epam.club.controller.command.impl.*;
+import by.epam.club.command.impl.*;
 
 import java.util.HashMap;
 import java.util.Map;

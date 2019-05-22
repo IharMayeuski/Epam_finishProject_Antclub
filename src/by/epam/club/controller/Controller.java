@@ -1,7 +1,7 @@
 package by.epam.club.controller;
 
-import by.epam.club.controller.command.CommandProvider;
-import by.epam.club.controller.command.Commander;
+import by.epam.club.command.CommandProvider;
+import by.epam.club.command.Commander;
 import by.epam.club.exception.ControllerException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
