@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
     <Properties>
-        <Property name="logs">log/</Property>
+       <!-- <Property name="logPath">log/</Property>-->
+        <Property name="logPath">C:\Program Files\Apache Software\TomCat9.0.13\bin\1\logs</Property>
         <Property name="rollingFileName">log</Property>
     </Properties>
 

@@ -1,5 +1,6 @@
 package by.epam.club.dao.impl;
 
+import by.epam.club.entity.Picture;
 import by.epam.club.exception.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,10 +14,11 @@ public class PictureDaoImplTest {
     private static final Logger LOGGER = LogManager.getLogger();
     private PictureDaoImpl pictureDao;
 
-    private final String NAME = "name";
-    private final Part PART = null;
-    private final String OWNER = "comment";
-    private final int DEFAULT_BANNED = 1;
+    private final String NAME = "test";
+  //  private final Part PART = null;
+    private final int ARTICLE_ID = 1;
+    private final int TEST_ID = 1;
+    private final String PART = "C:\\Users\\Администратор\\Desktop\\рабочий стол\\Thread.jpg";
 
     @BeforeClass
     public void setUp() {
@@ -24,7 +26,13 @@ public class PictureDaoImplTest {
     }
     @Test
     public void testCreate() throws DaoException {
-      /*  Assert.assertNull(pictureDao.create(NAME, PART, OWNER, DEFAULT_BANNED));*/ //todo Как создать объект класса Part?
+        Assert.assertTrue(pictureDao.create(NAME, PART, ARTICLE_ID)); //todo Как создать объект класса Part?
+    }
 
+    @Test
+    public void testDelete() throws DaoException {
+        Picture picture = new Picture();
+        picture.setId(TEST_ID);
+        Assert.assertTrue(pictureDao.delete(picture));
     }
 }

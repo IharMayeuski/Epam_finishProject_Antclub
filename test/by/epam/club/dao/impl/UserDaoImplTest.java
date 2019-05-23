@@ -14,9 +14,9 @@ public class UserDaoImplTest {
     private UserDaoImpl userDao;
     private User user;
 
-    private String LOGIN = "test2";
-    private String EMAIL = "test2@test.test";
-    private String PASSWORD = "test";
+    private String LOGIN = "smirnov";
+    private String EMAIL = "smirnov123@gmail.com";
+    private String PASSWORD = "12345";
     private int ID_FOR_MARKING_DELETING = 3;
 
     @BeforeClass

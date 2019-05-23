@@ -19,11 +19,9 @@ import java.util.Set;
 import java.util.TimeZone;
 
 import static by.epam.club.dao.impl.SqlFunction.*;
+import static by.epam.club.dao.impl.Status.*;
 
 public class UserDaoImpl implements UserDao {
-    private int ROLE_USER = 2;
-    private int UNBLOCKED = 1;
-    private int ACTIVE_ACCOUNT = 1;
 
     private PasswordEncryption encryption = new PasswordEncryption();
     private PreparedStatement st;
@@ -39,7 +37,7 @@ public class UserDaoImpl implements UserDao {
         try {
             connectionPool = ConnectionPool.getInstance();
             con = connectionPool.takeConnection();
-            st = con.prepareStatement(QUERY_CHECK_USER.getQuery());
+            st = con.prepareStatement(USER_CHECK_LOGIN_AND_PASSWORD.getQuery());
             st.setString(1, log);
             st.setString(2, newPass);
             rs = st.executeQuery();
@@ -65,37 +63,36 @@ public class UserDaoImpl implements UserDao {
         String newPass = encryption.create(password);
         Date date = new Date();
         boolean value = false;
+        final int USER = 2;
+
 
         try {
             connectionPool = ConnectionPool.getInstance();
             con = connectionPool.takeConnection();
             con.setAutoCommit(false);
 
-            st = con.prepareStatement(QUERY_CHECK_USER_LOGIN.getQuery());
+            st = con.prepareStatement(USER_CHECK_LOGIN.getQuery());
             st.setString(1, login);
 
             rs = st.executeQuery();
             if (rs.next())
                 throw new DaoException("we have user with this login");
 
-            st = con.prepareStatement(QUERY_CHECK_USER_EMAIL.getQuery());
+            st = con.prepareStatement(USER_CHECK_EMAIL.getQuery());
             st.setString(1, email);
             rs = st.executeQuery();
             if (rs.next())
                 throw new DaoException("we have user with this email");
 
-            st = con.prepareStatement(INSERT_NEW_USER.getQuery());
+            st = con.prepareStatement(USER_INSERT_NEW.getQuery());
             st.setString(1, login);
             st.setString(2, email);
             st.setString(3, newPass);
             st.setLong(4, date.toInstant().toEpochMilli());
-            st.setInt(5, ROLE_USER);
-            st.setInt(6, UNBLOCKED);
-            st.setInt(7, ACTIVE_ACCOUNT);
 
             st.executeUpdate();
             con.commit();
-            value=true;
+            value = true;
         } catch (ConnectionPoolException | SQLException e) {
             try {
                 con.rollback();
@@ -123,7 +120,7 @@ public class UserDaoImpl implements UserDao {
             connectionPool = ConnectionPool.getInstance();
             con = connectionPool.takeConnection();
             con.setAutoCommit(false);
-            st = con.prepareStatement(MARK_USER_LIKE_DELETED.getQuery());
+            st = con.prepareStatement(USER_MARK_LIKE_DELETED.getQuery());
             st.setInt(1, user.getId());
             st.executeUpdate();
             con.commit();
@@ -152,7 +149,7 @@ public class UserDaoImpl implements UserDao {
         try {
             connectionPool = ConnectionPool.getInstance();
             con = connectionPool.takeConnection();
-            st = con.prepareStatement(QUERY_FIND_ALL_USER.getQuery());
+            st = con.prepareStatement(USER_FIND_ALL_USER.getQuery());
 
             rs = st.executeQuery();
             while (rs.next()) {
@@ -171,7 +168,7 @@ public class UserDaoImpl implements UserDao {
         try {
             connectionPool = ConnectionPool.getInstance();
             con = connectionPool.takeConnection();
-            st = con.prepareStatement(QUERY_FIND_USER_BY_LOGIN.getQuery());
+            st = con.prepareStatement(USER_FIND_USER_BY_LOGIN.getQuery());
             st.setString(1, login);
             rs = st.executeQuery();
             if (rs.next()) {
@@ -206,9 +203,18 @@ public class UserDaoImpl implements UserDao {
             user.setLogin(rs.getString(2));
             user.setEmail(rs.getString(3));
             user.setDate_registration(date);
-            user.setRole(rs.getString(5));
-            user.setBlock(rs.getString(6));
-            user.setDeleted(rs.getString(7));
+            user.setRole(rs.getString(7));
+
+            if (rs.getInt(5) == 0) {
+                user.setBanned(NOTBANNED.getStatus());
+            } else {
+                user.setBanned(BANNED.getStatus());
+            }
+            if (rs.getInt(6) == 0) {
+                user.setDeleted(NOTDELETED.getStatus());
+            } else {
+                user.setDeleted(DELETED.getStatus());
+            }
 
             System.out.println(user.toString());//todo удалить, стоит для контроля
 

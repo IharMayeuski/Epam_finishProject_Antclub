@@ -10,8 +10,8 @@ public class FromBlobToPicture {
             InputStream inputStream = blob.getBinaryStream();
             byte[] buffer = new byte [inputStream.available()];
             inputStream.read(buffer);
-            File targetFile = new File("file.jpg");
-            OutputStream outputStream = new FileOutputStream(targetFile);
+            File file = new File("C:\\Users\\Администратор\\Desktop\\file.jpg");
+            OutputStream outputStream = new FileOutputStream(file);
             outputStream.write(buffer);
         } catch (SQLException | IOException e) {
             e.printStackTrace();
