@@ -1,7 +1,7 @@
 package by.epam.club.entity;
 
 public class User {
-    private int id;
+    private long id;
     private String login;
     private String email;
     private String date_registration;
@@ -10,11 +10,11 @@ public class User {
     private String deleted;
     private String role;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -84,7 +84,7 @@ public class User {
 
     @Override
     public int hashCode() {
-        int result = getId();
+        int result = (int) (getId() ^ (getId() >>> 32));
         result = 31 * result + getLogin().hashCode();
         result = 31 * result + getEmail().hashCode();
         result = 31 * result + getDate_registration().hashCode();

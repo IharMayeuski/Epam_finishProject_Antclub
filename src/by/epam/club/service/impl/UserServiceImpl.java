@@ -11,11 +11,12 @@ import by.epam.club.service.validation.CredentialValidator;
 public class UserServiceImpl implements UserService {
     DaoProvider daoProvider = DaoProvider.getInstance();
     UserDao userDAO = daoProvider.getUserDAO();
+    CredentialValidator credentialValidator = new CredentialValidator();
 
     @Override
     public User checkUser(String login, String password) throws ServiceException {
 
-        if (!CredentialValidator.isCorrect(login, password)) {
+        if (!credentialValidator.isCorrectLoginPassword(login, password)) {
             throw new ServiceException("Un correct login or password" + login + ", " + password);
         }
         try {

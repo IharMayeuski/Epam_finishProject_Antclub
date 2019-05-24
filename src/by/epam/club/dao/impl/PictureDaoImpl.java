@@ -4,88 +4,108 @@ import by.epam.club.dao.PictureDao;
 import by.epam.club.dao.pool.ConnectionPool;
 import by.epam.club.dao.pool.ConnectionProxy;
 import by.epam.club.entity.Picture;
-import by.epam.club.exception.ConnectionPoolException;
 import by.epam.club.exception.DaoException;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import static by.epam.club.dao.impl.SqlFunction.*;
+import static by.epam.club.dao.impl.SqlQuery.*;
+import static by.epam.club.dao.impl.Status.BANNED;
 
 public class PictureDaoImpl implements PictureDao {
     private PreparedStatement st;
-    private int rs;
     private ConnectionProxy con = null;
     private ConnectionPool connectionPool = null;
-    private InputStream inputStream = null;
 
-    @Override
-    public boolean create(String name, String filePath, int idOwner) throws DaoException {
-        boolean result;
-
+    @Override//todo скорее всего лишний метод, нужно построить работу через сервлет
+    public boolean create(String name, String filePath, long idOwner) throws DaoException {
+        boolean result = false;
         try {
             connectionPool = ConnectionPool.getInstance();
             con = connectionPool.takeConnection();
             con.setAutoCommit(false);
             st = con.prepareStatement(PICTURE_INSERT_NEW.getQuery());
-
-           // inputStream = part.getInputStream();
-            inputStream = new FileInputStream(new File(filePath));
+            InputStream inputStream = new FileInputStream(new File(filePath));
+            // inputStream = part.getInputStream();
 
             st.setString(1, name);
             st.setBlob(2, inputStream);
-            st.setInt(3,idOwner);
-            rs = st.executeUpdate();
+            st.setLong(3, idOwner);
+            st.executeUpdate();
             con.commit();
             result = true;
-        } catch ( NullPointerException|ConnectionPoolException | IOException | SQLException e) {
+        } catch (FileNotFoundException e) {
+            throw new DaoException("can't find file");
+        } catch (SQLException e) {
             try {
                 con.rollback();
-            } catch (SQLException message) {
-                throw new DaoException(message);
+            } catch (SQLException e1) {
+                throw new DaoException(e1);
             }
-            throw new DaoException(e);
         } finally {
             if (connectionPool != null) {
-                try {
-                    connectionPool.returnConnection(con);
-                } catch (ConnectionPoolException e) {
-                    throw new DaoException(e);//todo уточнить, что делать в файнали со throw
-                }
+                connectionPool.returnConnection(con);
             }
         }
         return result;
     }
 
     @Override
-    public boolean delete(Picture picture) throws DaoException {
+    public boolean markDelete(Picture picture) throws DaoException {
         boolean value = false;
         try {
             connectionPool = ConnectionPool.getInstance();
             con = connectionPool.takeConnection();
             con.setAutoCommit(false);
-            st = con.prepareStatement(PICTURE_DELETE.getQuery());
-            st.setInt(1, picture.getId());
+            st = con.prepareStatement(PICTURE_MARK_DELETE.getQuery());
+            st.setLong(1, picture.getId());
             st.executeUpdate();
             con.commit();
             value = true;
-        } catch (ConnectionPoolException | SQLException e) {
+        } catch (SQLException e) {
             try {
                 con.rollback();
             } catch (SQLException e1) {
                 throw new DaoException(e1);
             }
-        } finally {//todo уточнить, что делать в файнали со throw
+        } finally {
             if (connectionPool != null) {
-                try {
-                    connectionPool.returnConnection(con);
-                } catch (ConnectionPoolException e) {
-                    throw new DaoException(e);
-                }
+                connectionPool.returnConnection(con);
+            }
+        }
+        return value;
+    }
+
+
+    @Override
+    public boolean markBannedUnbanned(Picture picture) throws DaoException {
+        boolean value = false;
+        try {
+            connectionPool = ConnectionPool.getInstance();
+            con = connectionPool.takeConnection();
+            con.setAutoCommit(false);
+            if (picture.getBanned().equals(BANNED.getStatus())) {
+                st = con.prepareStatement(PICTURE_MARK_UNBANNED.getQuery());
+            } else {
+                st = con.prepareStatement(PICTURE_MARK_BANNED.getQuery());
+            }
+            st.setLong(1, picture.getId());
+            st.executeUpdate();
+            con.commit();
+            value = true;
+        } catch (SQLException e) {
+            try {
+                con.rollback();
+            } catch (SQLException e1) {
+                throw new DaoException(e1);
+            }
+        } finally {
+            if (connectionPool != null) {
+                connectionPool.returnConnection(con);
             }
         }
         return value;

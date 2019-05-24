@@ -1,7 +1,5 @@
 package by.epam.club.dao.pool;
 
-import by.epam.club.exception.ConnectionPoolException;
-
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -24,7 +22,7 @@ public class ConnectionPool {
     private String password;
     private int poolSize;
 
-    private ConnectionPool() throws ConnectionPoolException {
+    private ConnectionPool() {
         DBResourceManager dbResourceManager = DBResourceManager.getInstance();
         this.driverName = dbResourceManager.getValue(DB_DRIVER);
         this.url = dbResourceManager.getValue(DB_URL);
@@ -34,54 +32,58 @@ public class ConnectionPool {
         initialize();
     }
 
-    private void initialize() throws ConnectionPoolException {
+    private void initialize() {
         try {
             Class.forName(driverName);
             pool = new ArrayBlockingQueue<>(poolSize);
-            for (int i = 0; i < poolSize; i++)
-                pool.offer(new ConnectionProxy(DriverManager.getConnection(url, login, password)));
-        } catch (ClassNotFoundException e) {
-            throw new ConnectionPoolException("can't find driver", e);
-        } catch (SQLException e) {
-            throw new ConnectionPoolException("can't connect to your DB", e);
+            for (int i = 0; i < poolSize; i++) {
+                try {
+                    pool.put(new ConnectionProxy(DriverManager.getConnection(url, login, password)));
+                } catch (InterruptedException e) {
+                    //todo logger
+                    Thread.currentThread().interrupt();
+                }
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    public static ConnectionPool getInstance() throws ConnectionPoolException {
+    public static ConnectionPool getInstance() {
         if (!isCreatePool.get()) {
             lock.lock();
-            try {
-                if (instance == null) {
-                    instance = new ConnectionPool();
-                    isCreatePool.set(true);
-                }
-            } catch (Exception e) {
-                throw new ConnectionPoolException("can't receive instance in ConnectionPool", e);
-            } finally {
-                lock.unlock();
+            if (instance == null) {
+                instance = new ConnectionPool();
+                isCreatePool.set(true);
             }
+            lock.unlock();
         }
         return instance;
     }
 
-    public ConnectionProxy takeConnection() throws ConnectionPoolException {
-        ConnectionProxy connection;
+    public ConnectionProxy takeConnection() {
+        ConnectionProxy connection = null;
         try {
             connection = pool.take();
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            throw new ConnectionPoolException(e);
+
         }
         return connection;
     }
 
-    public void returnConnection(ConnectionProxy connection) throws ConnectionPoolException {
+    public void returnConnection(ConnectionProxy connection) {
         try {
-            if (!connection.isClosed()) {
-                pool.offer(connection);
+            try {
+                if (!connection.isClosed()) {
+                    pool.put(connection);
+                }
+            } catch (SQLException e) {
+                //todo logger
             }
-        } catch (SQLException e) {
-            throw new ConnectionPoolException(e);
+        } catch (InterruptedException e) {
+            //todo logger
+            Thread.currentThread().interrupt();
         }
     }
 

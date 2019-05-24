@@ -12,7 +12,7 @@ public class ArticleDaoImplTest {
     private static final Logger LOGGER = LogManager.getLogger();
     private ArticleDaoImpl articleDao;
 
-    private final String NAME = "My friend";
+    private final String NAME = "My friend2";
     private final String TEXT = "When I was young. One day my father took me to the forest...";
     private final int USER_ID = 1;
     private final int TYPE_NEWS = 1;
@@ -30,5 +30,24 @@ public class ArticleDaoImplTest {
             System.out.println(e);
         }
         LOGGER.info("Test create user is completed successfully");
+    }
+
+
+
+    @Test
+    public void testTakeAllByTypeNews() {
+        try {
+            Assert.assertNotNull(articleDao.takeAllByTypeNews(1));//todo перенести переменную
+
+        } catch (DaoException e) {
+            System.out.println(e);
+        }
+        LOGGER.info("Test create user is completed successfully");
+
+    }
+
+
+    @Test
+    public void testTakeAllByTypeNewsNotBannedNotDeleted() {
     }
 }

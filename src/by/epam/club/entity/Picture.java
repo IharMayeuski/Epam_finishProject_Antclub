@@ -4,19 +4,19 @@ import javax.servlet.http.Part;
 import java.sql.Blob;
 
 public class Picture {
-    private int id;
+    private long id;
     private String name;
     private Blob blob;
 
     private String banned;
     private String deleted;
-    private int article_id;
+    private long article_id;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -52,11 +52,11 @@ public class Picture {
         this.deleted = deleted;
     }
 
-    public int getArticle_id() {
+    public long getArticle_id() {
         return article_id;
     }
 
-    public void setArticle_id(int article_id) {
+    public void setArticle_id(long article_id) {
         this.article_id = article_id;
     }
 
@@ -70,19 +70,19 @@ public class Picture {
         if (getId() != picture.getId()) return false;
         if (getArticle_id() != picture.getArticle_id()) return false;
         if (getName() != null ? !getName().equals(picture.getName()) : picture.getName() != null) return false;
-        if (getBlob() != null ? !getBlob().equals(picture.getBlob()) : picture.getBlob() != null) return false;
+        if (!getBlob().equals(picture.getBlob())) return false;
         if (getBanned() != null ? !getBanned().equals(picture.getBanned()) : picture.getBanned() != null) return false;
         return getDeleted() != null ? getDeleted().equals(picture.getDeleted()) : picture.getDeleted() == null;
     }
 
     @Override
     public int hashCode() {
-        int result = getId();
+        int result = (int) (getId() ^ (getId() >>> 32));
         result = 31 * result + (getName() != null ? getName().hashCode() : 0);
-        result = 31 * result + (getBlob() != null ? getBlob().hashCode() : 0);
+        result = 31 * result + getBlob().hashCode();
         result = 31 * result + (getBanned() != null ? getBanned().hashCode() : 0);
         result = 31 * result + (getDeleted() != null ? getDeleted().hashCode() : 0);
-        result = 31 * result + getArticle_id();
+        result = 31 * result + (int) (getArticle_id() ^ (getArticle_id() >>> 32));
         return result;
     }
 }
