@@ -1,17 +1,20 @@
 package by.epam.club.service.validation;
 
 public class CredentialValidator {
-	public static boolean  isCorrect (String login, String password) {
+	public boolean isCorrectLoginPassword(String login, String password) {
 		return isLogicCorrect(login) && isPasswordCorrect(password);
 	}
-	
-	private static boolean isLogicCorrect (String login) {
-		return login.length() > 3;
+
+	public boolean isCorrectLengthPole (String pole){
+		return pole.length()<45;
 	}
 	
-	private static boolean isPasswordCorrect (String password) {
-		return password.length() > 3;
+	private boolean isLogicCorrect (String login) {
+		return (login.length()<45)&&(login.length() > 3);
 	}
 	
+	private boolean isPasswordCorrect (String password) {
+		return (password.length() < 45)&&(password.length() > 3);
+	}
 	
 }

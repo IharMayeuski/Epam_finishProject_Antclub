@@ -1,7 +1,5 @@
 package by.epam.club.dao.pool;
 
-import by.epam.club.exception.ConnectionPoolException;
-
 import java.sql.*;
 import java.util.Map;
 import java.util.Properties;
@@ -56,12 +54,8 @@ public class ConnectionProxy implements Connection {
     }
 
     @Override
-    public void close() throws SQLException {
-        try {
-            ConnectionPool.getInstance().returnConnection(this);
-        } catch (ConnectionPoolException e) {
-                throw new SQLException(e);
-        }
+    public void close() {
+        ConnectionPool.getInstance().returnConnection(this);
     }
 
 

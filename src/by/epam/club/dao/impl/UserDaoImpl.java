@@ -4,7 +4,6 @@ import by.epam.club.dao.UserDao;
 import by.epam.club.dao.pool.ConnectionPool;
 import by.epam.club.dao.pool.ConnectionProxy;
 import by.epam.club.entity.User;
-import by.epam.club.exception.ConnectionPoolException;
 import by.epam.club.exception.DaoException;
 import by.epam.club.tool.PasswordEncryption;
 
@@ -18,7 +17,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.TimeZone;
 
-import static by.epam.club.dao.impl.SqlFunction.*;
+import static by.epam.club.dao.impl.SqlQuery.*;
 import static by.epam.club.dao.impl.Status.*;
 
 public class UserDaoImpl implements UserDao {
@@ -44,15 +43,11 @@ public class UserDaoImpl implements UserDao {
             if (rs.next()) {
                 user = createUserData(rs);
             }
-        } catch (ConnectionPoolException | SQLException e) {
+        } catch (SQLException e) {
             throw new DaoException(e);
-        } finally {//todo уточнить, что делать в файнали со throw
+        } finally {
             if (connectionPool != null) {
-                try {
-                    connectionPool.returnConnection(con);
-                } catch (ConnectionPoolException e) {
-                    throw new DaoException(e);
-                }
+                connectionPool.returnConnection(con);
             }
         }
         return user;
@@ -62,10 +57,7 @@ public class UserDaoImpl implements UserDao {
     public boolean createUser(String login, String email, String password) throws DaoException {
         String newPass = encryption.create(password);
         Date date = new Date();
-        boolean value = false;
-        final int USER = 2;
-
-
+        boolean value; //todo спросить может этот метод должен быть войд?
         try {
             connectionPool = ConnectionPool.getInstance();
             con = connectionPool.takeConnection();
@@ -89,25 +81,19 @@ public class UserDaoImpl implements UserDao {
             st.setString(2, email);
             st.setString(3, newPass);
             st.setLong(4, date.toInstant().toEpochMilli());
-
             st.executeUpdate();
             con.commit();
             value = true;
-        } catch (ConnectionPoolException | SQLException e) {
+        } catch (SQLException e) {
             try {
                 con.rollback();
             } catch (SQLException message) {
                 throw new DaoException(message);
             }
             throw new DaoException(e);
-
         } finally {
             if (connectionPool != null) {
-                try {
-                    connectionPool.returnConnection(con);
-                } catch (ConnectionPoolException e) {
-                    throw new DaoException(e);//todo уточнить, что делать в файнали со throw
-                }
+                connectionPool.returnConnection(con);
             }
         }
         return value;
@@ -120,24 +106,76 @@ public class UserDaoImpl implements UserDao {
             connectionPool = ConnectionPool.getInstance();
             con = connectionPool.takeConnection();
             con.setAutoCommit(false);
-            st = con.prepareStatement(USER_MARK_LIKE_DELETED.getQuery());
-            st.setInt(1, user.getId());
+            st = con.prepareStatement(USER_MARK_DELETED.getQuery());
+            st.setLong(1, user.getId());
             st.executeUpdate();
             con.commit();
             value = true;
-        } catch (ConnectionPoolException | SQLException e) {
+        } catch (SQLException e) {
             try {
                 con.rollback();
             } catch (SQLException e1) {
                 throw new DaoException(e1);
             }
-        } finally {//todo уточнить, что делать в файнали со throw
+        } finally {
             if (connectionPool != null) {
-                try {
-                    connectionPool.returnConnection(con);
-                } catch (ConnectionPoolException e) {
-                    throw new DaoException(e);
-                }
+                connectionPool.returnConnection(con);
+            }
+        }
+        return value;
+    }
+
+    @Override
+    public boolean markUserUndeleted(User user) throws DaoException {
+        boolean value = false;
+        try {
+            connectionPool = ConnectionPool.getInstance();
+            con = connectionPool.takeConnection();
+            con.setAutoCommit(false);
+            st = con.prepareStatement(USER_MARK_UNDELETED.getQuery());
+            st.setLong(1, user.getId());
+            st.executeUpdate();
+            con.commit();
+            value = true;
+        } catch (SQLException e) {
+            try {
+                con.rollback();
+            } catch (SQLException e1) {
+                throw new DaoException(e1);
+            }
+        } finally {
+            if (connectionPool != null) {
+                connectionPool.returnConnection(con);
+            }
+        }
+        return value;
+    }
+
+    @Override
+    public boolean markUserBannedUnbanned(User user) throws DaoException {
+        boolean value = false;
+        try {
+            connectionPool = ConnectionPool.getInstance();
+            con = connectionPool.takeConnection();
+            con.setAutoCommit(false);
+            if (user.getBanned().equals(UNBANNED.getStatus())) {
+                st = con.prepareStatement(USER_MARK_BANNED.getQuery());
+            } else {
+                st = con.prepareStatement(USER_MARK_UNBANNED.getQuery());
+            }
+            st.setLong(1, user.getId());
+            st.executeUpdate();
+            con.commit();
+            value = true;
+        } catch (SQLException e) {
+            try {
+                con.rollback();
+            } catch (SQLException e1) {
+                throw new DaoException(e1);
+            }
+        } finally {
+            if (connectionPool != null) {
+                connectionPool.returnConnection(con);
             }
         }
         return value;
@@ -156,15 +194,34 @@ public class UserDaoImpl implements UserDao {
                 User user = createUserData(rs);
                 users.add(user);
             }
-        } catch (ConnectionPoolException | SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            throw new DaoException(e);
+        }
+        return users;
+    }
+
+    @Override
+    public Set<User> takeAllUserUndeleted() throws DaoException {
+        Set<User> users = new HashSet<>();
+        try {
+            connectionPool = ConnectionPool.getInstance();
+            con = connectionPool.takeConnection();
+            st = con.prepareStatement(USER_FIND_ALL_UNDELETED_USER.getQuery());
+
+            rs = st.executeQuery();
+            while (rs.next()) {
+                User user = createUserData(rs);
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            throw new DaoException(e);
         }
         return users;
     }
 
     @Override
     public User findUserByLogin(String login) throws DaoException {
-        User user = null;
+        User user;
         try {
             connectionPool = ConnectionPool.getInstance();
             con = connectionPool.takeConnection();
@@ -176,15 +233,11 @@ public class UserDaoImpl implements UserDao {
             } else {
                 throw new DaoException("We don't have user with this login: " + login);
             }
-        } catch (ConnectionPoolException | SQLException e) {
+        } catch (SQLException e) {
             throw new DaoException(e);
-        } finally {//todo уточнить, что делать в файнали со throw
+        } finally {
             if (connectionPool != null) {
-                try {
-                    connectionPool.returnConnection(con);
-                } catch (ConnectionPoolException e) {
-                    throw new DaoException(e);
-                }
+                connectionPool.returnConnection(con);
             }
         }
         return user;
@@ -194,7 +247,7 @@ public class UserDaoImpl implements UserDao {
     private User createUserData(ResultSet rs) throws DaoException {
         User user = new User();
         try {
-            Date moment = new Date(rs.getBigDecimal(4).longValue()); //todo перевод секунд в дату
+            Date moment = new Date(rs.getBigDecimal(4).longValue());
             DateFormat dateFormat = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
             dateFormat.setTimeZone(TimeZone.getTimeZone("Europe/Minsk"));
             String date = dateFormat.format(moment);
@@ -206,18 +259,16 @@ public class UserDaoImpl implements UserDao {
             user.setRole(rs.getString(7));
 
             if (rs.getInt(5) == 0) {
-                user.setBanned(NOTBANNED.getStatus());
+                user.setBanned(UNBANNED.getStatus());
             } else {
                 user.setBanned(BANNED.getStatus());
             }
             if (rs.getInt(6) == 0) {
-                user.setDeleted(NOTDELETED.getStatus());
+                user.setDeleted(UNDELETED.getStatus());
             } else {
                 user.setDeleted(DELETED.getStatus());
             }
-
             System.out.println(user.toString());//todo удалить, стоит для контроля
-
         } catch (SQLException e) {
             throw new DaoException(e);
         }

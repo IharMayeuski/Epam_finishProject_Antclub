@@ -8,31 +8,43 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import javax.servlet.http.Part;
+import static by.epam.club.dao.impl.Status.BANNED;
+import static by.epam.club.dao.impl.Status.UNBANNED;
 
 public class PictureDaoImplTest {
     private static final Logger LOGGER = LogManager.getLogger();
     private PictureDaoImpl pictureDao;
+    private Picture picture = new Picture();
 
-    private final String NAME = "test";
-  //  private final Part PART = null;
-    private final int ARTICLE_ID = 1;
-    private final int TEST_ID = 1;
-    private final String PART = "C:\\Users\\Администратор\\Desktop\\рабочий стол\\Thread.jpg";
 
     @BeforeClass
     public void setUp() {
         pictureDao = new PictureDaoImpl();
-    }
-    @Test
-    public void testCreate() throws DaoException {
-        Assert.assertTrue(pictureDao.create(NAME, PART, ARTICLE_ID)); //todo Как создать объект класса Part?
+        int TEST_ID = 1;
+        picture.setId(TEST_ID);
+
     }
 
     @Test
-    public void testDelete() throws DaoException {
-        Picture picture = new Picture();
-        picture.setId(TEST_ID);
-        Assert.assertTrue(pictureDao.delete(picture));
+    public void testCreate() throws DaoException {
+        String NAME = "test";
+        int ARTICLE_ID = 1;
+        String PATH = "web\\img\\TitlePage.jpg";
+
+        Assert.assertTrue(pictureDao.create(NAME, PATH, ARTICLE_ID));
+    }
+
+    @Test
+    public void testMarkDelete() throws DaoException {
+        Assert.assertTrue(pictureDao.markDelete(picture));
+    }
+
+    @Test
+    public void testMarkBannedUnbanned() throws DaoException {
+        picture.setBanned(UNBANNED.getStatus());
+        Assert.assertTrue(pictureDao.markBannedUnbanned(picture));
+
+        picture.setBanned(BANNED.getStatus());
+        Assert.assertTrue(pictureDao.markBannedUnbanned(picture));
     }
 }

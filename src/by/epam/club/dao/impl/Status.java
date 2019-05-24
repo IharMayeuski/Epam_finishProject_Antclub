@@ -1,7 +1,7 @@
 package by.epam.club.dao.impl;
 
 public enum Status {
-    NOTBANNED("not banned"), NOTDELETED ("not deleted"),
+    UNBANNED("not banned"), UNDELETED("not deleted"),
     BANNED("banned"), DELETED("deleted"), ROLE_USER("user"),
     ROLE_ADMIN("admin");
 
