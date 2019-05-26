@@ -9,12 +9,12 @@ public interface UserDao {
 //fixme ????????, ????? ?? ??????, ????? ????. ? ? ?????? ?????????? - ????? ??????????????? ????????
 	boolean createUser(String login, String email, String password) throws DaoException;//todo registration
 	User check(String login, String password) throws DaoException;//todo authorization
-	boolean updateUser (User user, String login, String email, String password) throws DaoException;
+	boolean updateUser(User user, String login, String email, String password) throws DaoException;
 	boolean markUserDeleted(User user) throws DaoException;//todo markDelete account
 
-	boolean markUserUndeleted (User user) throws DaoException; // todo fix account by Admin
+	boolean markUserUndeleted(User user) throws DaoException; // todo fix account by Admin
 
-	boolean markUserBannedUnbanned (User user) throws DaoException; // todo banned/unbanned
+	boolean markUserBannedUnbanned(User user) throws DaoException; // todo banned/unbanned
 
 	Set<User> takeAllUser() throws DaoException;//todo find all users
 

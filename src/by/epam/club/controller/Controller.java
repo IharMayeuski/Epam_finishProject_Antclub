@@ -3,7 +3,7 @@ package by.epam.club.controller;
 import by.epam.club.command.ActionCommand;
 import by.epam.club.command.ActionFactory;
 import by.epam.club.command.ConfigurationManager;
-import resource.MessageManager;
+import by.epam.club.command.MessageManager;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

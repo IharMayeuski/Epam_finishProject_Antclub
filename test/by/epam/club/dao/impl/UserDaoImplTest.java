@@ -12,7 +12,7 @@ import static by.epam.club.dao.impl.Status.BANNED;
 import static by.epam.club.dao.impl.Status.UNBANNED;
 
 public class UserDaoImplTest {
-    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger(UserDaoImplTest.class);
     private UserDaoImpl userDao;
     private User user;
 

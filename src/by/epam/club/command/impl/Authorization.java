@@ -2,7 +2,7 @@ package by.epam.club.command.impl;
 
 import by.epam.club.command.ActionCommand;
 import by.epam.club.command.ConfigurationManager;
-import resource.MessageManager;
+import by.epam.club.command.MessageManager;
 import by.epam.club.entity.User;
 import by.epam.club.exception.ServiceException;
 import by.epam.club.service.ServiceProviderCommand;

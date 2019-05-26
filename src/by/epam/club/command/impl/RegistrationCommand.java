@@ -6,7 +6,7 @@ import by.epam.club.service.ServiceProviderCommand;
 import by.epam.club.service.UserService;
 
 import by.epam.club.command.ActionCommand;
-import resource.MessageManager;
+import by.epam.club.command.MessageManager;
 
 import javax.servlet.http.HttpServletRequest;
 

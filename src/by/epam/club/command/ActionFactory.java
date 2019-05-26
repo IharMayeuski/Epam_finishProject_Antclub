@@ -2,7 +2,6 @@ package by.epam.club.command;
 
 
 import by.epam.club.command.impl.DefaultPage;
-import resource.MessageManager;
 
 import javax.servlet.http.HttpServletRequest;
 

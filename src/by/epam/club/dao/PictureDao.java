@@ -6,7 +6,7 @@ import by.epam.club.exception.DaoException;
 import javax.servlet.http.Part;
 
 public interface PictureDao {
-    boolean create (String pictureName, String filePath, long articleId) throws DaoException;
+    boolean create(String pictureName, String filePath, long articleId) throws DaoException;
     boolean markDelete(Picture picture) throws DaoException;
     boolean markBannedUnbanned(Picture picture) throws DaoException;
 

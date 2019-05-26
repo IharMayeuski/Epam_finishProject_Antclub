@@ -6,7 +6,7 @@ import by.epam.club.command.ConfigurationManager;
 import javax.servlet.http.HttpServletRequest;
 
 public class GuestPage implements ActionCommand {
-    private static final String GUEST_PAGE = "path.guest.page";
+    private static final String GUEST_PAGE = "path.page.guest.main";
 
     @Override
     public String execute(HttpServletRequest request) {

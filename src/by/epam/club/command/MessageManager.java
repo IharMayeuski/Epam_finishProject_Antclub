@@ -1,4 +1,4 @@
-package resource;
+package by.epam.club.command;
 
 import java.util.ResourceBundle;
 
