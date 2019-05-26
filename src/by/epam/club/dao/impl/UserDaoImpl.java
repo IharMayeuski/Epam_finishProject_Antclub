@@ -54,6 +54,39 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public boolean updateUser(User user, String login, String email, String password) throws DaoException {
+        boolean value = false;
+        String newPass = encryption.create(password);
+
+        try {
+            connectionPool = ConnectionPool.getInstance();
+            con = connectionPool.takeConnection();
+            con.setAutoCommit(false);
+            st = con.prepareStatement(USER_UPDATE_DATA.getQuery());
+
+            st.setString(1,login);
+            st.setString(2,email);
+            st.setString(3, newPass);
+            st.setLong(4, user.getId());
+            st.executeUpdate();
+            con.commit();
+            value = true;
+        } catch (SQLException e) {
+            try {
+                con.rollback();
+            } catch (SQLException e1) {
+                throw new DaoException(e1);
+            }
+        } finally {
+            if (connectionPool != null) {
+                connectionPool.returnConnection(con);
+            }
+        }
+        return value;
+    }
+
+
+    @Override
     public boolean createUser(String login, String email, String password) throws DaoException {
         String newPass = encryption.create(password);
         Date date = new Date();

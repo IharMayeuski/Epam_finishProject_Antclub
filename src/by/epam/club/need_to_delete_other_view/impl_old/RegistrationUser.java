@@ -1,6 +1,6 @@
-package by.epam.club.command.impl;
+/*
+package by.epam.club.need_to_delete_other_view.impl_old;
 
-import by.epam.club.command.Commander;
 import by.epam.club.exception.ControllerException;
 import by.epam.club.exception.ServiceException;
 import by.epam.club.service.ServiceProviderCommand;
@@ -53,3 +53,4 @@ public class RegistrationUser implements Commander {
         }
     }
 }
+*/

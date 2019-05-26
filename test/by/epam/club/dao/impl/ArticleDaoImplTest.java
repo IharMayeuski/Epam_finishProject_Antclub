@@ -37,7 +37,7 @@ public class ArticleDaoImplTest {
     @Test
     public void testTakeAllByTypeNews() {
         try {
-            Assert.assertNotNull(articleDao.takeAllByTypeNews(1));//todo перенести переменную
+            Assert.assertNotNull(articleDao.takeAllByTypeNews(TYPE_NEWS));//todo перенести переменную
 
         } catch (DaoException e) {
             System.out.println(e);
@@ -48,6 +48,18 @@ public class ArticleDaoImplTest {
 
 
     @Test
-    public void testTakeAllByTypeNewsNotBannedNotDeleted() {
+    public void testTakeAllByTypeNewsNotBannedNotDeleted() throws DaoException {
+        Assert.assertNotNull(articleDao.takeAllByTypeNewsNotBannedNotDeleted(TYPE_NEWS));
+    }
+
+    @Test
+    public void testUpdate() throws DaoException {
+        Assert.assertTrue(articleDao.update("1","1", 2,1));
+    }
+
+    @Test
+    public void testCheck() throws DaoException {
+     //   System.out.println(articleDao.check(3));
+        Assert.assertNotNull(articleDao.check(3));
     }
 }

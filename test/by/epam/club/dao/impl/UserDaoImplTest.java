@@ -116,6 +116,25 @@ public class UserDaoImplTest {
 
     @Test
     public void testTakeAllUserUndeleted() {
+        try {
+            Assert.assertNotNull(userDao.takeAllUserUndeleted());
+            LOGGER.info("Test take all is completed successfully");
+        } catch (DaoException e) {
+            System.out.println(e);//todo удалить
+            LOGGER.info(e);
+        }
     }
 
+    @Test
+    public void testUpdateUser() {
+        User user = new User();
+        user.setId(2);
+        try {
+            Assert.assertTrue(userDao.updateUser(user, "test","test@test.ru","test"));
+            LOGGER.info("Test take all is completed successfully");
+        } catch (DaoException e) {
+            System.out.println(e);//todo удалить
+            LOGGER.info(e);
+        }
+    }
 }

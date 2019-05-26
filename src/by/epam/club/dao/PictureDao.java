@@ -1,7 +1,6 @@
 package by.epam.club.dao;
 
 import by.epam.club.entity.Picture;
-import by.epam.club.entity.User;
 import by.epam.club.exception.DaoException;
 
 import javax.servlet.http.Part;

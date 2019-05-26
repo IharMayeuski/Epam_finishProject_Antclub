@@ -10,15 +10,11 @@ import by.epam.club.tool.CreateDate;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.TimeZone;
 
-import static by.epam.club.dao.impl.SqlQuery.ARTICLE_INSERT_NEW;
-import static by.epam.club.dao.impl.SqlQuery.QUERY_FIND_ALL_ARTICLE_BY_TYPE_NEWS;
+import static by.epam.club.dao.impl.SqlQuery.*;
 import static by.epam.club.dao.impl.Status.*;
 import static by.epam.club.dao.impl.Status.DELETED;
 
@@ -32,7 +28,7 @@ public class ArticleDaoImpl implements ArticleDao {
     public boolean create(String name, String text, long userId, int typeNews) throws DaoException {
         Date date = new Date();
         final int defaultValue = 0;
-         boolean values = false;
+        boolean values = false;
 
         try {
             connectionPool = ConnectionPool.getInstance();
@@ -57,7 +53,7 @@ public class ArticleDaoImpl implements ArticleDao {
             }
         } finally {
             if (connectionPool != null) {
-                    connectionPool.returnConnection(con);
+                connectionPool.returnConnection(con);
             }
         }
         return values;
@@ -69,29 +65,98 @@ public class ArticleDaoImpl implements ArticleDao {
         try {
             connectionPool = ConnectionPool.getInstance();
             con = connectionPool.takeConnection();
-            st = con.prepareStatement(QUERY_FIND_ALL_ARTICLE_BY_TYPE_NEWS.getQuery());
-            st.setInt(1,typeNews);
+            st = con.prepareStatement(ARTICLE_BY_TYPE_NEWS.getQuery());
+            st.setInt(1, typeNews);
             rs = st.executeQuery();
             while (rs.next()) {
                 Article article = createArticleData(rs);
                 articles.add(article);
 
             }
-        } catch ( SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return articles;
     }
 
     @Override
-    public Set<Article> takeAllByTypeNewsNotBannedNotDeleted(int typeNews) {
-        return null;
+    public Set<Article> takeAllByTypeNewsNotBannedNotDeleted(int typeNews) throws DaoException {
+        Set<Article> articles = new HashSet<>();
+        try {
+            connectionPool = ConnectionPool.getInstance();
+            con = connectionPool.takeConnection();
+            st = con.prepareStatement(ARTICLE_ALL_BY_TYPE_NEWS_NOTBANNED_NOTDELETED.getQuery());
+            st.setInt(1, typeNews);
+            rs = st.executeQuery();
+            while (rs.next()) {
+                Article article = createArticleData(rs);
+                articles.add(article);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return articles;
+    }
+
+    @Override
+    public boolean update(String name, String text, long articleId, int typeNews) throws DaoException {
+        boolean value = false;
+        try {
+            connectionPool = ConnectionPool.getInstance();
+            con = connectionPool.takeConnection();
+            con.setAutoCommit(false);
+            st = con.prepareStatement(ARTICLE_UPDATE_DATA.getQuery());
+
+            st.setString(1, name);
+            st.setString(2, text);
+            st.setInt(3, typeNews);
+            st.setLong(4, articleId);
+            st.executeUpdate();
+            con.commit();
+            value = true;
+        } catch (SQLException e) {
+            try {
+                con.rollback();
+            } catch (SQLException e1) {
+                throw new DaoException(e1);
+            }
+        } finally {
+            if (connectionPool != null) {
+                connectionPool.returnConnection(con);
+            }
+        }
+        return value;
+    }
+
+    @Override
+    public Article check(int articleId) throws DaoException {
+        Article article = null;
+
+        try {
+            connectionPool = ConnectionPool.getInstance();
+            con = connectionPool.takeConnection();
+            st = con.prepareStatement(ARTICLE_CHECK.getQuery());
+            st.setInt(1, articleId);
+
+            rs = st.executeQuery();
+            if (rs.next()) {
+                article = createArticleData(rs);
+            }
+        } catch (SQLException e) {
+            throw new DaoException(e);
+        } finally {
+            if (connectionPool != null) {
+                connectionPool.returnConnection(con);
+            }
+        }
+        return article;
     }
 
     private Article createArticleData(ResultSet rs) throws DaoException {
         Article article = new Article();
         try {
-            Date moment = new Date(rs.getBigDecimal(4).longValue());
+            Date moment = new Date(rs.getBigDecimal(6).longValue());
             CreateDate createDate = new CreateDate();
             String date = createDate.takeDate(moment);
 
@@ -105,13 +170,15 @@ public class ArticleDaoImpl implements ArticleDao {
             if (rs.getInt(7) == 0) {
                 article.setBanned(UNBANNED.getStatus());
             } else {
-               article.setBanned(BANNED.getStatus());
+                article.setBanned(BANNED.getStatus());
             }
             if (rs.getInt(8) == 0) {
                 article.setDeleted(UNDELETED.getStatus());
             } else {
                 article.setDeleted(DELETED.getStatus());
             }
+            article.setUserId(rs.getInt(9));
+            article.setTypeNewsId(rs.getInt(10));
             System.out.println(article.toString());//todo удалить, стоит для контроля
         } catch (SQLException e) {
             throw new DaoException(e);

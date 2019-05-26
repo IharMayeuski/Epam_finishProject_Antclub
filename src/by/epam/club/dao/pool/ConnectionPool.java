@@ -67,7 +67,6 @@ public class ConnectionPool {
             connection = pool.take();
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-
         }
         return connection;
     }

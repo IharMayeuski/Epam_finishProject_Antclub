@@ -1,4 +1,5 @@
-package by.epam.club.command.impl;
+/*
+package by.epam.club.command;
 
 import by.epam.club.entity.User;
 import by.epam.club.exception.ControllerException;
@@ -71,3 +72,4 @@ public class AuthorizationUser implements by.epam.club.command.Commander {
     }
 }
 
+*/

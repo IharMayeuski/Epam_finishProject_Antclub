@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
         try {
             return userDAO.check(login, password);
         } catch (DaoException e) {
-            throw new ServiceException(e);
+            throw new ServiceException(e.getMessage());
         }
     }
 
@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
         try {
             return userDAO.createUser(login, email, password1);
         } catch (DaoException e) {
-            throw new ServiceException(e);
+            throw new ServiceException(e.getMessage());
         }
 
     }

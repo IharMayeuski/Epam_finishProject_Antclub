@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
     <Properties>
-       <!-- <Property name="logPath">log/</Property>-->
-        <Property name="logPath">C:\Program Files\Apache Software\TomCat9.0.13\bin\1\logs</Property>
+        <Property name="logPath">logs/</Property>
         <Property name="rollingFileName">log</Property>
     </Properties>
 
@@ -12,9 +11,9 @@
         </Console>
         <RollingFile name="rollingFile"
                      immediateFlush="false"
-                     fileName="${logPath}/${rollingFileName}.txt"
-                     filePattern="${logPath}/${rollingFileName}_%d{yyyy-MM-dd-hh-mm-ss}.txt">
-            <PatternLayout pattern="[%-5level] %d{dd.MM.yyyy HH:mm:ss} %c{1}.%M() - %m%n%throwable{short.lineNumber}"/>
+                     fileName="${logPath}/${rollingFileName}"
+                     filePattern="${logPath}/${rollingFileName}_%d{yyyy-MM-dd}.txt">
+            <PatternLayout pattern="{%-5level} %d{dd.MM.yyyy HH:mm:ss} %c{1}.%M() - %m%n%throwable{short.lineNumber}"/>
             <Policies>
                 <OnStartupTriggeringPolicy/>
                 <TimeBasedTriggeringPolicy interval="2" modulate="true"/>

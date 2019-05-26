@@ -5,6 +5,7 @@
          version="4.0">
     <servlet>
         <servlet-name>Controller</servlet-name>
+       <!-- <servlet-class>by.epam.club.controller.Controller</servlet-class>-->
         <servlet-class>by.epam.club.controller.Controller</servlet-class>
 
     </servlet>

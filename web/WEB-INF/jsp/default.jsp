@@ -23,7 +23,7 @@
 
         body {
             background-size: cover;
-            background-image: url("<c:url value="/img/TitlePage.jpg"/>");
+            background-image: url("<c:url value="/static/img/TitlePage.jpg"/>");
         }
 
     </style>
@@ -61,6 +61,27 @@
 <br>
 
 
+<div align="right">
+    <form action="controller" method="post">
+        <input type="hidden" name="command" value="change_locale">
+        <input type="hidden" name="locale" value="rus"> <input
+            type="submit" name="submit" value="ru"/>
+    </form>
+    <br>
+    <form action="controller" method="post">
+        <input type="hidden" name="command" value="change_locale">
+        <input type="hidden" name="locale" value="en"> <input
+            type="submit" name="submit" value="eng"/>
+    </form>
+</div>
+
+<fmt:setLocale value="${sessionScope.local}"/>
+<fmt:setBundle basename="resource.locale" var="loc"/>
+<fmt:message bundle="${loc}" key="locale.default.welcome_message" var="welcome_message"/>
+<div align="center">${welcome_message}</div>
+
+
+
 <a class="btn btn-secondary float-right" href="controller?command=go_to_registrationPage"
    role="button">Registration</a><br><br>
 <a class="btn btn-secondary float-right" href="controller?command=go_to_guestPage" role="button"> I am a guest </a>
@@ -82,6 +103,20 @@
 
 <p class="text-left text-danger font-weight-bold">${requestScope.error}</p>
 <p class="text-left text-danger font-weight-bold">${requestScope.registration}</p>
+
+
+<jsp:useBean id="now" class="java.util.Date" />
+<fmt:setLocale value="en-EN"/>
+Вывод даты в формате English<br/>
+Сегодня: <fmt:formatDate value="${now}" /><br/>
+<fmt:setLocale value="ru-RU"/>
+Вывод даты в формате Russian<br/>
+Сегодня: <fmt:formatDate value="${now}" /><br/>
+Стиль времени:
+(short): <fmt:formatDate value="${now}" type="time" timeStyle="short" /><br/>
+(medium):<fmt:formatDate value="${now}" type="time" timeStyle="medium" /><br/>
+(long): <fmt:formatDate value="${now}" type="time" timeStyle="long" /><br/>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

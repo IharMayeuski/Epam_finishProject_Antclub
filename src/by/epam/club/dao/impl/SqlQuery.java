@@ -12,6 +12,8 @@ public enum SqlQuery {
 
     USER_MARK_UNBANNED(new StringBuilder().append("UPDATE user SET banned=0 where ID=?").toString()),
 
+    USER_UPDATE_DATA(new StringBuilder().append("UPDATE user SET login=?, email=?, password=? where ID=?").toString()),
+
     USER_CHECK_LOGIN("SELECT login FROM user WHERE login=?"),
 
     USER_CHECK_EMAIL("SELECT email FROM user WHERE email=?"),
@@ -31,9 +33,16 @@ public enum SqlQuery {
     ARTICLE_INSERT_NEW (new StringBuilder().append("INSERT INTO article (title, text, positive_rating, ").
             append("negative_rating, date_article, user_id, type_news_id) VALUES (?,?,?,?,?,?,?)").toString()),
 
-    QUERY_FIND_ALL_ARTICLE_BY_TYPE_NEWS((new StringBuilder().append("SELECT article_id, title, text,positive_rating, negative_rating,").
+    ARTICLE_BY_TYPE_NEWS((new StringBuilder().append("SELECT article_id, title, text,positive_rating, negative_rating,").
             append("date_article,banned,deleted,user_id,type_news_id FROM article WHERE type_news_id=?").toString())),
 
+    ARTICLE_ALL_BY_TYPE_NEWS_NOTBANNED_NOTDELETED((new StringBuilder().append("SELECT article_id, title, text,positive_rating, negative_rating,").
+            append("date_article,banned,deleted,user_id,type_news_id FROM article WHERE type_news_id=? and deleted=0 and banned=0").toString())),
+
+    ARTICLE_UPDATE_DATA(new StringBuilder().append("UPDATE article SET title=?, text=?, type_news_id=? where article_id=?").toString()),
+
+    ARTICLE_CHECK(new StringBuilder().append("SELECT article_id, title, text, positive_rating, negative_rating, date_article, banned, deleted, user_id, type_news_id FROM article ").
+            append("  WHERE article_id=?").toString()),
 
     PICTURE_INSERT_NEW("INSERT INTO picture (file_name, file, article_article_id) VALUES (?,?,?)"),
 

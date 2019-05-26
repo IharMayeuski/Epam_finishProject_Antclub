@@ -22,7 +22,7 @@
         }
         body {
             background-size: cover;
-            background-image: url("<c:url value="/img/TitlePage.jpg"/>");
+            background-image: url("<c:url value="/static/img/TitlePage.jpg"/>");
         }
 
     </style>

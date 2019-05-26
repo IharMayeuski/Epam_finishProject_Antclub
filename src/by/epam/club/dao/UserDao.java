@@ -6,10 +6,10 @@ import by.epam.club.exception.DaoException;
 import java.util.Set;
 
 public interface UserDao {
-	User check(String login, String password) throws DaoException;//todo authorization
-
+//fixme ????????, ????? ?? ??????, ????? ????. ? ? ?????? ?????????? - ????? ??????????????? ????????
 	boolean createUser(String login, String email, String password) throws DaoException;//todo registration
-
+	User check(String login, String password) throws DaoException;//todo authorization
+	boolean updateUser (User user, String login, String email, String password) throws DaoException;
 	boolean markUserDeleted(User user) throws DaoException;//todo markDelete account
 
 	boolean markUserUndeleted (User user) throws DaoException; // todo fix account by Admin
