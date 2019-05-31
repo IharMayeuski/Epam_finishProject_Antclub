@@ -50,8 +50,9 @@ public enum SqlQuery {
 
     PICTURE_MARK_UNBANNED(new StringBuilder().append ("UPDATE picture SET banned=0 where picture_id=?").toString()),
 
-    PICTURE_MARK_BANNED(new StringBuilder().append ("UPDATE picture SET banned=1 where picture_id=?").toString());
+    PICTURE_MARK_BANNED(new StringBuilder().append ("UPDATE picture SET banned=1 where picture_id=?").toString()),
 
+    TYPE_FIND_ALL_UNDELETED("SELECT news_id, type, deleted FROM type WHERE deleted=0");
 
     private String query;
 

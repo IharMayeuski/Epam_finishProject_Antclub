@@ -1,12 +1,13 @@
 package by.epam.club.dao.impl;
 
+import by.epam.club.dao.DaoGeneral;
 import by.epam.club.dao.UserDao;
-import by.epam.club.dao.pool.ConnectionPool;
-import by.epam.club.dao.pool.ConnectionProxy;
+import by.epam.club.pool.ConnectionPool;
 import by.epam.club.entity.User;
 import by.epam.club.exception.DaoException;
 import by.epam.club.tool.PasswordEncryption;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,8 +26,9 @@ public class UserDaoImpl implements UserDao {
     private PasswordEncryption encryption = new PasswordEncryption();
     private PreparedStatement st;
     private ResultSet rs;
-    private ConnectionProxy con = null;
+    private Connection con = null;
     private ConnectionPool connectionPool = null;
+    private DaoGeneral daoGeneral = new DaoGeneral();
 
     @Override
     public User check(String log, String pass) throws DaoException {
@@ -46,9 +48,8 @@ public class UserDaoImpl implements UserDao {
         } catch (SQLException e) {
             throw new DaoException(e);
         } finally {
-            if (connectionPool != null) {
-                connectionPool.returnConnection(con);
-            }
+            daoGeneral.close(rs,st);
+            connectionPool.returnConnection(con);
         }
         return user;
     }
@@ -64,8 +65,8 @@ public class UserDaoImpl implements UserDao {
             con.setAutoCommit(false);
             st = con.prepareStatement(USER_UPDATE_DATA.getQuery());
 
-            st.setString(1,login);
-            st.setString(2,email);
+            st.setString(1, login);
+            st.setString(2, email);
             st.setString(3, newPass);
             st.setLong(4, user.getId());
             st.executeUpdate();
@@ -78,9 +79,8 @@ public class UserDaoImpl implements UserDao {
                 throw new DaoException(e1);
             }
         } finally {
-            if (connectionPool != null) {
-                connectionPool.returnConnection(con);
-            }
+            daoGeneral.close(rs,st);
+            connectionPool.returnConnection(con);
         }
         return value;
     }
@@ -107,7 +107,7 @@ public class UserDaoImpl implements UserDao {
             st.setString(1, email);
             rs = st.executeQuery();
             if (rs.next())
-                throw new DaoException("we have user with this email");
+                throw new DaoException("user.email"); //fixme сделано данные берутся из локали сообщений
 
             st = con.prepareStatement(USER_INSERT_NEW.getQuery());
             st.setString(1, login);
@@ -125,9 +125,8 @@ public class UserDaoImpl implements UserDao {
             }
             throw new DaoException(e);
         } finally {
-            if (connectionPool != null) {
-                connectionPool.returnConnection(con);
-            }
+            daoGeneral.close(rs,st);
+            connectionPool.returnConnection(con);
         }
         return value;
     }
@@ -151,9 +150,8 @@ public class UserDaoImpl implements UserDao {
                 throw new DaoException(e1);
             }
         } finally {
-            if (connectionPool != null) {
-                connectionPool.returnConnection(con);
-            }
+            daoGeneral.close(rs,st);
+            connectionPool.returnConnection(con);
         }
         return value;
     }
@@ -177,9 +175,8 @@ public class UserDaoImpl implements UserDao {
                 throw new DaoException(e1);
             }
         } finally {
-            if (connectionPool != null) {
-                connectionPool.returnConnection(con);
-            }
+            daoGeneral.close(rs,st);
+            connectionPool.returnConnection(con);
         }
         return value;
     }
@@ -207,9 +204,8 @@ public class UserDaoImpl implements UserDao {
                 throw new DaoException(e1);
             }
         } finally {
-            if (connectionPool != null) {
-                connectionPool.returnConnection(con);
-            }
+            daoGeneral.close(rs,st);
+            connectionPool.returnConnection(con);
         }
         return value;
     }
@@ -229,6 +225,9 @@ public class UserDaoImpl implements UserDao {
             }
         } catch (SQLException e) {
             throw new DaoException(e);
+        }finally {
+            daoGeneral.close(rs,st);
+            connectionPool.returnConnection(con);
         }
         return users;
     }
@@ -269,9 +268,8 @@ public class UserDaoImpl implements UserDao {
         } catch (SQLException e) {
             throw new DaoException(e);
         } finally {
-            if (connectionPool != null) {
-                connectionPool.returnConnection(con);
-            }
+            daoGeneral.close(rs,st);
+            connectionPool.returnConnection(con);
         }
         return user;
     }
@@ -281,7 +279,7 @@ public class UserDaoImpl implements UserDao {
         User user = new User();
         try {
             Date moment = new Date(rs.getBigDecimal(4).longValue());
-            DateFormat dateFormat = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
+            DateFormat dateFormat = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.MEDIUM, SimpleDateFormat.MEDIUM);
             dateFormat.setTimeZone(TimeZone.getTimeZone("Europe/Minsk"));
             String date = dateFormat.format(moment);
 
@@ -305,7 +303,6 @@ public class UserDaoImpl implements UserDao {
         } catch (SQLException e) {
             throw new DaoException(e);
         }
-
         return user;
     }
 }

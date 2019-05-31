@@ -1,11 +1,11 @@
 package by.epam.club.command.impl;
 
 import by.epam.club.command.ActionCommand;
-import by.epam.club.command.ConfigurationManager;
-import by.epam.club.command.MessageManager;
+import by.epam.club.manager.ConfigurationManager;
+import by.epam.club.manager.MessageManager;
 import by.epam.club.entity.User;
 import by.epam.club.exception.ServiceException;
-import by.epam.club.service.ServiceProviderCommand;
+import by.epam.club.service.ServiceProvider;
 import by.epam.club.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,9 +25,11 @@ public class Authorization implements ActionCommand {
         String login = request.getParameter(PARAMETER_LOGIN);
         String password = request.getParameter(PARAMETER_PASSWORD);
 
-        ServiceProviderCommand provider = ServiceProviderCommand.getInstance();
-        UserService service = provider.getService();
+        ServiceProvider provider = ServiceProvider.getInstance();
+        UserService service = provider.getUserService();
+
         HttpSession session = request.getSession();
+        String newLocale = (String) session.getAttribute("local");
 
         try {
             User user = service.checkUser(login, password);
@@ -41,14 +43,15 @@ public class Authorization implements ActionCommand {
                 }
 
                 if (user.getDeleted().equals("deleted")) {
-                    request.setAttribute("error", MessageManager.getProperty("message.deletedaccount"));
+                    request.setAttribute("error", MessageManager.getProperty("message.deletedaccount", newLocale));
+
                     page = ConfigurationManager.getProperty(DEFAULT_PAGE);
                 }
             } else {
-                request.setAttribute("error", MessageManager.getProperty("message.loginerror"));
+                request.setAttribute("error", MessageManager.getProperty("message.loginerror", newLocale));
              }
         } catch (ServiceException e) {
-            request.setAttribute("error", MessageManager.getProperty("message.serviceexception"));
+            request.setAttribute("error", MessageManager.getProperty("message.serviceexception", newLocale));
         }
         return page;
     }

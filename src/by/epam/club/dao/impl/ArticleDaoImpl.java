@@ -1,12 +1,14 @@
 package by.epam.club.dao.impl;
 
 import by.epam.club.dao.ArticleDao;
-import by.epam.club.dao.pool.ConnectionPool;
-import by.epam.club.dao.pool.ConnectionProxy;
+import by.epam.club.dao.DaoGeneral;
+import by.epam.club.pool.ConnectionPool;
+import by.epam.club.pool.ConnectionProxy;
 import by.epam.club.entity.Article;
 import by.epam.club.exception.DaoException;
 import by.epam.club.tool.CreateDate;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,8 +23,9 @@ import static by.epam.club.dao.impl.Status.DELETED;
 public class ArticleDaoImpl implements ArticleDao {
     private PreparedStatement st;
     private ResultSet rs;
-    private ConnectionProxy con = null;
+    private Connection con = null;
     private ConnectionPool connectionPool = null;
+    private DaoGeneral daoGeneral = new DaoGeneral();
 
     @Override
     public boolean create(String name, String text, long userId, int typeNews) throws DaoException {
@@ -52,9 +55,8 @@ public class ArticleDaoImpl implements ArticleDao {
                 throw new DaoException(message);
             }
         } finally {
-            if (connectionPool != null) {
-                connectionPool.returnConnection(con);
-            }
+            daoGeneral.close(rs,st);
+            connectionPool.returnConnection(con);
         }
         return values;
     }
@@ -71,16 +73,19 @@ public class ArticleDaoImpl implements ArticleDao {
             while (rs.next()) {
                 Article article = createArticleData(rs);
                 articles.add(article);
-
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DaoException(e.getMessage());
+        }finally {
+            daoGeneral.close(rs,st);
+            connectionPool.returnConnection(con);
         }
         return articles;
     }
 
     @Override
     public Set<Article> takeAllByTypeNewsNotBannedNotDeleted(int typeNews) throws DaoException {
+
         Set<Article> articles = new HashSet<>();
         try {
             connectionPool = ConnectionPool.getInstance();
@@ -91,10 +96,13 @@ public class ArticleDaoImpl implements ArticleDao {
             while (rs.next()) {
                 Article article = createArticleData(rs);
                 articles.add(article);
-
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DaoException(e.getMessage());
+        }
+        finally {
+            daoGeneral.close(rs,st);
+            connectionPool.returnConnection(con);
         }
         return articles;
     }
@@ -122,9 +130,8 @@ public class ArticleDaoImpl implements ArticleDao {
                 throw new DaoException(e1);
             }
         } finally {
-            if (connectionPool != null) {
-                connectionPool.returnConnection(con);
-            }
+            daoGeneral.close(rs,st);
+            connectionPool.returnConnection(con);
         }
         return value;
     }
@@ -146,9 +153,8 @@ public class ArticleDaoImpl implements ArticleDao {
         } catch (SQLException e) {
             throw new DaoException(e);
         } finally {
-            if (connectionPool != null) {
-                connectionPool.returnConnection(con);
-            }
+            daoGeneral.close(rs,st);
+            connectionPool.returnConnection(con);
         }
         return article;
     }
@@ -179,11 +185,9 @@ public class ArticleDaoImpl implements ArticleDao {
             }
             article.setUserId(rs.getInt(9));
             article.setTypeNewsId(rs.getInt(10));
-            System.out.println(article.toString());//todo удалить, стоит для контроля
         } catch (SQLException e) {
             throw new DaoException(e);
         }
-
         return article;
     }
 }

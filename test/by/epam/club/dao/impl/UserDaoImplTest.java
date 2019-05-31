@@ -16,17 +16,12 @@ public class UserDaoImplTest {
     private UserDaoImpl userDao;
     private User user;
 
-    private final String LOGIN = "test2";
-    private final String EMAIL = "test2@gmail.com";
-    private final String PASSWORD = "12345";
-
     private final int ID_FOR_MARKING_DELETING = 2;
 
     @BeforeClass
     public void setUp() {
         userDao = new UserDaoImpl();
         user = new User();
-
     }
 
     @Test
@@ -35,7 +30,6 @@ public class UserDaoImplTest {
             Assert.assertEquals(userDao.check("admin", "admin").getLogin(), "admin");
             LOGGER.info("Test check user is completed successfully");
         } catch (DaoException e) {
-            System.out.println(e);
             LOGGER.info(e);
         }
     }
@@ -46,15 +40,16 @@ public class UserDaoImplTest {
             Assert.assertNull(userDao.check("admin", "admin2"));
             LOGGER.info("Test check user negative test is completed successfully");
         } catch (DaoException e) {
-            System.out.println(e);
             LOGGER.info(e);
         }
     }
 
     @Test
     public void testCreateUser() throws DaoException {
+        String PASSWORD = "12345";
+        String EMAIL = "test2@gmail.com";
+        String LOGIN = "test2";
         Assert.assertTrue(userDao.createUser(LOGIN, EMAIL, PASSWORD));
-
     }
 
     @Test
@@ -65,7 +60,6 @@ public class UserDaoImplTest {
             Assert.assertTrue(userDao.markUserDeleted(user));
             LOGGER.info("Test_Mark_deleted_user is completed");
         } catch (DaoException e) {
-            System.out.println(e);//todo удалить
             LOGGER.info(e);
         }
     }
@@ -75,8 +69,8 @@ public class UserDaoImplTest {
         try {
             Assert.assertNotNull(userDao.takeAllUser());
             LOGGER.info("Test take all is completed successfully");
+
         } catch (DaoException e) {
-            System.out.println(e);//todo удалить
             LOGGER.info(e);
         }
     }
@@ -87,7 +81,6 @@ public class UserDaoImplTest {
             Assert.assertNotNull(userDao.findUserByLogin("admin"));
             LOGGER.info("Test take all is completed successfully");
         } catch (DaoException e) {
-            System.out.println(e);//todo удалить
             LOGGER.info(e);
         }
     }
@@ -109,7 +102,6 @@ public class UserDaoImplTest {
             Assert.assertTrue(userDao.markUserUndeleted(user));
             LOGGER.info("Test_Mark_deleted_user is completed");
         } catch (DaoException e) {
-            System.out.println(e);//todo удалить
             LOGGER.info(e);
         }
     }
@@ -120,7 +112,6 @@ public class UserDaoImplTest {
             Assert.assertNotNull(userDao.takeAllUserUndeleted());
             LOGGER.info("Test take all is completed successfully");
         } catch (DaoException e) {
-            System.out.println(e);//todo удалить
             LOGGER.info(e);
         }
     }
@@ -133,7 +124,6 @@ public class UserDaoImplTest {
             Assert.assertTrue(userDao.updateUser(user, "test","test@test.ru","test"));
             LOGGER.info("Test take all is completed successfully");
         } catch (DaoException e) {
-            System.out.println(e);//todo удалить
             LOGGER.info(e);
         }
     }

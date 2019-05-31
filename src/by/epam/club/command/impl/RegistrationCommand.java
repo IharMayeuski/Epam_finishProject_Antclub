@@ -1,14 +1,15 @@
 package by.epam.club.command.impl;
 
-import by.epam.club.command.ConfigurationManager;
+import by.epam.club.manager.ConfigurationManager;
 import by.epam.club.exception.ServiceException;
-import by.epam.club.service.ServiceProviderCommand;
+import by.epam.club.service.ServiceProvider;
 import by.epam.club.service.UserService;
 
 import by.epam.club.command.ActionCommand;
-import by.epam.club.command.MessageManager;
+import by.epam.club.manager.MessageManager;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class RegistrationCommand implements ActionCommand {
     private static final String PARAMETER_LOGIN = "login";
@@ -23,22 +24,25 @@ public class RegistrationCommand implements ActionCommand {
     public String execute(HttpServletRequest request) {
         String page = ConfigurationManager.getProperty(DEFAULT_PAGE);
 
+        HttpSession session = request.getSession();
+        String newLocale = (String) session.getAttribute("local");
+
         String login = request.getParameter(PARAMETER_LOGIN);
         String email = request.getParameter(PARAMETER_EMAIL);
         String password1 = request.getParameter(PARAMETER_PASSWORD1);
         String password2 = request.getParameter(PARAMETER_PASSWORD2);
 
-        ServiceProviderCommand provider = ServiceProviderCommand.getInstance();
-        UserService service = provider.getService();
+        ServiceProvider provider = ServiceProvider.getInstance();
+        UserService service = provider.getUserService();
 
         try {
             if (service.createUserMaster(login, email, password1, password2)) {
-                request.setAttribute("registration", MessageManager.getProperty("message.dataok"));
+                request.setAttribute("registration", MessageManager.getProperty("message.dataok", newLocale));
             } else {
-                request.setAttribute("error", MessageManager.getProperty("message.wrongdata"));
+                request.setAttribute("error", MessageManager.getProperty("message.wrongdata", newLocale));
             }
         } catch (ServiceException e) {
-            request.setAttribute("error", e.getMessage());
+            request.setAttribute("error", MessageManager.getProperty(e.getMessage(),newLocale));
             page = ConfigurationManager.getProperty(REGISTRATION_PAGE);
         }
         return page;

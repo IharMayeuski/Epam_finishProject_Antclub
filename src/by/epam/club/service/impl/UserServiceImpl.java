@@ -6,11 +6,11 @@ import by.epam.club.entity.User;
 import by.epam.club.exception.DaoException;
 import by.epam.club.exception.ServiceException;
 import by.epam.club.service.UserService;
-import by.epam.club.service.validation.CredentialValidator;
+import by.epam.club.validation.CredentialValidator;
 
 public class UserServiceImpl implements UserService {
     DaoProvider daoProvider = DaoProvider.getInstance();
-    UserDao userDAO = daoProvider.getUserDAO();
+    UserDao userDAO = daoProvider.getUserDao();
     CredentialValidator credentialValidator = new CredentialValidator();
 
     @Override
@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
         if (!password1.equals(password2))
             throw new ServiceException("Please to check your password");
         if (login == null || email == null || password1.isEmpty())
-            throw new ServiceException("Login or email or password is empty. Please to check");
+            throw new ServiceException("user.email.empty");
         try {
             return userDAO.createUser(login, email, password1);
         } catch (DaoException e) {

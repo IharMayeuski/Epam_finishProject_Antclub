@@ -48,6 +48,11 @@ public enum CommandEnum {
         {
             this.command = new ChangeLocale();
         }
+    },
+    ARTICLE{
+        {
+            this.command = new FindArticle();
+        }
     };
 
     ActionCommand command;
