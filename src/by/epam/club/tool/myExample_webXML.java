@@ -7,8 +7,8 @@
         version="4.0">
 
 <servlet>
-<servlet-name>Controller</servlet-name>
-<servlet-class>by.epam.generaltask.controller.Controller</servlet-class>
+<servlet-name>Controller_myne</servlet-name>
+<servlet-class>by.epam.generaltask.controller.Controller_myne</servlet-class>
 
 </servlet>
 
@@ -35,7 +35,7 @@
 </servlet-mapping>
 
 <servlet-mapping>
-<servlet-name>Controller</servlet-name>
+<servlet-name>Controller_myne</servlet-name>
 <url-pattern>/controller</url-pattern>
 </servlet-mapping>
 

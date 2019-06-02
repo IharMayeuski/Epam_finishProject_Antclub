@@ -3,7 +3,6 @@ package by.epam.club.pool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
 import java.sql.*;
 import java.util.Enumeration;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -13,6 +12,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 import static by.epam.club.pool.DBResourceManager.*;
+
 
 public class ConnectionPool {
     private static final Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
@@ -124,18 +124,18 @@ public class ConnectionPool {
                 }
             }
         }
-        derigisterDriver();
+        deregisterDriver();
         pool.clear();
     }
 
-    private void derigisterDriver() {
+    private void deregisterDriver() {
         Enumeration<Driver> drivers = DriverManager.getDrivers();
         while (drivers.hasMoreElements()){
             Driver driver = drivers.nextElement();
             try{
                 DriverManager.deregisterDriver(driver);
             }catch (SQLException e){
-                LOGGER.error("deregistration jdbc");
+                LOGGER.error("deregister data connections");
             }
         }
     }

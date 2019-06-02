@@ -1,4 +1,4 @@
-package by.epam.club.tool.need_to_delete_other_view.for_using;
+package by.epam.club.controller;
 
 public class Router {
     private String path;

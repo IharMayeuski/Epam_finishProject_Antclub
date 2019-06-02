@@ -1,30 +1,32 @@
 package by.epam.club.command;
 
-
+import by.epam.club.bundlemanager.MessageManager;
 import by.epam.club.command.impl.DefaultPage;
-import by.epam.club.manager.MessageManager;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import by.epam.club.controller.RequestContent;
 
 public class ActionFactory {
-    public static ActionCommand defineCommand (HttpServletRequest request){
+    public static final String PARAM_NAME_COMMAND = "command";
+    private static final String WRONG_ACTION_MESSAGE = "message.wrong-action";
+
+    public static ActionCommand defineCommand(RequestContent content) {
         ActionCommand current = new DefaultPage();
-        String action = request.getParameter("command");
+        String action = content.getRequestParameters(PARAM_NAME_COMMAND, 0);
+        String newLocale = (String) content.getSessionAttribute("local");
 
-        HttpSession session = request.getSession();
-        String newLocale = (String) session.getAttribute("local");
-
-
-        if ((action==null)||action.isEmpty()){
+        if (action == null || action.isEmpty()) {
             return current;
         }
-        try{
+        try {
             CommandEnum currentEnum = CommandEnum.valueOf(action.toUpperCase());
             current = currentEnum.getCurrentCommand();
+            if (current == null) {
+                current = new DefaultPage();
+            }
 
-        }catch (IllegalArgumentException e){
-            request.setAttribute("error",action+ MessageManager.getProperty("message.wrongaction", newLocale));
+            return current;
+        } catch (IllegalArgumentException e) {
+            content.putRequestAttribute("error",
+                    MessageManager.getProperty("message.wrongaction", newLocale));
         }
         return current;
     }

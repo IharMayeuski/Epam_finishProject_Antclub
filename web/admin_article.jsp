@@ -7,6 +7,18 @@
     <title>Title</title>
 </head>
 <body>
+
+<style type="text/css">
+    body, footer {
+        color: white;
+    }
+
+    body {
+        background-size: cover;
+        background-image: url("<c:url value="/img/TitlePage.jpg"/>");
+    }
+
+</style>
 <c:out value="${requestScope.articles}"/>
 
 </body>

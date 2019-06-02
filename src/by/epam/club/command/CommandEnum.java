@@ -1,7 +1,7 @@
 package by.epam.club.command;
 
-import by.epam.club.command.impl.*;
 
+import by.epam.club.command.impl.*;
 
 public enum CommandEnum {
 
@@ -11,7 +11,7 @@ public enum CommandEnum {
         }
     },
 
-    GO_TO_DEFAULT_PAGE{
+    GO_TO_DEFAULT_PAGE {
         {
             this.command = new DefaultPage();
         }
@@ -22,36 +22,35 @@ public enum CommandEnum {
             this.command = new GuestPage();
         }
     },
-    GO_TO_ADMIN_PAGE{
+    GO_TO_ADMIN_PAGE {
         {
-            this.command=new AdminPage();
+            this.command = new AdminPage();
         }
     },
     FIND_USER {
         {
-            this.command = new Authorization();
+            this.command = new AuthorizationCommand();
         }
     },
 
-    REGISTRATION{
+    REGISTRATION {
         {
             this.command = new RegistrationCommand();
         }
     },
-
     LOGOUT {
         {
             this.command = new LogoutCommand();
         }
     },
-    CHANGE_LOCALE{
+    CHANGE_LOCALE {
         {
-            this.command = new ChangeLocale();
+            this.command = new ChangeLocaleCommand();
         }
     },
-    ARTICLE{
+    ARTICLE {
         {
-            this.command = new FindArticle();
+            this.command = new FindArticleCommand();
         }
     };
 

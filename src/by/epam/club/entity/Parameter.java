@@ -1,4 +1,4 @@
-package by.epam.club.tool.need_to_delete_other_view;
+package by.epam.club.entity;
 
 public class Parameter {
     public static final String PARAM_NAME_PAGE_ID = "page_id";

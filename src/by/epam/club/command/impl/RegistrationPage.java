@@ -1,21 +1,21 @@
 package by.epam.club.command.impl;
 
+import by.epam.club.bundlemanager.ConfigurationManager;
 import by.epam.club.command.ActionCommand;
-import by.epam.club.manager.ConfigurationManager;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import by.epam.club.controller.RequestContent;
+import by.epam.club.controller.*;
 
 public class RegistrationPage implements ActionCommand {
 
     private static final String REGISTRATION_PAGE = "path.page.registration";
 
     @Override
-    public String execute(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        String newLocale = (String) session.getAttribute("local");
+    public Router execute(RequestContent content) {
+        String page = ConfigurationManager.getProperty(REGISTRATION_PAGE);
+        TransmisionType transmitionType = TransmisionType.FORVARD;
+        //    String newLocale = (String) content.getSessionAttribute("local");
 
-        return ConfigurationManager.getProperty(REGISTRATION_PAGE);
+        return new Router(page, transmitionType);
 
     }
 }

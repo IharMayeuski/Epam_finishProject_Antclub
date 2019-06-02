@@ -7,50 +7,48 @@
 <fmt:message bundle="${loc}" key="locale.button.registration" var="registration_button"/>
 
 <html>
-<link rel="stylesheet" href="css/stvle.css">
-<script type="text/javascript" src="js/js-topper.js"></script>
 
-<head><title>AntClub</title></head>
-
-<body>
 <c:import url="header.jsp"/>
 
+<head><title>AntClub</title>
 
-<div class="container" align="right">
-    <form action="controller" method="post">
-        <input type="hidden" name="command" value="change_locale">
-        <input type="hidden" name="locale" value="rus"> <input
-            type="submit" name="submit" value="рус"/>
-    </form>
+    <style type="text/css">
+        body, footer {
+            color: white;
+        }
 
-    <form action="controller" method="post">
-        <input type="hidden" name="command" value="change_locale">
-        <input type="hidden" name="locale" value="en"> <input
-            type="submit" name="submit" value="eng"/>
-    </form>
-</div>
+        body {
+            background-size: cover;
+            background-image: url("<c:url value="/img/TitlePage.jpg"/>");
+        }
 
-<a class="btn btn-secondary float-right" href="controller?command=go_to_registration_page"
-   role="button">${registration_button}</a><br><br>
-<a class="btn btn-secondary float-right" href="controller?command=go_to_guest_page" role="button"> I am a guest </a>
+    </style>
 
+</head>
 
-<div class="container">
-    <form action="controller" method="post" role="form" class="form-horizontal">
-        <input type="hidden" name="command" value="find_user">
-        <div class="form-group col-md-3">
-            <label for="Login">Login:</label>
-            <p class="text-left text-info font-weight-bold">${requestScope.registration}</p>
-            <p class="text-left text-danger font-weight-bold">${requestScope.error}</p>
-            <input type="text" name="login" class="form-control" id="Login">
-            <label for="Password">Password:</label>
-            <input type="password" name="password" class="form-control" id="Password"><br>
-            <button type="submit" class="btn btn-secondary">Submit</button>
-        </div>
-    </form>
-</div>
+<body>
+
+<c:if test="${empty user }">
+
+    <div class="container">
+        <form action="controller" method="post" role="form" class="form-horizontal">
+            <input type="hidden" name="command" value="find_user">
+            <div class="form-group col-md-3">
+                <p class="text-left text-info font-weight-bold">${requestScope.registration}</p>
+                <p class="text-left text-danger font-weight-bold">${requestScope.error}</p>
+                <label for="Login">Login:</label>
+                <input type="text" name="login" class="form-control" id="Login">
+                <label for="Password">Password:</label>
+                <input type="password" name="password" class="form-control" id="Password"><br>
+                <button type="submit" class="btn btn-secondary">Submit</button>
+            </div>
+        </form>
+
+    </div>
+</c:if>
+
 </body>
-
+<br><br><br><br><br><br><br><br><br>
 <c:import url="footer.jsp"/>
 
 </html>

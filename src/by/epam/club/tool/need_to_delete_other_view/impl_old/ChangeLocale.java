@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import by.epam.club.exception.ControllerException;
 
-public class ChangeLocale implements Commander {
+public class ChangeLocaleCommand implements Commander {
 	private static final String DEFAULT_PAGE = "/WEB-INF/jsp/default.jsp";
 
 	@Override

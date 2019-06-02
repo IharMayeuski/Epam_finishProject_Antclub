@@ -1,15 +1,14 @@
 package by.epam.club.command.impl;
 
-import by.epam.club.manager.ConfigurationManager;
+import by.epam.club.bundlemanager.ConfigurationManager;
+import by.epam.club.command.ActionCommand;
+import by.epam.club.controller.RequestContent;
+import by.epam.club.controller.*;
 import by.epam.club.exception.ServiceException;
 import by.epam.club.service.ServiceProvider;
 import by.epam.club.service.UserService;
 
-import by.epam.club.command.ActionCommand;
-import by.epam.club.manager.MessageManager;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import by.epam.club.bundlemanager.MessageManager;
 
 public class RegistrationCommand implements ActionCommand {
     private static final String PARAMETER_LOGIN = "login";
@@ -21,30 +20,30 @@ public class RegistrationCommand implements ActionCommand {
     private static final String REGISTRATION_PAGE = "path.page.registration";
 
     @Override
-    public String execute(HttpServletRequest request) {
+    public Router execute(RequestContent content) {
         String page = ConfigurationManager.getProperty(DEFAULT_PAGE);
+        TransmisionType transmitionType = TransmisionType.FORVARD;
+        String newLocale = (String) content.getSessionAttribute("local");
 
-        HttpSession session = request.getSession();
-        String newLocale = (String) session.getAttribute("local");
-
-        String login = request.getParameter(PARAMETER_LOGIN);
-        String email = request.getParameter(PARAMETER_EMAIL);
-        String password1 = request.getParameter(PARAMETER_PASSWORD1);
-        String password2 = request.getParameter(PARAMETER_PASSWORD2);
+        String login = content.getRequestParameters(PARAMETER_LOGIN, 0);
+        String email = content.getRequestParameters(PARAMETER_EMAIL, 0);
+        String password1 = content.getRequestParameters(PARAMETER_PASSWORD1, 0);
+        String password2 = content.getRequestParameters(PARAMETER_PASSWORD2, 0);
 
         ServiceProvider provider = ServiceProvider.getInstance();
         UserService service = provider.getUserService();
 
         try {
             if (service.createUserMaster(login, email, password1, password2)) {
-                request.setAttribute("registration", MessageManager.getProperty("message.dataok", newLocale));
+                content.putRequestAttribute("registration", MessageManager.getProperty("message.dataok", newLocale));
             } else {
-                request.setAttribute("error", MessageManager.getProperty("message.wrongdata", newLocale));
+                content.putRequestAttribute("error", MessageManager.getProperty("message.wrongdata", newLocale));
             }
         } catch (ServiceException e) {
-            request.setAttribute("error", MessageManager.getProperty(e.getMessage(),newLocale));
+            content.putRequestAttribute("error", MessageManager.getProperty(e.getMessage(), newLocale));
             page = ConfigurationManager.getProperty(REGISTRATION_PAGE);
         }
-        return page;
+
+        return new Router(page, transmitionType);
     }
 }

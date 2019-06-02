@@ -14,17 +14,22 @@
 <fmt:message bundle="${loc}" key="locale.button.registration" var="registration_button"/>
 
 <html>
-<link rel="stylesheet" href="css/stvle.css">
-<script type="text/javascript" src="js/js-topper.js"></script>
-
-<head><title>AntClub</title></head>
-
-<body>
 <c:import url="header.jsp"/>
 
-<a class="btn btn-secondary float-right" href="controller?command=go_to_guest_Page" role="button"> I am a guest </a>
+<head><title>Registration</title>
+    <style type="text/css">
+        body, footer {
+            color: white;
+        }
 
-<br>
+        body {
+            background-size: cover;
+            background-image: url("<c:url value="/img/TitlePage.jpg"/>");
+        }
+    </style>
+</head>
+
+<body>
 
 
 <div class="container">
@@ -47,8 +52,7 @@
 <p class="text-left text-danger font-weight-bold">${requestScope.error}</p>
 
 </body>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
+<br><br><br><br>
 <c:import url="footer.jsp"/>
 
 </html>

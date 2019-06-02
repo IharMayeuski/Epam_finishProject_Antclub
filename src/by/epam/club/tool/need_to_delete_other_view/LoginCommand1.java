@@ -2,8 +2,8 @@
 package by.epam.club.tool.need_to_delete_other_view;
 
 import by.epam.club.command.ActionCommand;
-import by.epam.club.manager.ConfigurationManager;
-import by.epam.club.manager.MessageManager;
+import by.epam.club.bundlemanager.ConfigurationManager;
+import by.epam.club.bundlemanager.MessageManager;
 import by.epam.club.exception.ServiceException;
 import by.epam.club.service.ServiceProvider;
 import by.epam.club.service.UserService;

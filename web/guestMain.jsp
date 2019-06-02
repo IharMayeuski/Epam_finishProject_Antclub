@@ -14,14 +14,13 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>Main</title>
 </head>
 
-
-Guest page
 <c:import url="header.jsp"/>
 
 <c:import url="footer.jsp"/>
+
 </body>
 
 </html>

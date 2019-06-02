@@ -1,4 +1,4 @@
-package by.epam.club.manager;
+package by.epam.club.bundlemanager;
 
 import java.util.Locale;
 import java.util.ResourceBundle;

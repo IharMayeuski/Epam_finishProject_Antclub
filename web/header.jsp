@@ -4,32 +4,20 @@
 
 <fmt:setLocale value="${sessionScope.local}"/>
 <fmt:setBundle basename="resource.locale" var="loc"/>
+<fmt:message bundle="${loc}" key="locale.default.welcome_message" var="welcome_message"/>
+<fmt:message bundle="${loc}" key="locale.button.registration" var="registration_button"/>
+
 
 <html>
-<link rel="stylesheet" href="css/stvle.css">
-<script type="text/javascript" src="js/js-topper.js"></script>
 
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <title>AntClub</title>
-    <style type="text/css">
-        body, footer {
-            color: white;
-        }
-        body {
-            background-size: cover;
-            background-image: url("<c:url value="/static/img/TitlePage.jpg"/>");
-        }
-    </style>
-
-    <fmt:message bundle="${loc}" key="locale.default.welcome_message" var="welcome_message"/>
-    <div align="center">${welcome_message}</div>
+</head>
 
 <body>
-
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="controller?command=go_to_default_page">AntClub</a>
@@ -52,44 +40,64 @@
                     </c:forEach>
                 </div>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link" href="#">About project</a>
             </li>
         </ul>
+        <c:if test="${not empty user and user.role eq 'admin'}">
+            <div>
+                <form class="form-inline my-2 my-lg-0" formmethod="post">
+                    <input type="hidden" name="command" value="find_user_by_login">
+                    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search"
+                           aria-label="Input login">
+                    <button class="btn btn-outline-secondary my-4 my-sm-0 mr-sm-4" type="submit">Search user</button>
+                </form>
+            </div>
 
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-secondary my-4 my-sm-0 mr-sm-4" type="submit">Search</button>
-        </form>
-
+        </c:if>
         <ul class="navbar-nav">
             <li class="nav-item dropdown ">
-                <c:if test="${not empty user}">
+                <c:if test="${not empty user and user.deleted eq 'not deleted'}">
                     <a class="nav-link dropdown-toggle form-inline my-2 my-lg-0 my-sm-0 mr-sm-4" href="#"
                        id="navbarDropdownMenuLink4" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">Hello, ${sessionScope.user.login}
+                       aria-haspopup="true" aria-expanded="false">${welcome_message}, ${sessionScope.user.login}
                     </a>
                     <div class="dropdown-menu form-inline my-2 my-lg-0 my-sm-0 mr-sm-4"
                          aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Date registration: ${sessionScope.user.date_registration}"/></a>
-                        <a class="dropdown-item" href="#">English</a>
+                        <a class="dropdown-item" href="#">Date
+                            registration: ${sessionScope.user.date_registration}"/></a>
+                        <a class="dropdown-item" href="#">Something still</a>
+                        <a class="dropdown-item" href="controller?command=logOut">Logout</a>
                     </div>
                 </c:if>
-
+                <c:if test="${empty user}">
+            <li class="nav-item">
+                <a class="nav-link" href="controller?command=go_to_registration_page">${registration_button}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="controller?command=go_to_guest_page">I am guest</a>
+            </li>
+            </c:if>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     Language
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Русский</a>
-                    <a class="dropdown-item" href="#">English</a>
+                    <a class="dropdown-item" href=controller?command=change_locale&locale=2>Русский</a>
+                    <a class="dropdown-item" href=controller?command=change_locale&locale=1>English</a>
                 </div>
             </li>
         </ul>
     </div>
 </nav>
-<br>
+
+
+<script src="bootstrap/js/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script src="bootstrap/js/bootstrap.bundle.js"></script>
+
 </body>
+
 </html>
