@@ -44,6 +44,7 @@ public class RegistrationCommand implements ActionCommand {
             page = ConfigurationManager.getProperty(REGISTRATION_PAGE);
         }
 
+
         return new Router(page, transmitionType);
     }
 }
