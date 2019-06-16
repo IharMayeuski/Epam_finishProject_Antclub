@@ -59,7 +59,7 @@ public class ArticleDaoImplTest {
 
     @Test
     public void testCheck() throws DaoException {
-     //   System.out.println(articleDao.check(3));
+     //   System.out.println(articleDao.checkUser(3));
         Assert.assertNotNull(articleDao.check(3));
     }
 }

@@ -1,7 +1,7 @@
+package by.epam.club.tool.need_to_delete_other_view;/*
 package by.epam.club.tool.need_to_delete_other_view;
 
-import by.epam.club.command.ActionCommand;
-import by.epam.club.manager.ConfigurationManager;
+import by.epam.club.bundlemanager.ConfigurationManager;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,3 +14,4 @@ public class LoginCommand implements ActionCommand {
         return page;
     }
 }
+*/

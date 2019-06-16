@@ -1,5 +1,6 @@
 package by.epam.club.dao.impl;
 
+import by.epam.club.entity.Parameter;
 import by.epam.club.entity.Picture;
 import by.epam.club.exception.DaoException;
 import by.epam.club.pool.ConnectionPool;
@@ -13,8 +14,6 @@ import org.testng.annotations.Test;
 import java.io.*;
 import java.sql.*;
 
-import static by.epam.club.dao.impl.Status.BANNED;
-import static by.epam.club.dao.impl.Status.UNBANNED;
 
 public class PictureDaoImplTest {
     private static final Logger LOGGER = LogManager.getLogger();
@@ -69,10 +68,10 @@ public class PictureDaoImplTest {
 
     @Test
     public void testMarkBannedUnbanned() throws DaoException {
-        picture.setBanned(UNBANNED.getStatus());
+        picture.setBanned(Parameter.UNBANNED_PARAM);
         Assert.assertTrue(pictureDao.markBannedUnbanned(picture));
 
-        picture.setBanned(BANNED.getStatus());
+        picture.setBanned(Parameter.BANNED_PARAM);
         Assert.assertTrue(pictureDao.markBannedUnbanned(picture));
     }
 }

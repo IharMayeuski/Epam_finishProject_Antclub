@@ -1,6 +1,6 @@
 package by.epam.club.exception;
 
-public class ControllerException extends Exception {
+public class ControllerException extends Exception{
 
     private static final long serialVersionUID = 1L;
 
@@ -12,13 +12,12 @@ public class ControllerException extends Exception {
         super(message);
     }
 
-    public ControllerException (Exception e) {
+    public ControllerException(Exception e) {
         super(e);
     }
 
     public ControllerException(String message, Exception e) {
         super(message, e);
     }
+
 }
-
-

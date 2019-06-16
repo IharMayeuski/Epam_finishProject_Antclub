@@ -1,4 +1,4 @@
-/*
+package by.epam.club.tool;/*
 package by.it.malyshev.project.java.controller;
 
 import by.it.malyshev.project.java.connection.ConnectionCreator;

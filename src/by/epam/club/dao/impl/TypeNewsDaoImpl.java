@@ -1,9 +1,9 @@
 package by.epam.club.dao.impl;
 
-import by.epam.club.dao.DaoGeneral;
+import by.epam.club.dao.CloseStatementResultSet;
 import by.epam.club.dao.TypeNewsDao;
+import by.epam.club.entity.Parameter;
 import by.epam.club.pool.ConnectionPool;
-import by.epam.club.pool.ConnectionProxy;
 import by.epam.club.entity.TypeNews;
 import by.epam.club.exception.DaoException;
 
@@ -15,34 +15,32 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static by.epam.club.dao.impl.SqlQuery.*;
-import static by.epam.club.dao.impl.Status.*;
-import static by.epam.club.dao.impl.Status.DELETED;
 
 public class TypeNewsDaoImpl implements TypeNewsDao {
-    private PreparedStatement st;
-    private ResultSet rs;
-    private Connection con = null;
     private ConnectionPool connectionPool = null;
-    private DaoGeneral daoGeneral = new DaoGeneral();
+    private Connection connection = null;
 
     @Override
     public Set<TypeNews> takeTypes() throws DaoException {
-        Set<TypeNews> types = new HashSet<>();
-        try {
-            connectionPool = ConnectionPool.getInstance();
-            con = connectionPool.takeConnection();
-            st = con.prepareStatement(TYPE_FIND_ALL_UNDELETED.getQuery());
-            rs = st.executeQuery();
+        connectionPool = ConnectionPool.getInstance();
 
-            while (rs.next()) {
-                TypeNews typeData = createTypeData(rs);
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        CloseStatementResultSet closeStatementResultSet = new CloseStatementResultSet();
+        Set<TypeNews> types = new HashSet<>();
+
+        try (Connection con = connectionPool.takeConnection()) {
+            preparedStatement = con.prepareStatement(TYPE_FIND_ALL_UNDELETED.getQuery());
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                TypeNews typeData = createTypeData(resultSet);
                 types.add(typeData);
             }
         } catch (SQLException e) {
-            throw new DaoException(e);
-        }finally {
-            daoGeneral.close(rs,st);
-            connectionPool.returnConnection(con);
+            throw new DaoException("SQL_exception");
+        } finally {
+            closeStatementResultSet.close(resultSet, preparedStatement);
         }
         return types;
     }
@@ -53,12 +51,12 @@ public class TypeNewsDaoImpl implements TypeNewsDao {
             typeNews.setId(rs.getInt(1));
             typeNews.setTypeNews(rs.getString(2));
             if (rs.getInt(3) == 0) {
-                typeNews.setDeleted(UNDELETED.getStatus());
+                typeNews.setDeleted(Parameter.UNDELETED_PARAM);
             } else {
-                typeNews.setDeleted(DELETED.getStatus());
+                typeNews.setDeleted(Parameter.DELETED_PARAM);
             }
         } catch (SQLException e) {
-            throw new DaoException(e);
+            throw new DaoException("SQL_exception");
         }
         return typeNews;
     }

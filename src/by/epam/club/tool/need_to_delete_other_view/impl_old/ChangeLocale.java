@@ -1,4 +1,4 @@
-/*
+package by.epam.club.tool.need_to_delete_other_view.impl_old;/*
 package by.epam.club.command;
 
 import java.io.IOException;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import by.epam.club.exception.ControllerException;
 
-public class ChangeLocale implements Commander {
+public class ChangeLocaleCommand implements Commander {
 	private static final String DEFAULT_PAGE = "/WEB-INF/jsp/default.jsp";
 
 	@Override

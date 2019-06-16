@@ -1,7 +1,7 @@
-/*
+package by.epam.club.tool.need_to_delete_other_view.for_using.filter;/*
 package by.epam.club.tool.need_to_delete_other_view.for_using.filter;
 
-import by.epam.club.manager.ConfigurationManager;
+import by.epam.club.bundlemanager.ConfigurationManager;
 import by.epam.club.exception.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

@@ -1,4 +1,4 @@
-/*
+package by.epam.club.tool;/*
 <%--
         Created by IntelliJ IDEA.
         User:Администратор

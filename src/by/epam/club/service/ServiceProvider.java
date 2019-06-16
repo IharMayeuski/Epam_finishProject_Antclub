@@ -17,7 +17,9 @@ public class ServiceProvider {
     public UserService getUserService() {
         return service;
     }
-    public TypeService getTypeService (){return typeService;}
+    public TypeService getTypeService (){
+        return typeService;
+    }
     public ArticleService getArticleService() {
         return articleService;
     }

@@ -2,7 +2,7 @@ package by.epam.club.entity;
 
 import java.util.List;
 
-public class Letter {
+public class Letter extends Entity  {
     private long id;
     private String title;
     private String text;

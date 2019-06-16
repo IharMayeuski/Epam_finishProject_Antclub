@@ -1,3 +1,4 @@
+/*
 package by.epam.club.dao.impl;
 
 public enum Status {
@@ -14,4 +15,4 @@ public enum Status {
     public String getStatus() {
         return query;
     }
-}
+}*/

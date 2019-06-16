@@ -3,7 +3,6 @@ package by.epam.club.pool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
 import java.sql.*;
 import java.util.Enumeration;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -14,63 +13,36 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import static by.epam.club.pool.DBResourceManager.*;
 
+
 public class ConnectionPool {
-    private static final Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
 
     private static ConnectionPool instance;
     private static Lock lock = new ReentrantLock();
-    private BlockingQueue<ConnectionProxy> pool;
-    private static AtomicBoolean isCreatePool = new AtomicBoolean(false);
+    private static BlockingQueue<ConnectionProxy> poolConnectionProxy;
+    private static AtomicBoolean isPoolCreated = new AtomicBoolean(false);
 
-    private String driverName;
-    private String url;
-    private String login;
-    private String password;
-    private int poolSize;
+    private static DBResourceManager dbResourceManager = DBResourceManager.getInstance();
+
+    private static final String driverName = dbResourceManager.getValue(DB_DRIVER);
+    private static final String url = dbResourceManager.getValue(DB_URL);
+    private static final String login = dbResourceManager.getValue(DB_LOGIN);
+    private static final String password = dbResourceManager.getValue(DB_PASSWORD);
+    private static final int poolSize = Integer.parseInt(dbResourceManager.getValue(DB_POOL_SIZE));
+
+    private static final Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
+
 
     private ConnectionPool() {
-        DBResourceManager dbResourceManager = DBResourceManager.getInstance();
-        this.driverName = dbResourceManager.getValue(DB_DRIVER);
-        this.url = dbResourceManager.getValue(DB_URL);
-        this.login = dbResourceManager.getValue(DB_LOGIN);
-        this.password = dbResourceManager.getValue(DB_PASSWORD);
-        this.poolSize = Integer.parseInt(dbResourceManager.getValue(DB_POOL_SIZE));
         initialize();
     }
 
-    private void initialize() {
-        try {
-            Class.forName(driverName);
-            pool = new ArrayBlockingQueue<>(poolSize);
-            for (int i = 0; i < poolSize; i++) {
-                try {
-                    ConnectionProxy connectionProxy = new ConnectionProxy(DriverManager.getConnection(url, login, password));
-                    pool.put(connectionProxy);
-                } catch (InterruptedException e) {
-                    //
-                    Thread.currentThread().interrupt();
-                }
-            }
-        } catch (SQLException e) {
-            //
-            throw new RuntimeException(e);
-
-        } catch (ClassNotFoundException e){
-
-            //
-            throw new RuntimeException(e);
-        }
-
-    }
-
     public static ConnectionPool getInstance() {
-        if (!isCreatePool.get()) {
+        if (!isPoolCreated.get()) {
             try {
                 lock.lock();
-
                 if (instance == null) {
                     instance = new ConnectionPool();
-                    isCreatePool.set(true);
+                    isPoolCreated.set(true);
                 }
             } finally {
                 lock.unlock();
@@ -79,12 +51,47 @@ public class ConnectionPool {
         return instance;
     }
 
+    private void initialize() {
+        try {
+            Class.forName(driverName);
+            poolConnectionProxy = new ArrayBlockingQueue<>(poolSize);
+            while (poolConnectionProxy.size() < poolSize) {
+                initializeOneConnection();
+            }
+        } catch (ClassNotFoundException e) {
+            LOGGER.error("Can't find class", e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void initializeOneConnection() {
+        try {
+            System.out.println(poolConnectionProxy.toString());
+            ConnectionProxy connectionProxy = new ConnectionProxy(DriverManager.getConnection(url, login, password));
+            poolConnectionProxy.put(connectionProxy);
+        } catch (InterruptedException e) {
+            LOGGER.error("Interrupted Exception", e);
+            Thread.currentThread().interrupt();
+        } catch (SQLException e) {
+            LOGGER.error("Connection can't close without exception", e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void repairConnectionPool() {
+        System.out.println(poolConnectionProxy.size()+" size connection proxy");
+       /* while (poolConnectionProxy.size() < poolSize) { fixme не работает починка пула ресурсов...
+            initializeOneConnection();
+        }*/
+    }
+
     public Connection takeConnection() {
         ConnectionProxy connection = null;
         try {
-            connection = pool.take();
+            connection = poolConnectionProxy.take();
+            System.out.println(poolConnectionProxy.size()+ " pool size, "+ connection);
         } catch (InterruptedException e) {
-            //
+            LOGGER.error("Interrupted Exception", e);
             Thread.currentThread().interrupt();
         }
         return connection;
@@ -92,50 +99,59 @@ public class ConnectionPool {
 
     public void returnConnection(Connection connection) {
         if (connection != null) {
-            ConnectionProxy toReturn = (ConnectionProxy) connection;
+            ConnectionProxy connectionProxy = (ConnectionProxy) connection;
             try {
                 if (!connection.isClosed()) {
-                    toReturn.setAutoCommit(true);
-                    pool.put(toReturn);
+                    poolConnectionProxy.put(connectionProxy);
                 }
             } catch (SQLException e) {
-                LOGGER.info("Connection can't close without exception");
+                LOGGER.error("Connection can't return without exception", e);
             } catch (InterruptedException e) {
-                LOGGER.info("Interrupted Exception");
+                LOGGER.error("Interrupted Exception", e);
                 Thread.currentThread().interrupt();
+            } finally {
+                if (poolConnectionProxy.size() < poolSize) {
+                    repairConnectionPool();
+                }
+                try {
+                    if(!connectionProxy.getAutoCommit()) {
+                        connectionProxy.setAutoCommit(true);
+                    }
+                } catch (SQLException e) {
+                    LOGGER.error("The problem with autocommit", e);
+                }
             }
         }
     }
 
     public void destroyConnectionPool() {
-        ConnectionProxy connection=null;
-        int size = pool.size();
+        ConnectionProxy connection = null;
+        int size = poolConnectionProxy.size();
         for (int i = 0; i < size; i++) {
             try {
-                connection = pool.take();
+                connection = poolConnectionProxy.take();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                LOGGER.error("Interrupted Exception", e);
             }
             if (connection != null) {
                 try {
                     connection.realClose();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    LOGGER.error("Connection can't close without exception", e);
                 }
             }
         }
-        derigisterDriver();
-        pool.clear();
+        deregisterDriver();
     }
 
-    private void derigisterDriver() {
+    private void deregisterDriver() {
         Enumeration<Driver> drivers = DriverManager.getDrivers();
-        while (drivers.hasMoreElements()){
+        while (drivers.hasMoreElements()) {
             Driver driver = drivers.nextElement();
-            try{
+            try {
                 DriverManager.deregisterDriver(driver);
-            }catch (SQLException e){
-                LOGGER.error("deregistration jdbc");
+            } catch (SQLException e) {
+                LOGGER.error("deregister data connections is failed", e);
             }
         }
     }

@@ -7,7 +7,7 @@ import java.util.TimeZone;
 
 public class CreateDate {
     public String takeDate(Date moment){
-        DateFormat dateFormat = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.LONG, SimpleDateFormat.LONG);
+        DateFormat dateFormat = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.MEDIUM, SimpleDateFormat.MEDIUM);
         dateFormat.setTimeZone(TimeZone.getTimeZone("Europe/Minsk"));
         return dateFormat.format(moment);
     }

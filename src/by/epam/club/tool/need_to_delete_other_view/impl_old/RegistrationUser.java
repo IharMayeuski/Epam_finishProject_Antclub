@@ -1,4 +1,4 @@
-/*
+package by.epam.club.tool.need_to_delete_other_view.impl_old;/*
 package by.epam.club.tool.need_to_delete_other_view.impl_old;
 
 import by.epam.club.exception.ControllerException;

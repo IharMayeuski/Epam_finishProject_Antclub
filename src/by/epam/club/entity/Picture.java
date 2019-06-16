@@ -3,7 +3,7 @@ package by.epam.club.entity;
 import javax.servlet.http.Part;
 import java.sql.Blob;
 
-public class Picture {
+public class Picture extends Entity {
     private long id;
     private String name;
     private Blob blob;

@@ -1,9 +1,11 @@
 package by.epam.club.entity;
 
 import java.sql.Blob;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-public class Article {
+public class Article extends Entity{
     private long id;
     private String title;
     private String text;
@@ -14,6 +16,9 @@ public class Article {
     private int typeNewsId;
     private String banned;
     private String deleted;
+    private String userLogin;
+    private ArrayList<CommentToArticle> comments;
+    private int commentQuantity;
 
     public long getId() {
         return id;
@@ -95,55 +100,86 @@ public class Article {
         this.deleted = deleted;
     }
 
+    public String getUserLogin() {
+        return userLogin;
+    }
+
+    public void setUserLogin(String userLogin) {
+        this.userLogin = userLogin;
+    }
+
+    public ArrayList<CommentToArticle> getComments() {
+        return comments;
+    }
+
+    public void setComments(ArrayList<CommentToArticle> comments) {
+        this.comments = comments;
+    }
+
+    public int getCommentQuantity() {
+        return commentQuantity;
+    }
+
+    public void setCommentQuantity(int commentQuantity) {
+        this.commentQuantity = commentQuantity;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Article)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         Article article = (Article) o;
 
-        if (getId() != article.getId()) return false;
-        if (getPositiveRating() != article.getPositiveRating()) return false;
-        if (getNegativeRating() != article.getNegativeRating()) return false;
-        if (getUserId() != article.getUserId()) return false;
-        if (getTypeNewsId() != article.getTypeNewsId()) return false;
-        if (getTitle() != null ? !getTitle().equals(article.getTitle()) : article.getTitle() != null) return false;
-        if (getText() != null ? !getText().equals(article.getText()) : article.getText() != null) return false;
-        if (!getDate_registration().equals(article.getDate_registration())) return false;
-        if (getBanned() != null ? !getBanned().equals(article.getBanned()) : article.getBanned() != null) return false;
-        return getDeleted() != null ? getDeleted().equals(article.getDeleted()) : article.getDeleted() == null;
+        if (id != article.id) return false;
+        if (positiveRating != article.positiveRating) return false;
+        if (negativeRating != article.negativeRating) return false;
+        if (userId != article.userId) return false;
+        if (typeNewsId != article.typeNewsId) return false;
+        if (commentQuantity != article.commentQuantity) return false;
+        if (title != null ? !title.equals(article.title) : article.title != null) return false;
+        if (text != null ? !text.equals(article.text) : article.text != null) return false;
+        if (!date_registration.equals(article.date_registration)) return false;
+        if (banned != null ? !banned.equals(article.banned) : article.banned != null) return false;
+        if (deleted != null ? !deleted.equals(article.deleted) : article.deleted != null) return false;
+        if (userLogin != null ? !userLogin.equals(article.userLogin) : article.userLogin != null) return false;
+        return comments != null ? comments.equals(article.comments) : article.comments == null;
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (getId() ^ (getId() >>> 32));
-        result = 31 * result + (getTitle() != null ? getTitle().hashCode() : 0);
-        result = 31 * result + (getText() != null ? getText().hashCode() : 0);
-        result = 31 * result + getPositiveRating();
-        result = 31 * result + getNegativeRating();
-        result = 31 * result + getDate_registration().hashCode();
-        result = 31 * result + (int) (getUserId() ^ (getUserId() >>> 32));
-        result = 31 * result + getTypeNewsId();
-        result = 31 * result + (getBanned() != null ? getBanned().hashCode() : 0);
-        result = 31 * result + (getDeleted() != null ? getDeleted().hashCode() : 0);
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (text != null ? text.hashCode() : 0);
+        result = 31 * result + positiveRating;
+        result = 31 * result + negativeRating;
+        result = 31 * result + date_registration.hashCode();
+        result = 31 * result + (int) (userId ^ (userId >>> 32));
+        result = 31 * result + typeNewsId;
+        result = 31 * result + (banned != null ? banned.hashCode() : 0);
+        result = 31 * result + (deleted != null ? deleted.hashCode() : 0);
+        result = 31 * result + (userLogin != null ? userLogin.hashCode() : 0);
+        result = 31 * result + (comments != null ? comments.hashCode() : 0);
+        result = 31 * result + commentQuantity;
         return result;
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Article{");
-        sb.append("id=").append(id);
-        sb.append(", title='").append(title).append('\'');
-        sb.append(", text='").append(text).append('\'');
-        sb.append(", positiveRating=").append(positiveRating);
-        sb.append(", negativeRating=").append(negativeRating);
-        sb.append(", date_registration='").append(date_registration).append('\'');
-        sb.append(", userId=").append(userId);
-        sb.append(", typeNewsId=").append(typeNewsId);
-        sb.append(", banned='").append(banned).append('\'');
-        sb.append(", deleted='").append(deleted).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return "Article{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", text='" + text + '\'' +
+                ", positiveRating=" + positiveRating +
+                ", negativeRating=" + negativeRating +
+                ", date_registration='" + date_registration + '\'' +
+                ", userId=" + userId +
+                ", typeNewsId=" + typeNewsId +
+                ", banned='" + banned + '\'' +
+                ", deleted='" + deleted + '\'' +
+                ", userLogin='" + userLogin + '\'' +
+                ", comments=" + comments +
+                ", commentQuantity=" + commentQuantity +
+                '}';
     }
 }
-

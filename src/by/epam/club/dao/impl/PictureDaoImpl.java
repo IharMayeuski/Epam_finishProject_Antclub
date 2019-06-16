@@ -1,9 +1,9 @@
 package by.epam.club.dao.impl;
 
-import by.epam.club.dao.DaoGeneral;
+import by.epam.club.dao.CloseStatementResultSet;
 import by.epam.club.dao.PictureDao;
+import by.epam.club.entity.Parameter;
 import by.epam.club.pool.ConnectionPool;
-import by.epam.club.pool.ConnectionProxy;
 import by.epam.club.entity.Picture;
 import by.epam.club.exception.DaoException;
 
@@ -16,13 +16,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import static by.epam.club.dao.impl.SqlQuery.*;
-import static by.epam.club.dao.impl.Status.BANNED;
 
 public class PictureDaoImpl implements PictureDao {
     private PreparedStatement st;
     private Connection con = null;
     private ConnectionPool connectionPool = null;
-    private DaoGeneral daoGeneral = new DaoGeneral();
+    private CloseStatementResultSet closeStatementResultSet = new CloseStatementResultSet();
 
     @Override//todo скорее всего лишний метод, нужно построить работу через сервлет
     public boolean create(String name, String filePath, long idOwner) throws DaoException {
@@ -50,7 +49,7 @@ public class PictureDaoImpl implements PictureDao {
                 throw new DaoException(e1);
             }
         } finally {
-            daoGeneral.close(st);
+            closeStatementResultSet.close(st);
             connectionPool.returnConnection(con);
         }
         return result;
@@ -75,7 +74,7 @@ public class PictureDaoImpl implements PictureDao {
                 throw new DaoException(e1);
             }
         } finally {
-            daoGeneral.close(st);
+            closeStatementResultSet.close(st);
             connectionPool.returnConnection(con);
         }
         return value;
@@ -89,7 +88,7 @@ public class PictureDaoImpl implements PictureDao {
             connectionPool = ConnectionPool.getInstance();
             con = connectionPool.takeConnection();
             con.setAutoCommit(false);
-            if (picture.getBanned().equals(BANNED.getStatus())) {
+            if (picture.getBanned().equals(Parameter.BANNED_PARAM)) {
                 st = con.prepareStatement(PICTURE_MARK_UNBANNED.getQuery());
             } else {
                 st = con.prepareStatement(PICTURE_MARK_BANNED.getQuery());
@@ -105,7 +104,7 @@ public class PictureDaoImpl implements PictureDao {
                 throw new DaoException(e1);
             }
         } finally {
-            daoGeneral.close(st);
+            closeStatementResultSet.close(st);
             connectionPool.returnConnection(con);
         }
         return value;

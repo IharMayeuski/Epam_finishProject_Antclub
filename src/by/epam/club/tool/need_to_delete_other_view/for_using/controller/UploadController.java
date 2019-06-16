@@ -1,7 +1,7 @@
-/*
+package by.epam.club.tool.need_to_delete_other_view.for_using.controller;/*
 package by.epam.club.tool.need_to_delete_other_view.for_using.controller;
 
-import by.epam.club.tool.need_to_delete_other_view.RequestContent;
+import by.epam.club.tool.need_to_delete_other_view.for_using.RequestContent_myne;
 
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "/UploadImage")
 @MultipartConfig(fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024, maxRequestSize = 1024 * 1024) //1 MB
-public class UploadController extends AbstractSharingPicController {
+public class UploadController extends AntController {
     private static final String CONTENT_TYPE = "image/jpeg";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
@@ -20,7 +20,7 @@ public class UploadController extends AbstractSharingPicController {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType(CONTENT_TYPE);
-        RequestContent requestContent = new RequestContent();
+        RequestContent_myne requestContent = new RequestContent_myne();
 
         try {
             requestContent.extractValues(request);

@@ -1,7 +1,9 @@
 package by.epam.club.command;
 
-import javax.servlet.http.HttpServletRequest;
+import by.epam.club.controller.RequestContent;
+import by.epam.club.controller.Router;
+import by.epam.club.exception.AntCommandException;
 
-public interface ActionCommand {
-    String execute(HttpServletRequest request);
+public interface ActionCommand  {
+    Router execute(RequestContent content);
 }

@@ -1,6 +1,11 @@
 package by.epam.club.entity;
 
-public class User {
+
+
+import java.sql.Blob;
+import java.util.Objects;
+
+public class User extends Entity  {
     private long id;
     private String login;
     private String email;
@@ -9,6 +14,10 @@ public class User {
     private String banned;
     private String deleted;
     private String role;
+
+    private String firstname;
+    private String familyname;
+    private Blob blob;
 
     public long getId() {
         return id;
@@ -66,45 +75,65 @@ public class User {
         this.role = role;
     }
 
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getFamilyname() {
+        return familyname;
+    }
+
+    public void setFamilyname(String familyname) {
+        this.familyname = familyname;
+    }
+
+    public Blob getBlob() {
+        return blob;
+    }
+
+    public void setBlob(Blob blob) {
+        this.blob = blob;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof User)) return false;
-
+        if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-
-        if (getId() != user.getId()) return false;
-        if (!getLogin().equals(user.getLogin())) return false;
-        if (!getEmail().equals(user.getEmail())) return false;
-        if (!getDate_registration().equals(user.getDate_registration())) return false;
-        if (getBanned() != null ? !getBanned().equals(user.getBanned()) : user.getBanned() != null) return false;
-        if (getDeleted() != null ? !getDeleted().equals(user.getDeleted()) : user.getDeleted() != null) return false;
-        return getRole() != null ? getRole().equals(user.getRole()) : user.getRole() == null;
+        return id == user.id &&
+                Objects.equals(login, user.login) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(date_registration, user.date_registration) &&
+                Objects.equals(banned, user.banned) &&
+                Objects.equals(deleted, user.deleted) &&
+                Objects.equals(role, user.role) &&
+                Objects.equals(firstname, user.firstname) &&
+                Objects.equals(familyname, user.familyname) &&
+                Objects.equals(blob, user.blob);
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (getId() ^ (getId() >>> 32));
-        result = 31 * result + getLogin().hashCode();
-        result = 31 * result + getEmail().hashCode();
-        result = 31 * result + getDate_registration().hashCode();
-        result = 31 * result + (getBanned() != null ? getBanned().hashCode() : 0);
-        result = 31 * result + (getDeleted() != null ? getDeleted().hashCode() : 0);
-        result = 31 * result + (getRole() != null ? getRole().hashCode() : 0);
-        return result;
+        return Objects.hash(id, login, email, date_registration, banned, deleted, role, firstname, familyname, blob);
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("User{");
-        sb.append("id=").append(id);
-        sb.append(", login='").append(login).append('\'');
-        sb.append(", email='").append(email).append('\'');
-        sb.append(", date_registration='").append(date_registration).append('\'');
-        sb.append(", banned='").append(banned).append('\'');
-        sb.append(", deleted='").append(deleted).append('\'');
-        sb.append(", role='").append(role).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", email='" + email + '\'' +
+                ", date_registration='" + date_registration + '\'' +
+                ", banned='" + banned + '\'' +
+                ", deleted='" + deleted + '\'' +
+                ", role='" + role + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", familyname='" + familyname + '\'' +
+                ", blob=" + blob +
+                '}';
     }
 }

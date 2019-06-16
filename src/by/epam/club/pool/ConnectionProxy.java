@@ -1,5 +1,8 @@
 package by.epam.club.pool;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.sql.*;
 import java.util.Map;
 import java.util.Properties;
@@ -7,6 +10,8 @@ import java.util.concurrent.Executor;
 
 public class ConnectionProxy implements Connection {
     private Connection connection;
+
+    private static final Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
 
     ConnectionProxy(Connection connection) {
         this.connection = connection;
@@ -54,11 +59,11 @@ public class ConnectionProxy implements Connection {
     }
 
     @Override
-    public void close() { //fixme нужно переопределить метод, чтобы закрывать коннекшн
+    public void close() {
         ConnectionPool.getInstance().returnConnection(this);
     }
 
-    public void realClose() throws SQLException { //fixme нужно переопределить метод, чтобы закрывать коннекшн
+    void realClose() throws SQLException {
         connection.close();
     }
 

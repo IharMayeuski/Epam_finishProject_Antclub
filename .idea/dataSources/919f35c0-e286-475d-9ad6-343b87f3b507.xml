@@ -1431,120 +1431,130 @@
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="342" parent="285" name="PRIMARY">
+    <column id="342" parent="285" name="file">
+      <Position>4</Position>
+      <DataType>longblob|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="343" parent="285" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>news_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="343" parent="286" name="id">
+    <column id="344" parent="286" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="344" parent="286" name="login">
+    <column id="345" parent="286" name="login">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="345" parent="286" name="email">
+    <column id="346" parent="286" name="email">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="346" parent="286" name="password">
+    <column id="347" parent="286" name="password">
       <Position>4</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="347" parent="286" name="date_registration">
+    <column id="348" parent="286" name="date_registration">
       <Position>5</Position>
       <DataType>bigint(13)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="348" parent="286" name="banned">
+    <column id="349" parent="286" name="banned">
       <Position>6</Position>
       <DataType>tinyint(4)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="349" parent="286" name="deleted">
+    <column id="350" parent="286" name="deleted">
       <Position>7</Position>
       <DataType>tinyint(4)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="350" parent="286" name="role_role_id">
+    <column id="351" parent="286" name="role_role_id">
       <Position>8</Position>
       <DataType>tinyint(4)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>2</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="351" parent="286" name="email_UNIQUE">
+    <index id="352" parent="286" name="email_UNIQUE">
       <ColNames>login</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="352" parent="286" name="fk_user_role1_idx">
+    <index id="353" parent="286" name="fk_user_role1_idx">
       <ColNames>role_role_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="353" parent="286" name="PRIMARY">
+    <key id="354" parent="286" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="354" parent="286" name="email_UNIQUE">
+    <key id="355" parent="286" name="email_UNIQUE">
       <ColNames>login</ColNames>
       <UnderlyingIndexName>email_UNIQUE</UnderlyingIndexName>
     </key>
-    <foreign-key id="355" parent="286" name="fk_user_role1">
+    <foreign-key id="356" parent="286" name="fk_user_role1">
       <ColNames>role_role_id</ColNames>
       <RefSchemaName>ant</RefSchemaName>
       <RefTableName>role</RefTableName>
       <RefColNames>role_id</RefColNames>
     </foreign-key>
-    <column id="356" parent="287" name="info_id">
+    <column id="357" parent="287" name="info_id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="357" parent="287" name="firstname">
+    <column id="358" parent="287" name="firstname">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="358" parent="287" name="familyname">
+    <column id="359" parent="287" name="familyname">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="359" parent="287" name="user_id">
+    <column id="360" parent="287" name="file">
       <Position>4</Position>
+      <DataType>longblob|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="361" parent="287" name="user_id">
+      <Position>5</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="360" parent="287" name="fk_userInfo_user1_idx">
+    <index id="362" parent="287" name="fk_userInfo_user1_idx">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="361" parent="287" name="PRIMARY">
+    <key id="363" parent="287" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>info_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="362" parent="287" name="fk_userInfo_user1">
+    <foreign-key id="364" parent="287" name="fk_userInfo_user1">
       <ColNames>user_id</ColNames>
       <RefSchemaName>ant</RefSchemaName>
       <RefTableName>user</RefTableName>

@@ -1,4 +1,4 @@
-/*
+package by.epam.club.tool.need_to_delete_other_view.for_using.filter;/*
 package by.epam.club.tool.need_to_delete_other_view.for_using.filter;
 
 import javax.servlet.*;
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-@WebFilter(filterName = "AntClubXssFilter", urlPatterns = "/*")
-public class AntClubXssFilter implements Filter {
+@WebFilter(filterName = "XssFilter", urlPatterns = "/*")
+public class XssFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;

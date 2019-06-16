@@ -1,43 +1,50 @@
 package by.epam.club.dao.impl;
 
 import by.epam.club.dao.ArticleDao;
-import by.epam.club.dao.DaoGeneral;
+import by.epam.club.dao.CloseStatementResultSet;
+import by.epam.club.entity.CommentToArticle;
+import by.epam.club.entity.Parameter;
 import by.epam.club.pool.ConnectionPool;
-import by.epam.club.pool.ConnectionProxy;
 import by.epam.club.entity.Article;
 import by.epam.club.exception.DaoException;
 import by.epam.club.tool.CreateDate;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 import static by.epam.club.dao.impl.SqlQuery.*;
-import static by.epam.club.dao.impl.Status.*;
-import static by.epam.club.dao.impl.Status.DELETED;
 
 public class ArticleDaoImpl implements ArticleDao {
-    private PreparedStatement st;
-    private ResultSet rs;
-    private Connection con = null;
+
     private ConnectionPool connectionPool = null;
-    private DaoGeneral daoGeneral = new DaoGeneral();
+    private Connection connection = null;
+    private static final Logger LOGGER = LogManager.getLogger(UserDaoImpl.class);
 
     @Override
     public boolean create(String name, String text, long userId, int typeNews) throws DaoException {
+
+        CloseStatementResultSet closeStatementResultSet = new CloseStatementResultSet();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+
         Date date = new Date();
         final int defaultValue = 0;
-        boolean values = false;
+        boolean values;
+        connectionPool = ConnectionPool.getInstance();
 
-        try {
-            connectionPool = ConnectionPool.getInstance();
-            con = connectionPool.takeConnection();
-            con.setAutoCommit(false);
-            st = con.prepareStatement(ARTICLE_INSERT_NEW.getQuery());
+
+        try (Connection connection = connectionPool.takeConnection()) {
+
+            connection.setAutoCommit(false);
+            st = connection.prepareStatement(ARTICLE_INSERT_NEW.getQuery());
             st.setString(1, name);
             st.setString(2, text);
             st.setInt(3, defaultValue);
@@ -46,28 +53,32 @@ public class ArticleDaoImpl implements ArticleDao {
             st.setLong(6, userId);
             st.setInt(7, typeNews);
             st.executeUpdate();
-            con.commit();
+            connection.commit();
             values = true;
         } catch (SQLException e) {
             try {
-                con.rollback();
-            } catch (SQLException message) {
-                throw new DaoException(message);
+                connection.rollback();
+            } catch (SQLException e1) {
+                LOGGER.error("SqlException on rollback ", e1);
+                throw new DaoException("unnone_mistake");
             }
+            throw new DaoException("SQL_exception");
         } finally {
-            daoGeneral.close(rs,st);
-            connectionPool.returnConnection(con);
+            closeStatementResultSet.close(rs, st);
         }
         return values;
     }
 
     @Override
     public Set<Article> takeAllByTypeNews(int typeNews) throws DaoException {
+        CloseStatementResultSet closeStatementResultSet = new CloseStatementResultSet();
+        PreparedStatement st = null;
+        ResultSet rs = null;
         Set<Article> articles = new HashSet<>();
         try {
             connectionPool = ConnectionPool.getInstance();
-            con = connectionPool.takeConnection();
-            st = con.prepareStatement(ARTICLE_BY_TYPE_NEWS.getQuery());
+            connection = connectionPool.takeConnection();
+            st = connection.prepareStatement(ARTICLE_BY_TYPE_NEWS.getQuery());
             st.setInt(1, typeNews);
             rs = st.executeQuery();
             while (rs.next()) {
@@ -76,21 +87,22 @@ public class ArticleDaoImpl implements ArticleDao {
             }
         } catch (SQLException e) {
             throw new DaoException(e.getMessage());
-        }finally {
-            daoGeneral.close(rs,st);
-            connectionPool.returnConnection(con);
+        } finally {
+            closeStatementResultSet.close(rs, st);
         }
         return articles;
     }
 
     @Override
     public Set<Article> takeAllByTypeNewsNotBannedNotDeleted(int typeNews) throws DaoException {
-
+        CloseStatementResultSet closeStatementResultSet = new CloseStatementResultSet();
+        PreparedStatement st = null;
+        ResultSet rs = null;
         Set<Article> articles = new HashSet<>();
         try {
             connectionPool = ConnectionPool.getInstance();
-            con = connectionPool.takeConnection();
-            st = con.prepareStatement(ARTICLE_ALL_BY_TYPE_NEWS_NOTBANNED_NOTDELETED.getQuery());
+            connection = connectionPool.takeConnection();
+            st = connection.prepareStatement(ARTICLE_ALL_BY_TYPE_NEWS_NOTBANNED_NOTDELETED.getQuery());
             st.setInt(1, typeNews);
             rs = st.executeQuery();
             while (rs.next()) {
@@ -99,51 +111,56 @@ public class ArticleDaoImpl implements ArticleDao {
             }
         } catch (SQLException e) {
             throw new DaoException(e.getMessage());
-        }
-        finally {
-            daoGeneral.close(rs,st);
-            connectionPool.returnConnection(con);
+        } finally {
+            closeStatementResultSet.close(rs, st);
         }
         return articles;
     }
 
     @Override
     public boolean update(String name, String text, long articleId, int typeNews) throws DaoException {
-        boolean value = false;
+        CloseStatementResultSet closeStatementResultSet = new CloseStatementResultSet();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        boolean value;
         try {
             connectionPool = ConnectionPool.getInstance();
-            con = connectionPool.takeConnection();
-            con.setAutoCommit(false);
-            st = con.prepareStatement(ARTICLE_UPDATE_DATA.getQuery());
+            connection = connectionPool.takeConnection();
+            connection.setAutoCommit(false);
+            st = connection.prepareStatement(ARTICLE_UPDATE_DATA.getQuery());
 
             st.setString(1, name);
             st.setString(2, text);
             st.setInt(3, typeNews);
             st.setLong(4, articleId);
             st.executeUpdate();
-            con.commit();
+            connection.commit();
             value = true;
         } catch (SQLException e) {
             try {
-                con.rollback();
+                connection.rollback();
             } catch (SQLException e1) {
-                throw new DaoException(e1);
+                LOGGER.error("SqlException on rollback ", e1);
+                throw new DaoException("unnone_mistake");
             }
+            throw new DaoException("SQL_exception");
         } finally {
-            daoGeneral.close(rs,st);
-            connectionPool.returnConnection(con);
+            closeStatementResultSet.close(rs, st);
         }
         return value;
     }
 
     @Override
     public Article check(int articleId) throws DaoException {
+        CloseStatementResultSet closeStatementResultSet = new CloseStatementResultSet();
+        PreparedStatement st = null;
+        ResultSet rs = null;
         Article article = null;
 
         try {
             connectionPool = ConnectionPool.getInstance();
-            con = connectionPool.takeConnection();
-            st = con.prepareStatement(ARTICLE_CHECK.getQuery());
+            connection = connectionPool.takeConnection();
+            st = connection.prepareStatement(ARTICLE_CHECK.getQuery());
             st.setInt(1, articleId);
 
             rs = st.executeQuery();
@@ -153,41 +170,113 @@ public class ArticleDaoImpl implements ArticleDao {
         } catch (SQLException e) {
             throw new DaoException(e);
         } finally {
-            daoGeneral.close(rs,st);
-            connectionPool.returnConnection(con);
+            closeStatementResultSet.close(rs, st);
         }
         return article;
     }
 
-    private Article createArticleData(ResultSet rs) throws DaoException {
+    private Article createArticleData(ResultSet resultSetArticle) throws DaoException {
         Article article = new Article();
+
+        ArrayList<CommentToArticle> comments = new ArrayList<>();
+        connectionPool = ConnectionPool.getInstance();
+        CloseStatementResultSet closeStatementResultSet = new CloseStatementResultSet();
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSetComment = null;
+        CommentToArticle comment;
+
+
+        try (Connection connection = connectionPool.takeConnection()) {
+            preparedStatement = connection.prepareStatement(COMMENT_CHECK.getQuery());
+            preparedStatement.setInt(1, resultSetArticle.getInt(1));
+
+            resultSetComment = preparedStatement.executeQuery();
+            while (resultSetComment.next()) {
+                comment = createCommentData(resultSetComment);
+                comments.add(comment);
+            }
+
+        } catch (
+                SQLException e) {
+            try {
+                connection.rollback();
+            } catch (SQLException e1) {
+                LOGGER.error("SqlException on rollback ", e1);
+                throw new DaoException("unnone_mistake");
+            }
+            LOGGER.info("SqlException ", e);
+            throw new DaoException("SQL_exception");
+        } finally {
+            closeStatementResultSet.close(resultSetComment, preparedStatement);
+        }
+
+
         try {
-            Date moment = new Date(rs.getBigDecimal(6).longValue());
+            Date moment = new Date(resultSetArticle.getBigDecimal(6).longValue());
             CreateDate createDate = new CreateDate();
             String date = createDate.takeDate(moment);
 
-            article.setId(rs.getInt(1));
-            article.setTitle(rs.getString(2));
-            article.setText(rs.getString(3));
-            article.setPositiveRating(rs.getInt(4));
-            article.setNegativeRating(rs.getInt(5));
+            article.setId(resultSetArticle.getInt(1));
+            article.setTitle(resultSetArticle.getString(2));
+            article.setText(resultSetArticle.getString(3));
+            article.setPositiveRating(resultSetArticle.getInt(4));
+            article.setNegativeRating(resultSetArticle.getInt(5));
             article.setDate_registration(date);
 
-            if (rs.getInt(7) == 0) {
-                article.setBanned(UNBANNED.getStatus());
+            if (resultSetArticle.getInt(7) == 0) {
+                article.setBanned(Parameter.UNBANNED_PARAM);
             } else {
-                article.setBanned(BANNED.getStatus());
+                article.setBanned(Parameter.BANNED_PARAM);
             }
-            if (rs.getInt(8) == 0) {
-                article.setDeleted(UNDELETED.getStatus());
+            if (resultSetArticle.getInt(8) == 0) {
+                article.setDeleted(Parameter.UNDELETED_PARAM);
             } else {
-                article.setDeleted(DELETED.getStatus());
+                article.setDeleted(Parameter.DELETED_PARAM);
             }
-            article.setUserId(rs.getInt(9));
-            article.setTypeNewsId(rs.getInt(10));
+            article.setUserId(resultSetArticle.getInt(9));
+            article.setTypeNewsId(resultSetArticle.getInt(10));
+            article.setUserLogin(resultSetArticle.getString(11));
+            article.setComments(comments);
+            article.setCommentQuantity(comments.size());
         } catch (SQLException e) {
+            e.printStackTrace();
             throw new DaoException(e);
         }
         return article;
+    }
+
+    private CommentToArticle createCommentData(ResultSet resultSetComment) throws DaoException {
+        CommentToArticle comment = new CommentToArticle();
+        try {
+            Date moment = new Date(resultSetComment.getBigDecimal(3).longValue());
+            CreateDate createDate = new CreateDate();
+            String date = createDate.takeDate(moment);
+
+            comment.setId(resultSetComment.getLong(1));
+            comment.setText(resultSetComment.getString(2));
+            comment.setDateRegistration(date);
+
+            comment.setPositiveRating(resultSetComment.getInt(4));
+            comment.setNegativeRating(resultSetComment.getInt(5));
+
+
+            if (resultSetComment.getInt(6) == 0) {
+                comment.setBanned(Parameter.UNBANNED_PARAM);
+            } else {
+                comment.setBanned(Parameter.BANNED_PARAM);
+            }
+            if (resultSetComment.getInt(7) == 0) {
+                comment.setDeleted(Parameter.UNDELETED_PARAM);
+            } else {
+                comment.setDeleted(Parameter.DELETED_PARAM);
+            }
+
+            comment.setUserLogin(resultSetComment.getString(8));
+            comment.setUserId(resultSetComment.getLong(9));
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DaoException(e);
+        }
+        return comment;
     }
 }

@@ -1,5 +1,6 @@
 package by.epam.club.dao.impl;
 
+import by.epam.club.entity.Parameter;
 import by.epam.club.entity.User;
 import by.epam.club.exception.DaoException;
 import org.apache.logging.log4j.LogManager;
@@ -8,15 +9,11 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static by.epam.club.dao.impl.Status.BANNED;
-import static by.epam.club.dao.impl.Status.UNBANNED;
 
 public class UserDaoImplTest {
     private static final Logger LOGGER = LogManager.getLogger(UserDaoImplTest.class);
     private UserDaoImpl userDao;
     private User user;
-
-    private final int ID_FOR_MARKING_DELETING = 2;
 
     @BeforeClass
     public void setUp() {
@@ -27,8 +24,8 @@ public class UserDaoImplTest {
     @Test
     public void testCheckPositive() {
         try {
-            Assert.assertEquals(userDao.check("admin", "admin").getLogin(), "admin");
-            LOGGER.info("Test check user is completed successfully");
+            Assert.assertEquals(userDao.checkUser("admin", "admin").getLogin(), "admin");
+            LOGGER.info("Test checkUser user is completed successfully");
         } catch (DaoException e) {
             LOGGER.info(e);
         }
@@ -37,8 +34,8 @@ public class UserDaoImplTest {
     @Test
     public void testCheckNegative() {
         try {
-            Assert.assertNull(userDao.check("admin", "admin2"));
-            LOGGER.info("Test check user negative test is completed successfully");
+            Assert.assertNull(userDao.checkUser("admin", "admin2"));
+            LOGGER.info("Test checkUser user negative test is completed successfully");
         } catch (DaoException e) {
             LOGGER.info(e);
         }
@@ -52,17 +49,17 @@ public class UserDaoImplTest {
         Assert.assertTrue(userDao.createUser(LOGIN, EMAIL, PASSWORD));
     }
 
-    @Test
+/*    @Test
     public void testDeleteUser() {
-        user.setId(ID_FOR_MARKING_DELETING);
+    //    user.setId(ID_FOR_MARKING_DELETING); todo удалить
 
         try {
-            Assert.assertTrue(userDao.markUserDeleted(user));
+            Assert.assertTrue(userDao.markUserDeleted(ID_FOR_MARKING_DELETING));
             LOGGER.info("Test_Mark_deleted_user is completed");
         } catch (DaoException e) {
             LOGGER.info(e);
         }
-    }
+    }*/
 
     @Test
     public void testTakeAllUser() {
@@ -88,15 +85,16 @@ public class UserDaoImplTest {
     @Test
     public void testMarkUserBannedUnbanned() throws DaoException {
         user.setId(2);
-        user.setBanned(UNBANNED.getStatus());
+        user.setBanned(Parameter.UNBANNED_PARAM);
         Assert.assertTrue(userDao.markUserBannedUnbanned(user));
 
-        user.setBanned(BANNED.getStatus());
+        user.setBanned(Parameter.BANNED_PARAM);
         Assert.assertTrue(userDao.markUserBannedUnbanned(user));
     }
 
     @Test
     public void testMarkUserUndeleted() {
+        int ID_FOR_MARKING_DELETING = 2;
         user.setId(ID_FOR_MARKING_DELETING);
         try {
             Assert.assertTrue(userDao.markUserUndeleted(user));
@@ -127,4 +125,11 @@ public class UserDaoImplTest {
             LOGGER.info(e);
         }
     }
+
+   /* @Test
+    public void testNewPassword() throws DaoException {
+       String newPassword =  userDao.newPassword("smirnov");
+       LOGGER.info(newPassword + "- new Password");
+       Assert.assertNotNull(newPassword);
+    }*/
 }
