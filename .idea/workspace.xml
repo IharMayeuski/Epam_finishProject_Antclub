@@ -7,200 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba503b07-050b-4dda-95d0-98b057528f44" name="Default Changelist" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/dataSources/919f35c0-e286-475d-9ad6-343b87f3b507.xml&#10;#&#9;src/by/epam/club/dao/ArticleDao.java&#10;#&#9;src/by/epam/club/dao/UserDao.java&#10;#&#9;src/by/epam/club/dao/impl/ArticleDaoImpl.java&#10;#&#9;src/by/epam/club/dao/impl/SqlQuery.java&#10;#&#9;src/by/epam/club/dao/impl/UserDaoImpl.java&#10;#&#9;src/by/epam/club/dao/pool/ConnectionPool.java&#10;#&#9;test/by/epam/club/dao/impl/ArticleDaoImplTest.java&#10;#&#9;test/by/epam/club/dao/impl/UserDaoImplTest.java">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/javax_annotation.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/javax_mail_mail_1_4_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.annotation.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.ejb.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.jms.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.persistence.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.resource.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.servlet.jsp.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.transaction.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/AdminPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/DefaultPageCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/FindUserByLoginCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/RegistrationPageCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/ToBeGuestCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/impl/ConfirmDeletePageCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/impl/NewPasswordCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/impl/TakeTypeNews.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/redirect/AuthorizationCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/redirect/ChangeLocaleCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/redirect/LogoutCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/redirect/RegistrationCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/controller/RequestContent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/controller/TakePictureFromDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/controller/UploadImage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/dao/BaseDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/dao/LogicUploadImage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/dao/TransactionHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/dao/impl/Sender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/entity/Entity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/exception/AntCommandException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/filter/EncodingFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/filter/SecurityFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/tag/DesignBy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/tool/ErrorTag.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/tool/ServiceExemple.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/tool/TransactionHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/AdminPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/RequestContent2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/adminMain.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/for_using/RequestContent_myne.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/for_using/commandProvideer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/userMain.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/Basket/antview.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/Basket/header.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/Basket/registration.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/tld/custom.tld" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/animate-custom.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/bootstrap-grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/bootstrap-grid.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/bootstrap-grid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/bootstrap-grid.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/bootstrap-reboot.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/bootstrap-reboot.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/bootstrap-reboot.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/bootstrap-reboot.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/demo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/style3.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fonts/BebasNeue-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fonts/BebasNeue-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fonts/BebasNeue-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fonts/BebasNeue-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fonts/Dharma Type Font License.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fonts/fontomas-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fonts/fontomas-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fonts/fontomas-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fonts/fontomas-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fonts/franchise-bold-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fonts/franchise-bold-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fonts/franchise-bold-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fonts/franchise-bold-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/bootstrap.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/bootstrap.bundle.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/bootstrap.bundle.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/bootstrap.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/bootstrap.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/jsp/default2.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/jsp/deleteAccount.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/jsp/footer.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/jsp/header2.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/jsp/lookArticle.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/jsp/registration2.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Antclub.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Antclub.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/919f35c0-e286-475d-9ad6-343b87f3b507.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/919f35c0-e286-475d-9ad6-343b87f3b507.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/resourceBundles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/resourceBundles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Antclub.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Antclub.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/ActionCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/ActionCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/ActionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/ActionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/CommandEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/CommandEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/impl/AdminPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/impl/Authorization.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/impl/ChangeLocale.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/impl/DefaultPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/impl/FindArticle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/impl/FindArticleCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/impl/GuestPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/impl/LogoutCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/impl/RegistrationCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/impl/RegistrationPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/DaoGeneral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/CloseStatementResultSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/TypeNewsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/TypeNewsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/impl/ArticleDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/impl/ArticleDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/impl/PictureDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/impl/PictureDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/impl/SqlQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/impl/SqlQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/impl/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/impl/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/impl/TypeNewsDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/impl/TypeNewsDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/impl/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/impl/UserDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/entity/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/entity/Article.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/entity/CommentToArticle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/entity/CommentToArticle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/entity/Letter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/entity/Letter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/entity/Picture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/entity/Picture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/entity/TypeNews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/entity/TypeNews.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/exception/ConnectionPoolException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/exception/ConnectionProxyException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/exception/ControllerException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/exception/ControllerException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/exception/NotDBDriverException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/filter/AntClubXssFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/filter/XssFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/manager/ConfigurationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/bundlemanager/ConfigurationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/manager/MessageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/bundlemanager/MessageManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/pool/ConnectionPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/pool/ConnectionPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/pool/ConnectionProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/pool/ConnectionProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/pool/DBResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/pool/DBResourceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/service/ServiceProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/service/ServiceProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/CreateDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/CreateDate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/CreatorFullURL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/CreatorFullURL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/exempleForPicJSP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/exempleForPicJSP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/myExampleJSP_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/myExampleJSP_page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/myExample_servlet_pic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/myExample_servlet_pic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/myExample_webXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/myExample_webXML.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/ActionFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/Controller1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/LoginCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/LoginCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/LoginCommand1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/LoginCommand1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/LogoutCommand1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/LogoutCommand1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/Parameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/entity/Parameter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/RequestContent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/ToPersonalPageCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/for_using/ActionCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/for_using/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/controller/Router.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/for_using/TransmisionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/controller/TransmisionType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/for_using/controller/AbstractSharingPicController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/for_using/controller/UploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/for_using/controller/UploadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/for_using/filter/AntClubAuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/for_using/filter/AntClubAuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/for_using/filter/AntClubXssFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/for_using/filter/AntClubXssFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/impl_old/AuthorizationUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/impl_old/AuthorizationUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/impl_old/ChangeLocale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/impl_old/ChangeLocale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/impl_old/LogOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/impl_old/LogOut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/impl_old/RegistrationUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/impl_old/RegistrationUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/service/AccountLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/service/AccountLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/servlet_exemple_code.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/servlet_exemple_code.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/validation/CredentialValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/validation/CredentialValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resource/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resource/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resource/locale.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resource/locale_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/locale_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resource/locale_rus.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/locale_rus.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resource/messages.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resource/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/messages_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resource/messages_rus.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/messages_rus.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/by/epam/club/dao/impl/ArticleDaoImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/by/epam/club/dao/impl/ArticleDaoImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/by/epam/club/dao/impl/PictureDaoImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/by/epam/club/dao/impl/PictureDaoImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/by/epam/club/dao/impl/UserDaoImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/by/epam/club/dao/impl/UserDaoImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/adminMain.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin_article.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/default.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/error.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/footer.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/guestMain.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/need_to_delete_other_view/guestMain.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/header.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/registration.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/static/img/TitlePage.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/web/img/TitlePage.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/test.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/Basket/user_page.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/userMain.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -284,7 +91,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/jsp/default2.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
+            <state relative-caret-position="145">
               <caret line="72" column="42" lean-forward="true" selection-start-line="72" selection-start-column="42" selection-end-line="72" selection-end-column="42" />
               <folding>
                 <element signature="n#c:if#1;n#jsp:root#0;n#!!top" />
@@ -428,7 +235,7 @@
           <entry type="REMOTE">
             <value>
               <list>
-                <branch-info repo="$PROJECT_DIR$" source="origin/version2" />
+                <branch-info repo="$PROJECT_DIR$" source="origin/16.06" />
               </list>
             </value>
           </entry>
@@ -726,7 +533,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560643788698" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560643872867" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect" value="MySQL" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="TestNG" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.TestNG" value="" />
@@ -1157,7 +964,7 @@
       <workItem from="1560515481398" duration="2716000" />
       <workItem from="1560558163414" duration="630000" />
       <workItem from="1560585339110" duration="27466000" />
-      <workItem from="1560619706788" duration="21912000" />
+      <workItem from="1560619706788" duration="22240000" />
     </task>
     <task id="LOCAL-00001" summary="21-05-19">
       <created>1558435672203</created>
@@ -1272,7 +1079,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="867362000" />
+    <option name="totallyTimeSpent" value="867690000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1285,7 +1092,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22163388" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1305,7 +1111,7 @@
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49920633" weight="0.2111293" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32569557" />
       <window_info anchor="bottom" id="Database Console" order="8" sideWeight="0.49924356" weight="0.28805238" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.050736498" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.33551556" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.1482602" side_tool="true" weight="0.7725041" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49167928" weight="0.3502455" />
@@ -2269,7 +2075,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/jsp/default2.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
+        <state relative-caret-position="145">
           <caret line="72" column="42" lean-forward="true" selection-start-line="72" selection-start-column="42" selection-end-line="72" selection-end-column="42" />
           <folding>
             <element signature="n#c:if#1;n#jsp:root#0;n#!!top" />
