@@ -1,10 +1,11 @@
 package by.epam.club.dao.impl;
 
+import by.epam.club.dao.picturedao.PictureDaoImpl;
 import by.epam.club.entity.Parameter;
 import by.epam.club.entity.Picture;
 import by.epam.club.exception.DaoException;
 import by.epam.club.pool.ConnectionPool;
-import by.epam.club.tool.FromBlobToPicture;
+import by.epam.club.tools.need_to_delete_other_view.FromBlobToPicture;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;

@@ -5,6 +5,8 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;
 import java.io.IOException;
 
+import static by.epam.club.entity.Parameter.ENCODING_PARAM;
+
 /**
  * Created by Maevskiy on 05.06.2019 20:29
  *
@@ -20,7 +22,7 @@ public class EncodingFilter extends GenericFilter {
 
     @Override
     public void init(FilterConfig filterConfig) {
-        code = filterConfig.getInitParameter("encoding");
+        code = filterConfig.getInitParameter(ENCODING_PARAM);
     }
 
     @Override

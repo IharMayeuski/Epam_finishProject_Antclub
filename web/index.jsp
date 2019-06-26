@@ -5,8 +5,8 @@
 <html>
 <body>
 
-<jsp:forward page="/jsp/default2.jsp"/>
-<%--<c:redirect url="controller?command=go_to_default_page"/>--%>
+<%--<jsp:forward page="/jsp/default.jsp"/>--%>
+<c:redirect url="controller?command=go_to_default_page"/>
 
 </body>
 </html>

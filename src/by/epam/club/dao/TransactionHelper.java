@@ -1,6 +1,6 @@
 package by.epam.club.dao;
 
-
+import by.epam.club.dao.basedao.BaseDao;
 import by.epam.club.exception.DaoException;
 import by.epam.club.pool.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
@@ -8,7 +8,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-
 
 public class TransactionHelper {
     private static Logger logger = LogManager.getLogger();
@@ -32,12 +31,14 @@ public class TransactionHelper {
     public void endTransaction() throws DaoException {
         try {
             connection.setAutoCommit(true);
+
             ConnectionPool.getInstance().returnConnection(connection);
             for (BaseDao d : daosArray) {
                 d.setInAction(false);
             }
         } catch (SQLException e) {
             logger.error("SQL endTransaction exception ", e);
+
             throw new DaoException("SQL endTransaction exception ", e);
         }
     }

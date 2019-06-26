@@ -5,11 +5,12 @@ package by.epam.club.entity;
 import java.sql.Blob;
 import java.util.Objects;
 
-public class User extends Entity  {
+public class User extends Entity {
     private long id;
     private String login;
     private String email;
     private String date_registration;
+    private String date_activity;
 
     private String banned;
     private String deleted;
@@ -49,6 +50,14 @@ public class User extends Entity  {
 
     public void setDate_registration(String date_registration) {
         this.date_registration = date_registration;
+    }
+
+    public String getDate_activity() {
+        return date_activity;
+    }
+
+    public void setDate_activity(String date_activity) {
+        this.date_activity = date_activity;
     }
 
     public String getBanned() {
@@ -103,22 +112,38 @@ public class User extends Entity  {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         User user = (User) o;
-        return id == user.id &&
-                Objects.equals(login, user.login) &&
-                Objects.equals(email, user.email) &&
-                Objects.equals(date_registration, user.date_registration) &&
-                Objects.equals(banned, user.banned) &&
-                Objects.equals(deleted, user.deleted) &&
-                Objects.equals(role, user.role) &&
-                Objects.equals(firstname, user.firstname) &&
-                Objects.equals(familyname, user.familyname) &&
-                Objects.equals(blob, user.blob);
+
+        if (id != user.id) return false;
+        if (login != null ? !login.equals(user.login) : user.login != null) return false;
+        if (email != null ? !email.equals(user.email) : user.email != null) return false;
+        if (date_registration != null ? !date_registration.equals(user.date_registration) : user.date_registration != null)
+            return false;
+        if (date_activity != null ? !date_activity.equals(user.date_activity) : user.date_activity != null)
+            return false;
+        if (banned != null ? !banned.equals(user.banned) : user.banned != null) return false;
+        if (deleted != null ? !deleted.equals(user.deleted) : user.deleted != null) return false;
+        if (role != null ? !role.equals(user.role) : user.role != null) return false;
+        if (firstname != null ? !firstname.equals(user.firstname) : user.firstname != null) return false;
+        if (familyname != null ? !familyname.equals(user.familyname) : user.familyname != null) return false;
+        return blob != null ? blob.equals(user.blob) : user.blob == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, login, email, date_registration, banned, deleted, role, firstname, familyname, blob);
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (login != null ? login.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (date_registration != null ? date_registration.hashCode() : 0);
+        result = 31 * result + (date_activity != null ? date_activity.hashCode() : 0);
+        result = 31 * result + (banned != null ? banned.hashCode() : 0);
+        result = 31 * result + (deleted != null ? deleted.hashCode() : 0);
+        result = 31 * result + (role != null ? role.hashCode() : 0);
+        result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
+        result = 31 * result + (familyname != null ? familyname.hashCode() : 0);
+        result = 31 * result + (blob != null ? blob.hashCode() : 0);
+        return result;
     }
 
     @Override
@@ -128,6 +153,7 @@ public class User extends Entity  {
                 ", login='" + login + '\'' +
                 ", email='" + email + '\'' +
                 ", date_registration='" + date_registration + '\'' +
+                ", date_activity='" + date_activity + '\'' +
                 ", banned='" + banned + '\'' +
                 ", deleted='" + deleted + '\'' +
                 ", role='" + role + '\'' +

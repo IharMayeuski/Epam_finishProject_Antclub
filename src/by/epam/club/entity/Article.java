@@ -1,9 +1,7 @@
 package by.epam.club.entity;
 
-import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Article extends Entity{
     private long id;
@@ -17,7 +15,7 @@ public class Article extends Entity{
     private String banned;
     private String deleted;
     private String userLogin;
-    private ArrayList<CommentToArticle> comments;
+    private List<CommentToArticle> comments;
     private int commentQuantity;
 
     public long getId() {
@@ -108,11 +106,11 @@ public class Article extends Entity{
         this.userLogin = userLogin;
     }
 
-    public ArrayList<CommentToArticle> getComments() {
+    public List<CommentToArticle> getComments() {
         return comments;
     }
 
-    public void setComments(ArrayList<CommentToArticle> comments) {
+    public void setComments(List<CommentToArticle> comments) {
         this.comments = comments;
     }
 

@@ -2,8 +2,9 @@ package by.epam.club.bundlemanager;
 
 import java.util.ResourceBundle;
 
+import static by.epam.club.entity.Parameter.RESOURCE_CONFIG;
+
 public class ConfigurationManager {
-    private static String RESOURCE_CONFIG = "resource.config";
 
     private final static ResourceBundle resourceBundle = ResourceBundle.getBundle(RESOURCE_CONFIG);
     private ConfigurationManager(){}

@@ -1,7 +1,6 @@
 package by.epam.club.tool;
 
 import by.epam.club.exception.DaoException;
-import by.epam.club.exception.ServiceException;
 
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;

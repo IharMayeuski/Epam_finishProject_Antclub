@@ -19,7 +19,7 @@ import java.util.Set;
 
 
 @WebFilter(urlPatterns = {"/*"})
-public class CommandSecurityFilter extends GenericFilter {
+class CommandSecurityFilter extends GenericFilter {
 
     private static final String GO_TO_REGISTRATION_PAGE = "go_to_registration_page";
     private static final String GO_TO_DEFAULT_PAGE = "go_to_default_page";
@@ -77,7 +77,7 @@ public class CommandSecurityFilter extends GenericFilter {
         } catch (Exception e) {// FIXME: 6/6/2019
             logger.error(" Exception in SecurityFilter ", e);
             e.printStackTrace();
-          // response.sendRedirect(request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath() +"/default.jsp");
+           response.sendRedirect(request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath() +"/default.jsp");
         }
     }
 }

@@ -1,6 +1,6 @@
 package by.epam.club.dao.impl;
 
-import by.epam.club.entity.Article;
+import by.epam.club.dao.articledao.ArticleDaoImpl;
 import by.epam.club.exception.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

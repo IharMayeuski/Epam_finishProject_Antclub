@@ -88,5 +88,14 @@
     </orderEntry>
     <orderEntry type="library" name="javax.annotation" level="project" />
     <orderEntry type="library" name="javax.mail:mail:1.4.7" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/web/WEB-INF/lib/annotations-16.0.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

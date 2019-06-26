@@ -1,6 +1,5 @@
 package by.epam.club.entity;
 
-import javax.servlet.http.Part;
 import java.sql.Blob;
 
 public class Picture extends Entity {

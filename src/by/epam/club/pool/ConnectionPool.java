@@ -17,17 +17,18 @@ import static by.epam.club.pool.DBResourceManager.*;
 public class ConnectionPool {
 
     private static ConnectionPool instance;
-    private static Lock lock = new ReentrantLock();
-    private static BlockingQueue<ConnectionProxy> poolConnectionProxy;
-    private static AtomicBoolean isPoolCreated = new AtomicBoolean(false);
+    private static Lock LOCK = new ReentrantLock();
+    private static BlockingQueue<ConnectionProxy> POOL_CONNECTION_PROXY_AVAILABLE;
+    private static BlockingQueue<ConnectionProxy> POOL_CONNECTION_PROXY_USED;
+    private static AtomicBoolean IS_POOL_CREATED = new AtomicBoolean(false);
 
-    private static DBResourceManager dbResourceManager = DBResourceManager.getInstance();
+    private static DBResourceManager DB_RESOURCE_MANAGER = DBResourceManager.getInstance();
 
-    private static final String driverName = dbResourceManager.getValue(DB_DRIVER);
-    private static final String url = dbResourceManager.getValue(DB_URL);
-    private static final String login = dbResourceManager.getValue(DB_LOGIN);
-    private static final String password = dbResourceManager.getValue(DB_PASSWORD);
-    private static final int poolSize = Integer.parseInt(dbResourceManager.getValue(DB_POOL_SIZE));
+    private static final String DRIVER_NAME = DB_RESOURCE_MANAGER.getValue(DB_DRIVER);
+    private static final String URL = DB_RESOURCE_MANAGER.getValue(DB_URL);
+    private static final String LOGIN = DB_RESOURCE_MANAGER.getValue(DB_LOGIN);
+    private static final String PASSWORD = DB_RESOURCE_MANAGER.getValue(DB_PASSWORD);
+    private static final int POOLSIZE = Integer.parseInt(DB_RESOURCE_MANAGER.getValue(DB_POOL_SIZE));
 
     private static final Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
 
@@ -37,15 +38,15 @@ public class ConnectionPool {
     }
 
     public static ConnectionPool getInstance() {
-        if (!isPoolCreated.get()) {
+        if (!IS_POOL_CREATED.get()) {
             try {
-                lock.lock();
+                LOCK.lock();
                 if (instance == null) {
                     instance = new ConnectionPool();
-                    isPoolCreated.set(true);
+                    IS_POOL_CREATED.set(true);
                 }
             } finally {
-                lock.unlock();
+                LOCK.unlock();
             }
         }
         return instance;
@@ -53,9 +54,10 @@ public class ConnectionPool {
 
     private void initialize() {
         try {
-            Class.forName(driverName);
-            poolConnectionProxy = new ArrayBlockingQueue<>(poolSize);
-            while (poolConnectionProxy.size() < poolSize) {
+            Class.forName(DRIVER_NAME);
+            POOL_CONNECTION_PROXY_AVAILABLE = new ArrayBlockingQueue<>(POOLSIZE);
+            POOL_CONNECTION_PROXY_USED = new ArrayBlockingQueue<>(POOLSIZE);
+            while (POOL_CONNECTION_PROXY_AVAILABLE.size() < POOLSIZE) {
                 initializeOneConnection();
             }
         } catch (ClassNotFoundException e) {
@@ -66,9 +68,9 @@ public class ConnectionPool {
 
     private void initializeOneConnection() {
         try {
-            System.out.println(poolConnectionProxy.toString());
-            ConnectionProxy connectionProxy = new ConnectionProxy(DriverManager.getConnection(url, login, password));
-            poolConnectionProxy.put(connectionProxy);
+            System.out.println(POOL_CONNECTION_PROXY_AVAILABLE.toString());
+            ConnectionProxy connectionProxy = new ConnectionProxy(DriverManager.getConnection(URL, LOGIN, PASSWORD));
+            POOL_CONNECTION_PROXY_AVAILABLE.put(connectionProxy);
         } catch (InterruptedException e) {
             LOGGER.error("Interrupted Exception", e);
             Thread.currentThread().interrupt();
@@ -79,17 +81,16 @@ public class ConnectionPool {
     }
 
     private void repairConnectionPool() {
-        System.out.println(poolConnectionProxy.size()+" size connection proxy");
-       /* while (poolConnectionProxy.size() < poolSize) { fixme не работает починка пула ресурсов...
-            initializeOneConnection();
-        }*/
+        initializeOneConnection();
+        System.out.println("REPAIR CONNECTION");
     }
 
     public Connection takeConnection() {
         ConnectionProxy connection = null;
         try {
-            connection = poolConnectionProxy.take();
-            System.out.println(poolConnectionProxy.size()+ " pool size, "+ connection);
+            connection = POOL_CONNECTION_PROXY_AVAILABLE.take();
+            POOL_CONNECTION_PROXY_USED.put(connection);
+
         } catch (InterruptedException e) {
             LOGGER.error("Interrupted Exception", e);
             Thread.currentThread().interrupt();
@@ -98,11 +99,13 @@ public class ConnectionPool {
     }
 
     public void returnConnection(Connection connection) {
+        int allConnections = 0;
         if (connection != null) {
             ConnectionProxy connectionProxy = (ConnectionProxy) connection;
             try {
                 if (!connection.isClosed()) {
-                    poolConnectionProxy.put(connectionProxy);
+                    POOL_CONNECTION_PROXY_AVAILABLE.put(connectionProxy);
+                    POOL_CONNECTION_PROXY_USED.remove(connectionProxy);
                 }
             } catch (SQLException e) {
                 LOGGER.error("Connection can't return without exception", e);
@@ -110,11 +113,12 @@ public class ConnectionPool {
                 LOGGER.error("Interrupted Exception", e);
                 Thread.currentThread().interrupt();
             } finally {
-                if (poolConnectionProxy.size() < poolSize) {
+                allConnections = POOL_CONNECTION_PROXY_AVAILABLE.size() + POOL_CONNECTION_PROXY_USED.size();
+                if (allConnections < POOLSIZE) {
                     repairConnectionPool();
                 }
                 try {
-                    if(!connectionProxy.getAutoCommit()) {
+                    if (!connectionProxy.getAutoCommit()) {
                         connectionProxy.setAutoCommit(true);
                     }
                 } catch (SQLException e) {
@@ -126,10 +130,10 @@ public class ConnectionPool {
 
     public void destroyConnectionPool() {
         ConnectionProxy connection = null;
-        int size = poolConnectionProxy.size();
+        int size = POOL_CONNECTION_PROXY_AVAILABLE.size();
         for (int i = 0; i < size; i++) {
             try {
-                connection = poolConnectionProxy.take();
+                connection = POOL_CONNECTION_PROXY_AVAILABLE.take();
             } catch (InterruptedException e) {
                 LOGGER.error("Interrupted Exception", e);
             }

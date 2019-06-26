@@ -1,7 +1,6 @@
 package by.epam.club.entity;
 
 import java.sql.Blob;
-import java.util.Objects;
 
 public class TypeNews extends Entity {
     private int id;

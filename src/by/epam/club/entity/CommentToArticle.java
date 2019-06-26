@@ -1,8 +1,5 @@
 package by.epam.club.entity;
 
-import java.util.List;
-import java.util.Objects;
-
 public class CommentToArticle extends Entity {
     private long id;
     private String text;
