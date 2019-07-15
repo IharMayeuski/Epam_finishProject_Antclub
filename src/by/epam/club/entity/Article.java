@@ -1,6 +1,10 @@
 package by.epam.club.entity;
-
-import java.util.ArrayList;
+/**
+ *Class of Entity for working
+ *
+ * @author Maeuski Igor
+ * @version 1.0
+ */
 import java.util.List;
 
 public class Article extends Entity{
@@ -15,7 +19,9 @@ public class Article extends Entity{
     private String banned;
     private String deleted;
     private String userLogin;
-    private List<CommentToArticle> comments;
+    private List<Comment> comments;
+    private List<Picture> pictures;
+
     private int commentQuantity;
 
     public long getId() {
@@ -106,12 +112,20 @@ public class Article extends Entity{
         this.userLogin = userLogin;
     }
 
-    public List<CommentToArticle> getComments() {
+    public List<Comment> getComments() {
         return comments;
     }
 
-    public void setComments(List<CommentToArticle> comments) {
+    public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public List<Picture> getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(List<Picture> pictures) {
+        this.pictures = pictures;
     }
 
     public int getCommentQuantity() {
@@ -137,11 +151,13 @@ public class Article extends Entity{
         if (commentQuantity != article.commentQuantity) return false;
         if (title != null ? !title.equals(article.title) : article.title != null) return false;
         if (text != null ? !text.equals(article.text) : article.text != null) return false;
-        if (!date_registration.equals(article.date_registration)) return false;
+        if (date_registration != null ? !date_registration.equals(article.date_registration) : article.date_registration != null)
+            return false;
         if (banned != null ? !banned.equals(article.banned) : article.banned != null) return false;
         if (deleted != null ? !deleted.equals(article.deleted) : article.deleted != null) return false;
         if (userLogin != null ? !userLogin.equals(article.userLogin) : article.userLogin != null) return false;
-        return comments != null ? comments.equals(article.comments) : article.comments == null;
+        if (comments != null ? !comments.equals(article.comments) : article.comments != null) return false;
+        return pictures != null ? pictures.equals(article.pictures) : article.pictures == null;
     }
 
     @Override
@@ -151,13 +167,14 @@ public class Article extends Entity{
         result = 31 * result + (text != null ? text.hashCode() : 0);
         result = 31 * result + positiveRating;
         result = 31 * result + negativeRating;
-        result = 31 * result + date_registration.hashCode();
+        result = 31 * result + (date_registration != null ? date_registration.hashCode() : 0);
         result = 31 * result + (int) (userId ^ (userId >>> 32));
         result = 31 * result + typeNewsId;
         result = 31 * result + (banned != null ? banned.hashCode() : 0);
         result = 31 * result + (deleted != null ? deleted.hashCode() : 0);
         result = 31 * result + (userLogin != null ? userLogin.hashCode() : 0);
         result = 31 * result + (comments != null ? comments.hashCode() : 0);
+        result = 31 * result + (pictures != null ? pictures.hashCode() : 0);
         result = 31 * result + commentQuantity;
         return result;
     }
@@ -177,6 +194,7 @@ public class Article extends Entity{
                 ", deleted='" + deleted + '\'' +
                 ", userLogin='" + userLogin + '\'' +
                 ", comments=" + comments +
+                ", pictures=" + pictures +
                 ", commentQuantity=" + commentQuantity +
                 '}';
     }

@@ -1,9 +1,13 @@
 package by.epam.club.entity;
 
-
-
 import java.sql.Blob;
 import java.util.Objects;
+/**
+ *Class of Entity for working
+ *
+ * @author Maeuski Igor
+ * @version 1.0
+ */
 
 public class User extends Entity {
     private long id;

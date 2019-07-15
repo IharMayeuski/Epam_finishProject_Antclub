@@ -11,18 +11,22 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import static by.epam.club.pool.DBResourceManager.*;
+import static by.epam.club.pool.DbResourceManager.*;
 
+/**
+ * The special class for producing connection pool with two queues: used and available
+ *
+ * @author Maeuski Igor
+ * @version 1.0
+ */
 
 public class ConnectionPool {
-
     private static ConnectionPool instance;
     private static Lock LOCK = new ReentrantLock();
     private static BlockingQueue<ConnectionProxy> POOL_CONNECTION_PROXY_AVAILABLE;
     private static BlockingQueue<ConnectionProxy> POOL_CONNECTION_PROXY_USED;
     private static AtomicBoolean IS_POOL_CREATED = new AtomicBoolean(false);
-
-    private static DBResourceManager DB_RESOURCE_MANAGER = DBResourceManager.getInstance();
+    private static DbResourceManager DB_RESOURCE_MANAGER = DbResourceManager.getInstance();
 
     private static final String DRIVER_NAME = DB_RESOURCE_MANAGER.getValue(DB_DRIVER);
     private static final String URL = DB_RESOURCE_MANAGER.getValue(DB_URL);
@@ -32,11 +36,13 @@ public class ConnectionPool {
 
     private static final Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
 
-
     private ConnectionPool() {
         initialize();
     }
 
+    /**
+     * @return instance of connection pool
+     */
     public static ConnectionPool getInstance() {
         if (!IS_POOL_CREATED.get()) {
             try {
@@ -52,6 +58,9 @@ public class ConnectionPool {
         return instance;
     }
 
+    /**
+     * The special method for initializing and creating connections in connection pool
+     */
     private void initialize() {
         try {
             Class.forName(DRIVER_NAME);
@@ -68,29 +77,31 @@ public class ConnectionPool {
 
     private void initializeOneConnection() {
         try {
-            System.out.println(POOL_CONNECTION_PROXY_AVAILABLE.toString());
             ConnectionProxy connectionProxy = new ConnectionProxy(DriverManager.getConnection(URL, LOGIN, PASSWORD));
-            POOL_CONNECTION_PROXY_AVAILABLE.put(connectionProxy);
-        } catch (InterruptedException e) {
-            LOGGER.error("Interrupted Exception", e);
-            Thread.currentThread().interrupt();
+            POOL_CONNECTION_PROXY_AVAILABLE.offer(connectionProxy);
         } catch (SQLException e) {
-            LOGGER.error("Connection can't close without exception", e);
-            throw new RuntimeException(e);
+            LOGGER.error("Can't initialize one connection", e);
         }
     }
 
+    /**
+     * the method for repair connection pool in the case if available queue and used
+     * totally less than connection pool's size
+     */
     private void repairConnectionPool() {
         initializeOneConnection();
-        System.out.println("REPAIR CONNECTION");
+        LOGGER.warn("Repaire one connection");
     }
+
+    /**
+     * @return take one connection from available queue to used queue
+     */
 
     public Connection takeConnection() {
         ConnectionProxy connection = null;
         try {
             connection = POOL_CONNECTION_PROXY_AVAILABLE.take();
             POOL_CONNECTION_PROXY_USED.put(connection);
-
         } catch (InterruptedException e) {
             LOGGER.error("Interrupted Exception", e);
             Thread.currentThread().interrupt();
@@ -98,6 +109,9 @@ public class ConnectionPool {
         return connection;
     }
 
+    /**
+     * @param connection return connection from used queue to availabale
+     */
     public void returnConnection(Connection connection) {
         int allConnections = 0;
         if (connection != null) {
@@ -128,6 +142,9 @@ public class ConnectionPool {
         }
     }
 
+    /**
+     * the method for destroying and close connection pool
+     */
     public void destroyConnectionPool() {
         ConnectionProxy connection = null;
         int size = POOL_CONNECTION_PROXY_AVAILABLE.size();
@@ -148,6 +165,9 @@ public class ConnectionPool {
         deregisterDriver();
     }
 
+    /**
+     * In this method we deregisterin drivers of connection to data base
+     */
     private void deregisterDriver() {
         Enumeration<Driver> drivers = DriverManager.getDrivers();
         while (drivers.hasMoreElements()) {

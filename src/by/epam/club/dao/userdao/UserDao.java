@@ -2,17 +2,21 @@ package by.epam.club.dao.userdao;
 
 import by.epam.club.entity.User;
 import by.epam.club.exception.DaoException;
-import by.epam.club.exception.ServiceException;
 
 import javax.servlet.http.Part;
 import java.util.List;
-import java.util.Set;
 
+/**
+ * Interface of level dao for working with User
+ *
+ * @author Maeuski Igor
+ * @version 1.0
+ */
 public interface UserDao {
 
     boolean createUser(String login, String email, String password, String date) throws DaoException;
 
-    boolean createIdInUserInfo(String id) throws DaoException;
+    void createIdInUserInfo(String id) throws DaoException;
 
     User checkUser(String login, String password, String date_activity) throws DaoException;
 
@@ -20,11 +24,11 @@ public interface UserDao {
 
     void markUserDeleted(String login, String email, String password) throws DaoException;
 
-    boolean markUserUndeleted(User user) throws DaoException;
+    void markUserUndeleted(String user) throws DaoException;
 
-    boolean markUserBanned(User user) throws DaoException;
+    void markUserBanned(String userId) throws DaoException;
 
-    boolean markUserUnbanned(User user) throws DaoException;
+    void markUserUnbanned(String userId) throws DaoException;
 
     List<User> takeAllUser() throws DaoException;
 
@@ -40,11 +44,17 @@ public interface UserDao {
 
     void newPassword(String email) throws DaoException;
 
-    boolean updateUserLoginEmail(User user, String login, String email) throws DaoException;
+   void updateUserLoginEmail(User user, String login, String email) throws DaoException;
 
     void updateUserInfo(User user, String firstname, String familyname) throws DaoException;
 
     void createUserUploade(String userId, Part part) throws DaoException;
+
+    void markUserDeleted(String userId) throws DaoException;
+
+    void markUser(User findUser) throws DaoException;
+
+    void markAdmin(User findUser) throws DaoException;
 
 }
 

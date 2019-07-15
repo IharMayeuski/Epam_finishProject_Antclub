@@ -13,7 +13,58 @@
 
 <fmt:setLocale value="${sessionScope.local}"/>
 <fmt:setBundle basename="resource.locale" var="loc"/>
-<fmt:message bundle="${loc}" key="locale.default.registration" var="registration_button"/>
+<fmt:message bundle="${loc}" key="locale.registration.registration" var="registration_button"/>
+<fmt:message bundle="${loc}" key="locale.search_user.block" var="block"/>
+<fmt:message bundle="${loc}" key="locale.search_user.unblock" var="unblock"/>
+<fmt:message bundle="${loc}" key="locale.search_user.delete" var="delete"/>
+<fmt:message bundle="${loc}" key="locale.search_user.restore" var="restore"/>
+<fmt:message bundle="${loc}" key="locale.search_user.markuser" var="markuser"/>
+<fmt:message bundle="${loc}" key="locale.search_user.markadmin" var="markadmin"/>
+<fmt:message bundle="${loc}" key="locale.search_user.role" var="role"/>
+<fmt:message bundle="${loc}" key="locale.search_user.name" var="name"/>
+<fmt:message bundle="${loc}" key="locale.search_user.familyname" var="familyname"/>
+<fmt:message bundle="${loc}" key="locale.search_user.registrated" var="registrated"/>
+<fmt:message bundle="${loc}" key="locale.search_user.lastactivity" var="lastactivity"/>
+<fmt:message bundle="${loc}" key="locale.search_user.aboutclient" var="aboutclient"/>
+<fmt:message bundle="${loc}" key="locale.search_user.sendmessage" var="sendmessage"/>
+<fmt:message bundle="${loc}" key="locale.search_user.titlemessage" var="titlemessage"/>
+<fmt:message bundle="${loc}" key="locale.search_user.textmessage" var="textmessage"/>
+<fmt:message bundle="${loc}" key="locale.search_user.profilehistory" var="profilehistory"/>
+<fmt:message bundle="${loc}" key="locale.search_user.textwillsendclient" var="textwillsend"/>
+<fmt:message bundle="${loc}" key="locale.search_user.status" var="status"/>
+<fmt:message bundle="${loc}" key="locale.default.login" var="login"/>
+<fmt:message bundle="${loc}" key="locale.default.email" var="email"/>
+<fmt:message bundle="${loc}" key="locale.default.passwordagain" var="passagain"/>
+<fmt:message bundle="${loc}" key="locale.user_profile.inputmessage" var="inputmessage"/>
+<fmt:message bundle="${loc}" key="locale.user_profile.outputmessage" var="outputmessage"/>
+<fmt:message bundle="${loc}" key="locale.user_profile.changedata" var="changedata"/>
+<fmt:message bundle="${loc}" key="locale.user_profile.changephoto" var="changephoto"/>
+<fmt:message bundle="${loc}" key="locale.user_profile.deleteaccount" var="deleteaccount"/>
+<fmt:message bundle="${loc}" key="locale.user_profile.changeprofile" var="changeprofile"/>
+<fmt:message bundle="${loc}" key="locale.user_profile.changepassword" var="changepassword"/>
+<fmt:message bundle="${loc}" key="locale.default.password" var="pass"/>
+<fmt:message bundle="${loc}" key="locale.header.submit" var="submit"/>
+<fmt:message bundle="${loc}" key="locale.user_profile.messagefor" var="messagefor"/>
+<fmt:message bundle="${loc}" key="locale.user_profile.messagefrom" var="messagefrom"/>
+<fmt:message bundle="${loc}" key="locale.user_profile.name" var="name"/>
+<fmt:message bundle="${loc}" key="locale.user_profile.text" var="text"/>
+<fmt:message bundle="${loc}" key="locale.user_profile.date" var="date"/>
+<fmt:message bundle="${loc}" key="locale.user_profile.delete" var="delete"/>
+<fmt:message bundle="${loc}" key="locale.adminview.deleted" var="deleted"/>
+<fmt:message bundle="${loc}" key="locale.adminview.blocked" var="blocked"/>
+<fmt:message bundle="${loc}" key="locale.adminview.allarticles" var="allarticles"/>
+<fmt:message bundle="${loc}" key="locale.search_user.role" var="roleuser"/>
+<fmt:message bundle="${loc}" key="locale.adminview.allarticles" var="allarticles"/>
+<fmt:message bundle="${loc}" key="locale.adminview.addnewarticle" var="addnewarticle"/>
+<fmt:message bundle="${loc}" key="locale.adminview.photo" var="photo"/>
+<fmt:message bundle="${loc}" key="locale.adminview.type" var="typetext"/>
+<fmt:message bundle="${loc}" key="locale.adminview.alltypes" var="alltypes"/>
+<fmt:message bundle="${loc}" key="locale.adminview.allusers" var="allusers"/>
+<fmt:message bundle="${loc}" key="locale.adminview.addnewtype" var="addnewtype"/>
+<fmt:message bundle="${loc}" key="locale.lookarticle.read" var="readarticle"/>
+
+<fmt:message bundle="${loc}" key="locale.search_user.block" var="block"/>
+<fmt:message bundle="${loc}" key="locale.search_user.unblock" var="unblock"/>
 
 <html lang="en" class="no-js">
 <head>
@@ -22,8 +73,8 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/demo.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style3.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/animate-custom.css"/>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/js/jquery.min.js"/>
-    ">
+    <link href="${pageContext.request.contextPath}/js/jquery.min.js"/>
+
 
     <link rel="stylesheet" href="http://bootstraptema.ru/plugins/2015/bootstrap3/bootstrap.min.css"/>
     <link rel="stylesheet" href="http://bootstraptema.ru/plugins/font-awesome/4-4-0/font-awesome.min.css"/>
@@ -45,9 +96,11 @@
 
 <c:import url="header.jsp"/>
 
-<p class="text-left text-info font-weight-bold">${requestScope.All_is_ok}</p>
-<p class="text-left text-danger font-weight-bold">${requestScope.error}</p>
-
+<div class="text-message">
+    <script> $('.text-message').delay(3000).animate({'opacity': '0'}, 500);</script>
+    ${requestScope.All_is_ok}
+    ${requestScope.error}
+</div>
 
 <%--ADMINKA--%>
 <div class="container" id="dialog">
@@ -57,46 +110,108 @@
                 <div class="panel">
                     <div class="panel-body">
                         <ul id="myTab" class="nav nav-pills">
-                            <li class="active"><a href="#all_user" data-toggle="tab">Все пользователи</a></li>
-                            <li class=""><a href="#deleted" data-toggle="tab">Удаленные</a></li>
-                            <li class=""><a href="#banned" data-toggle="tab">Заблокированные</a></li>
-                            <li class=""><a href="#all_types" data-toggle="tab">Все разделы</a></li>
-                            <li class=""><a method="POST" href="controller?command=go_to_new_typenews">Добавить новый раздел <span class="sr-only">(current)</span></a></li>
+                            <li class="active"><a href="#all_user" data-toggle="tab">${allusers}</a></li>
+                            <li class=""><a href="#deleted" data-toggle="tab">${deleted}</a></li>
+                            <li class=""><a href="#banned" data-toggle="tab">${blocked}</a></li>
+                            <li class=""><a href="#all_types" data-toggle="tab">${alltypes}</a></li>
+                            <li class="">
+                               <%-- <a method="POST" href="controller?command=go_to_new_typenews">${addnewtype}<span class="sr-only">(current)</span></a>
+--%>
+                              <a>  <form action="controller" method="post" role="form"
+                                      style="display: inline-block;">
+                                    <button class="btn-link" type="submit"
+                                            name="command" value="go_to_new_typenews">${addnewtype}
+                                    </button>
+                              </form></a>
+
+
+                            </li>
                         </ul>
                         <div id="myTabContent" class="tab-content">
                             <hr>
                             <div class="tab-pane fade active in" id="all_user">
                                 <table class="table table-th-block">
                                     <tbody>
-                                    <td> Photo</td>
-                                    <td class="active">Role:</td>
-                                    <td class="active">Логин:</td>
-                                    <td class="active">Email:</td>
-                                    <td class="active">Activity</td>
-                                    <td class="active">Banned</td>
-                                    <td class="active">Deleted</td>
-                                    <td class="active">Block</td>
-                                    <td class="active">Unblock</td>
-                                    <td class="active">Delete</td>
-                                    <td class="active">Include</td>
+                                    <td>${photo}</td>
+                                    <td class="active">${roleuser}:</td>
+                                    <td class="active">${login}:</td>
+                                    <td class="active">${email}:</td>
+                                    <td class="active">${lastactivity}</td>
+                                    <td class="active">${blocked}</td>
+                                    <td class="active">${deleted}</td>
+                                    <td class="active">${block}</td>
+                                    <td class="active">${unblock}</td>
+                                    <td class="active">${delete}</td>
+                                    <td class="active">${restore}</td>
                                     <c:forEach items="${ALL_users}" var="user" varStatus="theCount">
                                         <tr>
                                             <td><img class="mr-3"
                                                      src="${pageContext.request.contextPath}/TakePictureFromDB/profile-${user.id}.jpg"
                                                      alt="" width="50ps" style="height:50px;"></td>
                                             <td>${user.role}</td>
-                                            <td><a href="controller?command=find_user_by_login&search=${user.login}">${user.login}</a></td>
+                                            <td>
+                                                <%--<a href="controller?command=find_user_by_login&search=${user.login}">${user.login}</a>   --%>
+                                                <a><form action="controller" method="post" role="form"
+                                                      style="display: inline-block;">
+                                                    <input type="hidden" name="search" value="${user.login}">
+                                                    <button class="btn-link" type="submit"
+                                                            name="command" value="find_user_by_login">${user.login}
+                                                    </button>
+                                                </form></a>
+
+                                            </td>
                                             <td>${user.email}</td>
                                             <td>${user.date_activity}</td>
                                             <td>${user.banned}</td>
                                             <td>${user.deleted}</td>
-                                            <td><a class="btn btn-outline-success" href="#" role="button">Блок</a></td>
-                                            <td><a class="btn btn-outline-success" href="#" role="button">Разблок</a>
+                                            <td>
+                                               <%-- <a class="btn btn-outline-success" href="controller?command=blocked_user&userId=${user.id}" role="button">${block}</a>--%>
+                                                <a><form action="controller" method="post" role="form"
+                                                         style="display: inline-block;">
+                                                    <input type="hidden" name="userId" value="${user.id}">
+                                                    <button class="btn btn-outline-success" type="submit"
+                                                            name="command" value="blocked_user">${block}
+                                                    </button>
+                                                </form></a>
                                             </td>
-                                            <td><a class="btn btn-outline-success" href="#"
-                                                   role="button">Удалить</a></td>
-                                            <td><a class="btn btn-outline-success" href="#"
-                                                   role="button">Восстановить</a>
+                                            <td>
+                                               <%-- <a class="btn btn-outline-success" href="controller?command=unblocked_user&userId=${user.id}" role="button">${unblock}</a>--%>
+
+                                                <a><form action="controller" method="post" role="form"
+                                                         style="display: inline-block;">
+                                                    <input type="hidden" name="userId" value="${user.id}">
+                                                    <button class="btn btn-outline-success" type="submit"
+                                                            name="command" value="unblocked_user">${unblock}
+                                                    </button>
+                                                </form></a>
+
+                                            </td>
+                                            <td>
+                                               <%-- <a class="btn btn-outline-success"  href="controller?command=delete_user&userId=${user.id}"
+                                                   role="button">${delete}</a>
+--%>
+                                                <a><form action="controller" method="post" role="form"
+                                                         style="display: inline-block;">
+                                                    <input type="hidden" name="userId" value="${user.id}">
+                                                    <button class="btn btn-outline-success" type="submit"
+                                                            name="command" value="delete_user">${delete}
+                                                    </button>
+                                                </form></a>
+
+                                            </td>
+                                            <td>
+                                               <%-- <a class="btn btn-outline-success" href="controller?command=undelete_user&userId=${user.id}"
+                                                   role="button">${restore}</a>--%>
+
+                                                <a><form action="controller" method="post" role="form"
+                                                         style="display: inline-block;">
+                                                    <input type="hidden" name="userId" value="${user.id}">
+                                                    <button class="btn btn-outline-success" type="submit"
+                                                            name="command" value="undelete_user">${restore}
+                                                    </button>
+                                                </form></a>
+
+
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -106,23 +221,45 @@
                             <div class="tab-pane fade" id="deleted">
                                 <table class="table table-th-block">
                                     <tbody>
-                                    <td> Photo</td>
-                                    <td class="active">Role:</td>
-                                    <td class="active">Логин:</td>
-                                    <td class="active">Email:</td>
-                                    <td class="active">Activity</td>
-                                    <td class="active">Include</td>
+                                    <td> ${photo}</td>
+                                    <td class="active">${roleuser}:</td>
+                                    <td class="active">${login}:</td>
+                                    <td class="active">${email}:</td>
+                                    <td class="active">${lastactivity}</td>
+                                    <td class="active">${restore}</td>
                                     <c:forEach items="${Deleted_Users}" var="user" varStatus="theCount">
                                         <tr>
                                             <td><img class="mr-3"
                                                      src="${pageContext.request.contextPath}/TakePictureFromDB/profile-${user.id}.jpg"
                                                      alt="" width="50ps" style="height:50px;"></td>
                                             <td>${user.role}</td>
-                                            <td><a href="controller?command=find_user_by_login&search=${user.login}">${user.login}</a></td>
+                                            <td>
+                                               <%-- <a href="controller?command=find_user_by_login&search=${user.login}">${user.login}</a>--%>
+
+                                                <a><form action="controller" method="post" role="form"
+                                                         style="display: inline-block;">
+                                                    <input type="hidden" name="search" value="${user.login}">
+                                                    <button class="btn-link" type="submit"
+                                                            name="command" value="find_user_by_login">${user.login}
+                                                    </button>
+                                                </form></a>
+
+                                            </td>
                                             <td>${user.email}</td>
                                             <td>${user.date_activity}</td>
-                                            <td><a class="btn btn-outline-success" href="#"
-                                                   role="button">Восстановить</a></td>
+                                            <td>
+                                              <%--  <a class="btn btn-outline-success" href="controller?command=undelete_user&userId=${user.id}"
+                                                   role="button">${restore}</a>--%>
+
+                                                <a><form action="controller" method="post" role="form"
+                                                         style="display: inline-block;">
+                                                    <input type="hidden" name="userId" value="${user.id}">
+                                                    <button class="btn btn-outline-success" type="submit"
+                                                            name="command" value="undelete_user">${restore}
+                                                    </button>
+                                                </form></a>
+
+                                            </td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>
@@ -131,23 +268,45 @@
                             <div class="tab-pane fade" id="banned">
                                 <table class="table table-th-block">
                                     <tbody>
-                                    <td> Photo</td>
-                                    <td class="active">Role:</td>
-                                    <td class="active">Логин:</td>
-                                    <td class="active">Email:</td>
-                                    <td class="active">Activity</td>
-                                    <td class="active">Include</td>
+                                    <td> ${photo}</td>
+                                    <td class="active">${roleuser}:</td>
+                                    <td class="active">${login}:</td>
+                                    <td class="active">${email}:</td>
+                                    <td class="active">${lastactivity}</td>
+                                    <td class="active">${restore}</td>
                                     <c:forEach items="${Banned_Users}" var="user" varStatus="theCount">
                                         <tr>
                                             <td><img class="mr-3"
                                                      src="${pageContext.request.contextPath}/TakePictureFromDB/profile-${user.id}.jpg"
                                                      alt="" width="50ps" style="height:50px;"></td>
                                             <td>${user.role}</td>
-                                            <td><a href="controller?command=find_user_by_login&search=${user.login}">${user.login}</a></td>
+                                            <td>
+                                               <%-- <a href="controller?command=find_user_by_login&search=${user.login}">${user.login}</a>--%>
+
+                                                <a><form action="controller" method="post" role="form"
+                                                         style="display: inline-block;">
+                                                    <input type="hidden" name="search" value="${user.login}">
+                                                    <button class="btn-link" type="submit"
+                                                            name="command" value="find_user_by_login">${user.login}
+                                                    </button>
+                                                </form></a>
+
+                                            </td>
                                             <td>${user.email}</td>
                                             <td>${user.date_activity}</td>
-                                            <td><a class="btn btn-outline-success" href="#"
-                                                   role="button">Восстановить</a></td>
+                                            <td>
+                                               <%-- <a class="btn btn-outline-success" href="controller?command=unblocked_user&userId=${user.id}"
+                                                   role="button">${restore}</a>--%>
+
+                                                <a><form action="controller" method="post" role="form"
+                                                         style="display: inline-block;">
+                                                    <input type="hidden" name="userId" value="${user.id}">
+                                                    <button class="btn btn-outline-success" type="submit"
+                                                            name="command" value="unblocked_user">${restore}
+                                                    </button>
+                                                </form></a>
+
+                                            </td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>
@@ -156,11 +315,11 @@
                             <div class="tab-pane fade" id="all_types">
                                 <table class="table table-th-block">
                                     <tbody>
-                                    <td> Photo</td>
-                                    <td class="active">Раздел:</td>
-                                    <td class="active">Deleted:</td>
-                                    <td class="active">Delete</td>
-                                    <td class="active">Include</td>
+                                    <td>${photo}</td>
+                                    <td class="active">${typetext}:</td>
+                                    <td class="active">${deleted}:</td>
+                                    <td class="active">${delete}</td>
+                                    <td class="active">${restore}</td>
                                     <td class="active"></td>
                                     <c:forEach items="${ALL_types}" var="type" varStatus="theCount">
                                         <tr>
@@ -170,13 +329,44 @@
 
                                             <td>${type.typeNews}</td>
                                             <td>${type.deleted}</td>
-                                            <td><a class="btn btn-outline-success" href="#"
-                                                   role="button">Удалить</a></td>
-                                            <td><a class="btn btn-outline-success" href="#"
-                                                   role="button">Восстановить</a>
+                                            <td>
+                                               <%-- <a class="btn btn-outline-success" href="controller?command=delete_type&link_id=${type.id}"
+                                                   role="button">${delete}</a>--%>
+
+                                                <a><form action="controller" method="post" role="form"
+                                                         style="display: inline-block;">
+                                                    <input type="hidden" name="link_id" value="${type.id}">
+                                                    <button class="btn btn-outline-success" type="submit"
+                                                            name="command" value="delete_type">${delete}
+                                                    </button>
+                                                </form></a>
+
                                             </td>
-                                            <td><a href="controller?command=article&link_id=${type.id}">Read
-                                                article</a></td>
+                                            <td>
+                                                <%--<a class="btn btn-outline-success" href="controller?command=undelete_type&link_id=${type.id}"
+                                                   role="button">${restore}</a>--%>
+
+                                                <a><form action="controller" method="post" role="form"
+                                                         style="display: inline-block;">
+                                                    <input type="hidden" name="link_id" value="${type.id}">
+                                                    <button class="btn btn-outline-success" type="submit"
+                                                            name="command" value="undelete_type">${restore}
+                                                    </button>
+                                                </form></a>
+
+                                            </td>
+                                            <td>
+                                               <%-- <a href="controller?command=article&link_id=${type.id}">${readarticle}</a>--%>
+
+                                                <a><form action="controller" method="post" role="form"
+                                                         style="display: inline-block;">
+                                                    <input type="hidden" name="link_id" value="${type.id}">
+                                                    <button class="btn btn-outline-success" type="submit"
+                                                            name="command" value="article">${readarticle}
+                                                    </button>
+                                                </form></a>
+
+                                            </td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>
@@ -206,7 +396,13 @@
 
     });/*end  ready*/
 </script>
+<script>
+    document.onkeydown = function (e) {
+        if (e.keyCode === 116) {
+            return false;
+        }
+    };
+</script>
 
 </body>
-<%--<footer><c:import url="footer.jsp"/></footer>--%>
 </html>

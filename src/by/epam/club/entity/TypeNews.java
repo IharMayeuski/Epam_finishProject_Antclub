@@ -1,6 +1,12 @@
 package by.epam.club.entity;
 
 import java.sql.Blob;
+/**
+ *Class of Entity for working
+ *
+ * @author Maeuski Igor
+ * @version 1.0
+ */
 
 public class TypeNews extends Entity {
     private int id;

@@ -1,12 +1,15 @@
 package by.epam.club.entity;
 
-import java.sql.Blob;
+/**
+ *Class of Entity for working
+ *
+ * @author Maeuski Igor
+ * @version 1.0
+ */
 
 public class Picture extends Entity {
     private long id;
     private String name;
-    private Blob blob;
-
     private String banned;
     private String deleted;
     private long article_id;
@@ -25,14 +28,6 @@ public class Picture extends Entity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Blob getBlob() {
-        return blob;
-    }
-
-    public void setBlob(Blob blob) {
-        this.blob = blob;
     }
 
     public String getBanned() {
@@ -62,26 +57,35 @@ public class Picture extends Entity {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Picture)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         Picture picture = (Picture) o;
 
-        if (getId() != picture.getId()) return false;
-        if (getArticle_id() != picture.getArticle_id()) return false;
-        if (getName() != null ? !getName().equals(picture.getName()) : picture.getName() != null) return false;
-        if (!getBlob().equals(picture.getBlob())) return false;
-        if (getBanned() != null ? !getBanned().equals(picture.getBanned()) : picture.getBanned() != null) return false;
-        return getDeleted() != null ? getDeleted().equals(picture.getDeleted()) : picture.getDeleted() == null;
+        if (id != picture.id) return false;
+        if (article_id != picture.article_id) return false;
+        if (name != null ? !name.equals(picture.name) : picture.name != null) return false;
+        if (banned != null ? !banned.equals(picture.banned) : picture.banned != null) return false;
+        return deleted != null ? deleted.equals(picture.deleted) : picture.deleted == null;
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (getId() ^ (getId() >>> 32));
-        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
-        result = 31 * result + getBlob().hashCode();
-        result = 31 * result + (getBanned() != null ? getBanned().hashCode() : 0);
-        result = 31 * result + (getDeleted() != null ? getDeleted().hashCode() : 0);
-        result = 31 * result + (int) (getArticle_id() ^ (getArticle_id() >>> 32));
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (banned != null ? banned.hashCode() : 0);
+        result = 31 * result + (deleted != null ? deleted.hashCode() : 0);
+        result = 31 * result + (int) (article_id ^ (article_id >>> 32));
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Picture{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", banned='" + banned + '\'' +
+                ", deleted='" + deleted + '\'' +
+                ", article_id=" + article_id +
+                '}';
     }
 }

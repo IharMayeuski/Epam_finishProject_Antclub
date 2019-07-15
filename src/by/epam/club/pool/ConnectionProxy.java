@@ -8,10 +8,16 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.Executor;
 
+/**
+ * The class for wrapping any connection
+ *
+ * @author Maeuski Igor
+ * @version 1.0
+ * @see Connection class
+ */
+
 public class ConnectionProxy implements Connection {
     private Connection connection;
-
-    private static final Logger LOGGER = LogManager.getLogger(ConnectionPool.class);
 
     ConnectionProxy(Connection connection) {
         this.connection = connection;
@@ -55,7 +61,6 @@ public class ConnectionProxy implements Connection {
     @Override
     public void rollback() throws SQLException {
         connection.rollback();
-
     }
 
     @Override
@@ -66,7 +71,6 @@ public class ConnectionProxy implements Connection {
     void realClose() throws SQLException {
         connection.close();
     }
-
 
     @Override
     public boolean isClosed() throws SQLException {
@@ -142,13 +146,11 @@ public class ConnectionProxy implements Connection {
     @Override
     public void setTypeMap(Map<String, Class<?>> map) throws SQLException {
         connection.setTypeMap(map);
-
     }
 
     @Override
     public void setHoldability(int holdability) throws SQLException {
         connection.setHoldability(holdability);
-
     }
 
     @Override
@@ -169,13 +171,11 @@ public class ConnectionProxy implements Connection {
     @Override
     public void rollback(Savepoint savepoint) throws SQLException {
         connection.rollback(savepoint);
-
     }
 
     @Override
     public void releaseSavepoint(Savepoint savepoint) throws SQLException {
         connection.releaseSavepoint(savepoint);
-
     }
 
     @Override
@@ -267,7 +267,6 @@ public class ConnectionProxy implements Connection {
     @Override
     public void setSchema(String schema) throws SQLException {
         connection.setSchema(schema);
-
     }
 
     @Override
@@ -288,7 +287,6 @@ public class ConnectionProxy implements Connection {
     @Override
     public int getNetworkTimeout() throws SQLException {
         return connection.getNetworkTimeout();
-
     }
 
     @Override

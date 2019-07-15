@@ -1,6 +1,10 @@
 package by.epam.club.entity;
-
-
+/**
+ *Class of Entity for working
+ *
+ * @author Maeuski Igor
+ * @version 1.0
+ */
 public class Letter extends Entity  {
     private long id;
     private String title;

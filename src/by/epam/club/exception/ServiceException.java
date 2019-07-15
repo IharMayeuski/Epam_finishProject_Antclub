@@ -1,8 +1,13 @@
 package by.epam.club.exception;
 
-public class ServiceException extends Exception {
+/**
+ * Exception of the level business logic
+ *
+ * @author Maeuski Igor
+ * @version 1.0
+ */
 
-	private static final long serialVersionUID = 1L;
+public class  ServiceException extends Exception {
 
 	public ServiceException() {
 		super();

@@ -6,7 +6,12 @@ import javax.servlet.http.HttpSession;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+ * Class for creating site's content with request parameters, request attributes, session attributes
+ *
+ * @author Maeuski Igor
+ * @version 1.0
+ */
 public class RequestContent {
     private HttpSession session;
     private HashMap<String, Object> requestAttributes;
@@ -18,25 +23,23 @@ public class RequestContent {
         requestAttributes = new HashMap<>();
         sessionAttributes = new HashMap<>();
     }
-
+    /**
+     * @param request send request with parameters for creating Enumeration collections of content
+     */
     void extractValues(HttpServletRequest request) {
-
         Enumeration<String> paramNames = request.getParameterNames();
         while (paramNames.hasMoreElements()) {
             String name = paramNames.nextElement();
             String[] param = request.getParameterValues(name);
             requestParameters.put(name, param);
         }
-
-       Enumeration<String> attrNames = request.getAttributeNames();// FIXME: 6/18/2019 повторяемый код
+       Enumeration<String> attrNames = request.getAttributeNames();
         while (attrNames.hasMoreElements()) {
             String name = attrNames.nextElement();
             Object attr = request.getAttribute(name);
             requestAttributes.put(name, attr);
         }
-
         Enumeration<String> sessionAttrNames = request.getSession().getAttributeNames();
-
         while (sessionAttrNames.hasMoreElements()) {
             String names = sessionAttrNames.nextElement();
             Object sessionAttr = request.getSession().getAttribute(names);
@@ -44,7 +47,9 @@ public class RequestContent {
         }
         session = request.getSession(false);
     }
-
+    /**
+     * @param request for attributes of session and request
+     */
     void insertAttributes(HttpServletRequest request) {
         for (Map.Entry<String, Object> entry : requestAttributes.entrySet()) {
             String key = entry.getKey();
@@ -60,18 +65,34 @@ public class RequestContent {
         }
     }
 
+    /**
+     * @param name the name of attribute
+     * @param attr the real attribute
+     */
     public void putRequestAttribute(String name, Object attr) {
         requestAttributes.put(name, attr);
     }
-
+    /**
+     * @param name the name of attribute
+     * @param attr the real attribute
+     */
     public void putSessionAttribute(String name, Object attr) {
         sessionAttributes.put(name, attr);
     }
 
+    /**
+     * @param name the name of attribute
+     * @param index the index of attribute
+     * @return parameter by name
+     */
     public String getRequestParameters(String name, int index) {
         return requestParameters.get(name) == null ? null : requestParameters.get(name)[index];
     }
 
+    /**
+     * @param name of attribute for checking
+     * @return attribute by name
+     */
     public Object getSessionAttribute(String name) {
         return sessionAttributes.get(name);
     }
@@ -85,24 +106,4 @@ public class RequestContent {
     public ServletContext getContext() {
         return session.getServletContext();
     }
-
-    @Override
-    public String toString() {
-        return "RequestContent{" +
-                "session=" + session +
-                ", requestAttributes=" + requestAttributes +
-                ", requestParameters=" + requestParameters +
-                ", sessionAttributes=" + sessionAttributes +
-                '}';
-    }
-
-
-  /*  private void putElement(Enumeration<String> attrNames, HashMap<String, Object> map, Object object) {
-        while (attrNames.hasMoreElements()) {
-            String name = attrNames.nextElement();
-
-            Object attr = object.getAttribute(name);
-            map.put(name, attr);
-        }
-    }*/
 }

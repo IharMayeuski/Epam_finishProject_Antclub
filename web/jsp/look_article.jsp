@@ -1,426 +1,315 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${sessionScope.local}"/>
+<fmt:setBundle basename="resource.locale" var="loc"/>
+<fmt:message bundle="${loc}" key="locale.lookarticle.deletearticle" var="deletearticle"/>
+<fmt:message bundle="${loc}" key="locale.lookarticle.deletephoto" var="deletephoto"/>
+<fmt:message bundle="${loc}" key="locale.lookarticle.addarticle" var="addarticle"/>
+<fmt:message bundle="${loc}" key="locale.lookarticle.addphoto" var="addphoto"/>
+<fmt:message bundle="${loc}" key="locale.lookarticle.addcomment" var="addcomment"/>
+<fmt:message bundle="${loc}" key="locale.lookarticle.deletecomment" var="deletecomment"/>
+<fmt:message bundle="${loc}" key="locale.lookarticle.updatecomment" var="updatecomment"/>
+<fmt:message bundle="${loc}" key="locale.lookarticle.updatearticle" var="updatearticle"/>
+<fmt:message bundle="${loc}" key="locale.lookarticle.comment" var="commentarticle"/>
+<fmt:message bundle="${loc}" key="locale.voted" var="voted"/>
+<fmt:message bundle="${loc}" key="locale.cantvote" var="cantVoted"/>
 
 <html>
 <head>
     <title>Title</title>
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/look_article.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/demo.css"/>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+    <style type="text/css">
+        body, footer {
+            color: black;
+        }
+
+        body {
+            background: url(http://bootstraptema.ru/images/bg/bg-1.png)
+        }
+
+    </style>
 </head>
 <body>
-
-<style type="text/css">
-    body, footer {
-        color: black;
-    }
-
-    body {
-        background-size: cover;
-        /* background-image: url("
-
-
-    <c:url value="/img/TitlePage.jpg"/>        ");*/
-    }
-
-    /* CSS */
-    .media-body .author {
-        display: inline-block;
-        font-size: 1rem;
-        color: #000;
-        font-weight: 700;
-    }
-
-    .media-body .metadata {
-        display: inline-block;
-        margin-left: .5rem;
-        color: #777;
-        font-size: .8125rem;
-    }
-
-    .footer-comment {
-        color: #777;
-    }
-
-    .vote.plus:hover {
-        color: green;
-    }
-
-    .vote.minus:hover {
-        color: red;
-    }
-
-    .vote {
-        cursor: pointer;
-    }
-
-    .comment-reply a {
-        color: #777;
-    }
-
-    .comment-reply a:hover, .comment-reply a:focus {
-        color: #000;
-        text-decoration: none;
-    }
-
-    .devide {
-        padding: 0px 4px;
-        font-size: 0.9em;
-    }
-
-    .media-text {
-        margin-bottom: 0.25rem;
-    }
-
-    .title-comments {
-        font-size: 1.4rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-        color: rgba(0, 0, 0, .87);
-        margin-bottom: 1rem;
-        padding-bottom: .25rem;
-        border-bottom: 1px solid rgba(34, 36, 38, .15);
-    }
-
-
-</style>
-
 <c:import url="header.jsp"/>
+<br>
 
-<c:out value="${requestScope.articles}"/>
-
-<img class="rounded-circle img-fluid float-right" src="../img/7.jpg" alt="" style="height:50px;">
-
-<div class="col-sm-4">
-    <p class="text-center">img-circle</p>
-    <img class="rounded-circle img-fluid float-right" src="../img/7.jpg" alt="" style="height:50px;">
+<div class="content text-center">
+    <p class="description">${types.typeNews}</p>
+    <c:if test="${role eq 'admin' or role eq 'user'}">
+        <%--<a class="btn btn-primary" method="POST" href="controller?command=go_to_new_article&type=${types.id}"
+           role="button">${addarticle}</a>--%>
+        <form action="controller" method="post" role="form"
+              style="display: inline-block;">
+            <input type="hidden" name="type" value="${types.id}">
+            <button class="btn btn-primary" type="submit"
+                    name="command" value="go_to_new_article">${addarticle}
+            </button>
+        </form>
+    </c:if>
+    <div class="filter"></div>
 </div>
-
-<div class="col-sm-4">
-    <p class="text-center">img-circle</p>
-    <img class="rounded-circle img-fluid float-right" src="../img/2.jpg" alt="" style="height:50px;">
-</div>
-<br><br><br>
-
-
-<%--<!-- Bootstrap 3 -->
-<div class="comments">
-    <h3 class="title-comments">Комментарии (6)</h3>
-    <ul class="media-list">
-        <!-- Комментарий (уровень 1) -->
-        <li class="media">
-            <div class="media-left">
-                <a href="#">
-                    <img class="media-object img-rounded" src="avatar1.jpg" alt="...">
-                </a>
-            </div>
-            <div class="media-body">
-                <div class="media-heading">
-                    <div class="author">Дима</div>
-                    <div class="metadata">
-                        <span class="date">16 ноября 2015, 13:43</span>
-                    </div>
-                </div>
-                <div class="media-text text-justify">Lorem ipsum dolor sit amet. Blanditiis praesentium voluptatum
-                    deleniti atque. Autem vel illum, qui blanditiis praesentium voluptatum deleniti atque corrupti.
-                    Dolor repellendus cum soluta nobis. Corporis suscipit laboriosam, nisi ut enim. Debitis aut
-                    perferendis doloribus asperiores repellat. sint, obcaecati cupiditate non numquam eius. Itaque earum
-                    rerum facilis. Similique sunt in ea commodi. Dolor repellendus numquam eius modi. Quam nihil
-                    molestiae consequatur, vel illum, qui ratione voluptatem accusantium doloremque.
-                </div>
-                <div class="footer-comment">
-            <span class="vote plus" title="Нравится">
-              <i class="fa fa-thumbs-up"></i>
-            </span>
-                    <span class="rating">
-              +1
-            </span>
-                    <span class="vote minus" title="Не нравится">
-              <i class="fa fa-thumbs-down"></i>
-            </span>
-                    <span class="devide">
-             |
-            </span>
-                    <span class="comment-reply">
-             <a href="#" class="reply">ответить</a>
-            </span>
-                </div>
-
-                <!-- Вложенный медиа-компонент (уровень 2) -->
-                <div class="media">
-                    <div class="media-left">
-                        <a href="#">
-                            <img class="media-object img-rounded" src="avatar2.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="media-body">
-                        <div class="media-heading">
-                            <div class="author">Пётр</div>
-                            <div class="metadata">
-                                <span class="date">19 ноября 2015, 10:28</span>
-                            </div>
-                        </div>
-                        <div class="media-text text-justify">Dolor sit, amet, consectetur, adipisci velit. Aperiam eaque
-                            ipsa, quae. Amet, consectetur, adipisci velit, sed quia consequuntur magni dolores. Ab illo
-                            inventore veritatis et quasi architecto. Quisquam est, omnis voluptas nulla. Obcaecati
-                            cupiditate non numquam eius modi tempora. Corporis suscipit laboriosam, nisi ut labore et
-                            aut reiciendis.
-                        </div>
-                        <div class="footer-comment">
-                <span class="vote plus" title="Нравится">
-                  <i class="fa fa-thumbs-up"></i>
-                </span>
-                            <span class="rating">
-                  +0
-                </span>
-                            <span class="vote minus" title="Не нравится">
-                  <i class="fa fa-thumbs-down"></i>
-                </span>
-                            <span class="devide">
-                  |
-                </span>
-                            <span class="comment-reply">
-                  <a href="#" class="reply">ответить</a>
-                </span>
-                        </div>
-
-                        <!-- Вложенный медиа-компонент (уровень 3) -->
-                        <div class="media">
-                            <div class="media-left">
-                                <a href="#">
-                                    <img class="media-object img-rounded" src="avatar3.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <div class="media-heading">
-                                    <div class="author">Александр</div>
-                                    <div class="metadata">
-                                        <span class="date">Вчера в 19:34</span>
-                                    </div>
-                                </div>
-                                <div class="media-text text-justify">Amet, consectetur, adipisci velit, sed ut labore et
-                                    dolore. Maiores alias consequatur aut perferendis doloribus asperiores. Voluptas
-                                    nulla vero eos. Minima veniam, quis nostrum exercitationem ullam corporis. Atque
-                                    corrupti, quos dolores eos, qui blanditiis praesentium voluptatum deleniti atque
-                                    corrupti. Quibusdam et harum quidem rerum necessitatibus saepe eveniet, ut enim
-                                    ipsam. Magni dolores et dolorum fuga nostrum exercitationem ullam. Eligendi optio,
-                                    cumque nihil molestiae consequatur.
-                                </div>
-                                <div class="footer-comment">
-                    <span class="vote plus" title="Нравится">
-                      <i class="fa fa-thumbs-up"></i>
-                    </span>
-                                    <span class="rating">
-                      +5
-                    </span>
-                                    <span class="vote minus" title="Не нравится">
-                      <i class="fa fa-thumbs-down"></i>
-                    </span>
-                                    <span class="devide">
-                      |
-                    </span>
-                                    <span class="comment-reply">
-                      <a href="#" class="reply">ответить</a>
-                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Конец вложенного комментария (уровень 3) -->
-
-                    </div>
-                </div>
-                <!-- Конец вложенного комментария (уровень 2) -->
-
-                <!-- Ещё один вложенный медиа-компонент (уровень 2) -->
-                <div class="media">
-                    <div class="media-left">
-                        <a href="#">
-                            <img class="media-object img-rounded" src="avatar4.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="media-body">
-                        <div class="media-heading">
-                            <div class="author">Сергей</div>
-                            <div class="metadata">
-                                <span class="date">20 ноября 2015, 17:45</span>
-                            </div>
-                        </div>
-                        <div class="media-text text-justify">Ex ea voluptate velit esse, quam nihil impedit, quo minus
-                            id quod. Totam rem aperiam eaque ipsa, quae ab illo. Minima veniam, quis nostrum
-                            exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid. Iste natus error sit
-                            voluptatem. Sunt, explicabo deleniti atque corrupti, quos dolores et expedita.
-                        </div>
-                        <div class="footer-comment">
-                <span class="vote plus" title="Нравится">
-                  <i class="fa fa-thumbs-up"></i>
-                </span>
-                            <span class="rating">
-                  +1
-                </span>
-                            <span class="vote minus" title="Не нравится">
-                  <i class="fa fa-thumbs-down"></i>
-                </span>
-                            <span class="devide">
-                  | -2
-                </span>
-                            <span class="comment-reply">
-                  <a href="#" class="reply">ответить</a>
-                </span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Конец ещё одного вложенного комментария (уровень 2) -->
-
-            </div>
-        </li>
-        <!-- Конец комментария (уровень 1) -->
-
-        <!-- Комментарий (уровень 1) -->
-        <li class="media">
-            <div class="media-left">
-                <a href="#">
-                    <img class="media-object img-rounded" src="avatar5.jpg" alt="">
-                </a>
-            </div>
-            <div class="media-body">
-                <div class="media-heading">
-                    <div class="author">Иван</div>
-                    <div class="metadata">
-                        <span class="date">Вчера в 17:34</span>
-                    </div>
-                </div>
-                <div class="media-text text-justify">Eum iure reprehenderit, qui dolorem eum fugiat. Sint et expedita
-                    distinctio velit. Architecto beatae vitae dicta sunt, explicabo unde omnis. Qui aperiam eaque ipsa,
-                    quae ab illo inventore veritatis et quasi architecto. Nemo enim ipsam voluptatem quia. Eos, qui
-                    ratione voluptatem sequi nesciunt, neque porro. A sapiente delectus, ut enim ipsam voluptatem, quia
-                    non recusandae architecto beatae.
-                </div>
-                <div class="footer-comment">
-            <span class="vote plus" title="Нравится">
-              <i class="fa fa-thumbs-up"></i>
-            </span>
-                    <span class="rating">
-              +2
-            </span>
-                    <span class="vote minus" title="Не нравится">
-              <i class="fa fa-thumbs-down"></i>
-            </span>
-                    <span class="devide">
-              |
-            </span>
-                    <span class="comment-reply">
-              <a href="#" class="reply">ответить</a>
-            </span>
-                </div>
-            </div>
-        </li>
-        <!-- Конец комментария (уровень 1) -->
-
-        <!-- Комментарий (уровень 1) -->
-        <li class="media">
-            <div class="media-left">
-                <a href="#">
-                    <img class="media-object img-rounded" src="avatar1.jpg" alt="">
-                </a>
-            </div>
-            <div class="media-body">
-                <div class="media-heading">
-                    <div class="author">Дима</div>
-                    <div class="metadata">
-                        <span class="date">3 минуты назад</span>
-                    </div>
-                </div>
-                <div class="media-text text-justify">Tempore, cum soluta nobis est et quas. Quas molestias excepturi
-                    sint, obcaecati cupiditate non provident, similique sunt in. Obcaecati cupiditate non recusandae
-                    impedit. Hic tenetur a sapiente delectus. Facere possimus, omnis dolor repellendus inventore
-                    veritatis et voluptates. Ipsa, quae ab illo inventore veritatis et quasi architecto beatae. In
-                    culpa, qui in culpa. Cum soluta nobis est laborum et aut perferendis doloribus. Vitae dicta sunt,
-                    explicabo perspiciatis. Amet, consectetur, adipisci velit, sed quia voluptas sit, aspernatur.
-                    Obcaecati cupiditate non provident, similique sunt in. Reiciendis voluptatibus maiores alias
-                    consequatur aut officiis debitis aut perferendis doloribus asperiores. Assumenda est, omnis dolor
-                    repellendus voluptas assumenda est omnis.
-                </div>
-                <div class="footer-comment">
-            <span class="vote plus" title="Нравится">
-              <i class="fa fa-thumbs-up"></i>
-            </span>
-                    <span class="rating">
-              +0
-            </span>
-                    <span class="vote minus" title="Не нравится">
-              <i class="fa fa-thumbs-down"></i>
-            </span>
-                    <span class="devide">
-              |
-            </span>
-                    <span class="comment-reply">
-              <a href="#" class="reply">ответить</a>
-            </span>
-                </div>
-            </div>
-        </li>
-        <!-- Конец комментария (уровень 1) -->
-
-    </ul>
-</div>--%>
 
 <div>
     <c:forEach items="${articles}" var="articles" varStatus="theCount">
-        <img class="mr-5" src="${pageContext.request.contextPath}/TakePictureFromDB/article-${articles.id}.jpg" alt="" style="height:50px;"><br><br>
-        <div class="media col-sm-11">
-            <img class="mr-3 media-object img-circle" src="${pageContext.request.contextPath}/TakePictureFromDB/profile-${articles.userId}.jpg"
-                 alt="" style="height:50px;">
-            <div class="media-body">
-                <div class="panel-heading">
-                    <div class="author">${articles.userLogin}</div>
-                    <div class="metadata"><span class="date">${articles.date_registration}</span></div>
-                    <h3 class="mt-0">${articles.title}</h3>${articles.text}
+        <div class="media col-sm-12">
+            <div class="media col-sm-10">
+                <img class="mr-3 media-object img-circle"
+                     src="${pageContext.request.contextPath}/TakePictureFromDB/profile-${articles.userId}.jpg"
+                     alt="" style="height:50px;" width="50px">
+                <div class="media-body">
+                    <div class="panel-heading">
+                        <div class="author">
+                              <%--  <a href="controller?command=find_user_by_login&search=${articles.userLogin}">${articles.userLogin}</a>--%>
+                            <form action="controller" method="post" role="form"
+                                  style="display: inline-block;">
+                                <input type="hidden" name="search" value="${articles.userLogin}">
+                                <button class="btn-link" type="submit"
+                                        name="command" value="find_user_by_login">${articles.userLogin}
+                                </button>
+                            </form>
+                        </div>
+                        <div class="metadata"><span class="date">${articles.date_registration}</span></div>
+                        <br><br>
+                        <h4 class="mt-0">${articles.title}</h4>${articles.text}
+                    </div>
+                    <div class="footer-comment"><span class="vote plus" title="Нравится"><i
+                            class="fa fa-thumbs-up"></i> </span> +
+                        <span id="like" class="vote plus" title="Like"><b>${articles.positiveRating}</b>
+                         <i class="fa fa-thumbs-down"></i> </span> | -
+
+                        <span id="dislike" class="vote minus" title="Не нравится"><b>${articles.negativeRating}</b>
+                         <i class="fa fa-thumbs-down"></i> </span>
+                        <input type="hidden" id="id_news" value="${articles.id}"/>
+                        <input type="hidden" id="id_user" value="${user.id}"/>
+                        <input type="hidden" id="positiveRating" value="${articles.positiveRating}"/>
+                        <input type="hidden" id="negativeRating" value="${articles.negativeRating}"/>
+                    </div>
+                    <c:if test="${role eq 'admin'}">
+                        <%--<a class="btn btn-outline-success"
+                           href="controller?command=delete_article&articles=${articles.id}"
+                           role="button">${deletearticle}</a>--%>
+                        <form action="controller" method="post" role="form"
+                              style="display: inline-block;">
+                            <input type="hidden" name="articles" value="${articles.id}">
+                            <button class="btn btn-outline-success" type="submit"
+                                    name="command" value="delete_article">${deletearticle}
+                            </button>
+                        </form>
+
+                    </c:if>
+                    <c:if test="${role eq 'admin' or user.login eq articles.userLogin}">
+                        <%--<a class="btn btn-outline-success"
+                           href="controller?command=add_pic_to_article&articles=${articles.id}"
+                           role="button">${addphoto}</a>--%>
+                        <form action="controller" method="post" role="form"
+                              style="display: inline-block;">
+                            <input type="hidden" name="articles" value="${articles.id}">
+                            <button class="btn btn-outline-success" type="submit"
+                                    name="command" value="add_pic_to_article">${addphoto}
+                            </button>
+                        </form>
+                        <%--<a class="btn btn-outline-success"
+                           href="controller?command=to_update_article&article=${articles.id}&text=${articles.text}"
+                           role="button">${updatearticle}</a>--%>
+
+                        <form action="controller" method="post" role="form"
+                              style="display: inline-block;">
+                            <input type="hidden" name="article" value="${articles.id}">
+                            <input type="hidden" name="text" value="${articles.text}">
+                            <button class="btn btn-outline-success" type="submit"
+                                    name="command" value="to_update_article">${updatearticle}
+                            </button>
+                        </form>
+                    </c:if><br>
+                    <c:if test="${role eq 'admin' or role eq 'user'}">
+                        <div class="pull-left">
+                           <%-- <a class="btn btn-info"
+                               href="controller?command=go_to_new_comment&articleId=${articles.id}">${addcomment}</a>--%>
+
+                            <form action="controller" method="post" role="form"
+                                  style="display: inline-block;">
+                                <input type="hidden" name="articleId" value="${articles.id}">
+                                <button class="btn btn-info" type="submit"
+                                        name="command" value="go_to_new_comment">${addcomment}
+                                </button>
+                            </form>
+
+
+                            <br><br><br><br>
+                        </div>
+                    </c:if>
                 </div>
-                <div class="footer-comment"><span class="vote plus" title="Нравится"><i
-                        class="fa fa-thumbs-up"></i> </span> +
-                    <span class="vote plus" title="Нравится">${articles.positiveRating}
-                    <i class="fa fa-thumbs-down"></i> </span> | -
-                    <span class="vote minus" title="Не нравится">${articles.negativeRating}
-                    <i class="fa fa-thumbs-down"></i> </span>
+            </div>
+            <div class="media col-sm-2">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <div class="teaser2">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img class="mr-2"
+                                     src="${pageContext.request.contextPath}/TakePictureFromDB/type-${types.id}.jpg"
+                                     alt="" style="height:200px;" width="150px">
+                                <p class="description text-center">${types.typeNews}</p>
+                            </div>
+                            <c:forEach var="picture" items="${articles.pictures}">
+                                <div class="item">
+                                    <div class="img">
+                                        <img src="${pageContext.request.contextPath}/TakePictureFromDB/picture-${picture.id}.jpg"
+                                             alt="" style="height:150px;" width="150px"> <br>
+                                        <h5 class="text-center"> ${picture.name}</h5>
+                                        <c:if test="${role eq 'admin' or user.login eq articles.userLogin}">
+                                            <%--<a class="btn btn-outline-success text-center"
+                                               href="controller?command=delete_picture&picture=${picture.id}"
+                                               role="button">${deletephoto}</a>--%>
+
+                                            <form action="controller" method="post" role="form"
+                                                  style="display: inline-block;">
+                                                <input type="hidden" name="picture" value="${picture.id}">
+                                                <button class="btn btn-outline-success text-center" type="submit"
+                                                        name="command" value="delete_picture">${deletephoto}
+                                                </button>
+                                            </form>
+
+                                        </c:if>
+                                    </div>
+                                </div>
+                            </c:forEach>
+                        </div>
+                    </div>
                 </div>
-                <div class="pull-left"><a class="btn btn-info" href="#">Ответить</a></div>
-                <br>
             </div>
         </div>
-
-        <h5 class="title-comments">Комментарии:${articles.commentQuantity}</h5>
-        <c:forEach items="${articles.comments}" var="comment" varStatus="theCount">
-            <div class="comments col-sm-11">
-                <ul class="media-list">
-                    <!-- Комментарий (уровень 1) -->
-                    <li class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object img-circle"
-                                     src="${pageContext.request.contextPath}/TakePictureFromDB/profile-${comment.userId}.jpg"
-                                     alt="" style="height:50px;">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    <div class="author">${comment.userLogin}</div>
-                                    <div class="metadata"><span class="date">${comment.dateRegistration}</span></div>
+        <div>
+            <c:if test="${ not empty articles.comments}">
+                <h5 class="title-comments text-left pl-sm-5"> ${commentarticle} ${articles.commentQuantity}</h5>
+                <c:forEach items="${articles.comments}" var="comment" varStatus="theCount">
+                    <div class="comments col-sm-12">
+                        <ul class="media-list">
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object img-circle"
+                                             src="${pageContext.request.contextPath}/TakePictureFromDB/profile-${comment.userId}.jpg"
+                                             alt="" style="height:50px;" width="50px">
+                                    </a>
                                 </div>
-                                <div class="panel-body">
-                                    <div class="media-text text-justify">${comment.text}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <h5 class="title-comments"></h5>
-                <h5 class="title-comments"></h5>
-            </div>
-        </c:forEach>
+                                <div class="media-body">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <div class="author">
+                                                   <%--<a href="controller?command=find_user_by_login&search=${comment.userLogin}">${comment.userLogin}</a>--%>
 
+                                                <form action="controller" method="post" role="form"
+                                                      style="display: inline-block;">
+                                                    <input type="hidden" name="search" value="${comment.userLogin}">
+                                                    <button class="btn-link" type="submit"
+                                                            name="command" value="find_user_by_login">${comment.userLogin}
+                                                    </button>
+                                                </form>
+
+                                            </div>
+                                            <div class="metadata"><span class="date">${comment.dateRegistration}</span>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="media-text text-justify">${comment.text}</div>
+                                        </div>
+                                        <c:if test="${role eq 'admin' or user.login eq comment.userLogin}">
+                                           <%-- <a class="btn btn-outline-success"
+                                               href="controller?command=delete_comment&comment=${comment.id}"
+                                               role="button">${deletecomment}</a>--%>
+
+                                            <form action="controller" method="post" role="form"
+                                                  style="display: inline-block;">
+                                                <input type="hidden" name="comment" value="${comment.id}">
+                                                <button class="btn btn-outline-success" type="submit"
+                                                        name="command" value="delete_comment">${deletecomment}
+                                                </button>
+                                            </form>
+
+                                            <%--<a class="btn btn-outline-success"
+                                               href="controller?command=update_page_comment&comment=${comment.id}&text=${comment.text}"
+                                               role="button">${updatecomment}</a>--%>
+
+                                            <form action="controller" method="post" role="form"
+                                                  style="display: inline-block;">
+                                                <input type="hidden" name="comment" value="${comment.id}">
+                                                <input type="hidden" name="text" value="${comment.text}">
+                                                <button class="btn btn-outline-success" type="submit"
+                                                        name="command" value="update_page_comment">${updatecomment}
+                                                </button>
+                                            </form>
+                                        </c:if>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </c:forEach>
+            </c:if>
+        </div>
     </c:forEach>
 </div>
+
+
+<script>
+    $(document).ready(function () {
+        $('span#like').click(function () {
+            setVote('like', $(this));
+        });
+        $('span#dislike').click(function () {
+            setVote('dislike', $(this));
+        });
+    });
+
+    function setVote(type, element) {
+        var id_user = $('#id_user').val();
+        var id_news = element.parent().find('#id_news').val();
+        var positiveRating = element.parent().find('#positiveRating').val();
+        var negativeRating = element.parent().find('#negativeRating').val();
+        $.ajax({
+            type: "GET",
+            url: "someservlet",
+            data: {
+                'id_user': id_user,
+                'id_news': id_news,
+                'positiveRating': positiveRating,
+                'negativeRating': negativeRating,
+                'type': type
+            },
+            dataType: "json",
+            success: function (data) {
+                if (data == 'success') {
+                    var count = parseInt(element.find('b').html());
+                    element.find('b').html(count + 1);
+                } else if (data == 'no') {
+                    swal("${voted}");
+                } else if (data == 'you cant vote') {
+                    swal("${cantVoted}");
+                }
+            }
+        });
+    }
+</script>
+<%--Вставлено временно--%>
+<script>
+    document.onkeydown = function (e) {
+        if (e.keyCode === 116) {
+            return false;
+        }
+    };
+</script>
+
+
+<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 </body>
 <footer>
-    <c:import url="footer.jsp"/></footer>
-
+    <p><c:import url="footer.jsp"/></p>
+</footer>
 </html>

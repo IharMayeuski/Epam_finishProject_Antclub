@@ -1,8 +1,5 @@
-/*
-
 package by.epam.club.filter;
 
-import by.epam.club.entity.Parameter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -17,69 +14,93 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+import static by.epam.club.command.CommandEnum.*;
+import static by.epam.club.entity.Parameter.*;
 
+/**
+ * This filter can give for difference roles difference opportunity in using any command
+ *
+ * @author Maevskiy Igor
+ * @see GenericFilter
+ */
 @WebFilter(urlPatterns = {"/*"})
-class CommandSecurityFilter extends GenericFilter {
-
-    private static final String GO_TO_REGISTRATION_PAGE = "go_to_registration_page";
-    private static final String GO_TO_DEFAULT_PAGE = "go_to_default_page";
-    private static final String  I_AM_GUEST = "i_am_guest";
-    private static final String FIND_USER = "find_user";
-    private static final String REGISTRATION = "registration";
-    private static final String LOGOUT = "logout";
-    private static final String CHANGE_LOCALE = "change_locale";
-    private static final String ARTICLE  = "article";
-    private static final String CONFIRM_DELETE = "confirm_delete";
-    private static final String ACCOUNT_DELETE = "account_delete";
-    private static final String COMMAND = "command";
-
+public class SecurityFilter extends GenericFilter {
+    private static final Logger LOGGER = LogManager.getLogger(SecurityFilter.class);
     private static final Set<String> ALLOWED_GUEST_PATHS = Collections.unmodifiableSet(new HashSet<>(
-            Arrays.asList(GO_TO_DEFAULT_PAGE, I_AM_GUEST, GO_TO_REGISTRATION_PAGE, REGISTRATION, LOGOUT, CHANGE_LOCALE, ARTICLE)));
+            Arrays.asList(GO_TO_DEFAULT_PAGE.toString(), LOGOUT.toString(), CHANGE_LOCALE.toString(),
+                    ARTICLE.toString() , NEW_PASSWORD.toString())));
 
-    private static final Set<String> ALLOWED_USER_PATHS = Collections.unmodifiableSet(new HashSet<>(
-            Arrays.asList(GO_TO_DEFAULT_PAGE, LOGOUT, FIND_USER, LOGOUT, CHANGE_LOCALE, ARTICLE, CONFIRM_DELETE, ACCOUNT_DELETE)));
+    private static final Set<String> ALLOWED_USER_PATHS = new HashSet<>(
+            Arrays.asList(GO_TO_DEFAULT_PAGE.toString(),  FIND_USER.toString(), LOGOUT.toString(), CHANGE_LOCALE.toString(),
+                    ARTICLE.toString(), FIND_USER_BY_LOGIN.toString(), ACCOUNT_UPDATE.toString() , ACCOUNT_DELETE.toString(),
+                    SEND_LETTER.toString() , GO_TO_NEW_TYPENEWS.toString(), GO_TO_NEW_ARTICLE.toString(), GO_TO_NEW_COMMENT.toString(),
+                    ADD_NEW_COMMENT.toString(), DELETE_PICTURE.toString(),PROFILE_USER.toString(),
+                    DELETE_ARTICLE.toString(), DELETE_COMMENT.toString(), ADD_PIC_TO_ARTICLE.toString(), UPDATE_COMMENT.toString(),
+                    UPDATE_PAGE_COMMENT.toString(), TO_UPDATE_ARTICLE.toString(), UPDATE_ARTICLE_COMMAND.toString(),
+                    UPDATE_PAGE_COMMENT.toString(), DELETE_LETTER.toString()));
 
-    private static final Set<String> ALLOWED_ADMIN_PATHS = Collections.unmodifiableSet(new HashSet<>(
-            Arrays.asList(GO_TO_DEFAULT_PAGE, FIND_USER, LOGOUT, CHANGE_LOCALE, ARTICLE, CONFIRM_DELETE, ACCOUNT_DELETE)));
+    private static final Set<String> ALLOWED_ADMIN_PATHS = new HashSet<>(
+            Arrays.asList(GO_TO_DEFAULT_PAGE.toString() , NEW_PASSWORD.toString(), I_AM_GUEST.toString(), LOGOUT.toString(),
+                    CHANGE_LOCALE.toString(), ARTICLE.toString(), FIND_USER_BY_LOGIN.toString(), ACCOUNT_UPDATE.toString() , ACCOUNT_DELETE.toString(), PROFILE_USER.toString(),
+                    SEND_LETTER.toString() , GO_TO_NEW_TYPENEWS.toString(), GO_TO_NEW_ARTICLE.toString(), GO_TO_NEW_COMMENT.toString(),
+                    ADD_NEW_COMMENT.toString(), GO_ADMIN_CONTROL.toString(), BLOCKED_USER.toString(), UNBLOCKED_USER.toString(),
+                    DELETE_USER.toString(), UNDELETE_USER.toString(), MARK_USER.toString(), MARK_ADMIN.toString(), DELETE_PICTURE.toString(),
+                    DELETE_ARTICLE.toString(), DELETE_COMMENT.toString(), ADD_PIC_TO_ARTICLE.toString(), DELETE_TYPE.toString(),
+                    UNDELETE_TYPE.toString(), TO_UPDATE_ARTICLE.toString(), UPDATE_ARTICLE_COMMAND.toString(), UPDATE_PAGE_COMMENT.toString(),
+                    UPDATE_COMMENT.toString(), DELETE_LETTER.toString()));
 
-    private static final Set<String> ALLOWED_NOONE_PATHS = Collections.unmodifiableSet(new HashSet<>(
-            Arrays.asList(FIND_USER, GO_TO_REGISTRATION_PAGE, GO_TO_DEFAULT_PAGE , LOGOUT, I_AM_GUEST, REGISTRATION, CHANGE_LOCALE)));
+    private static final Set<String> ALLOWED_UNKNOWN_PATHS = new HashSet<>(
+            Arrays.asList(GO_TO_DEFAULT_PAGE.toString(), I_AM_GUEST.toString(), CHANGE_LOCALE.toString() ,FIND_USER.toString(),
+                    NEW_PASSWORD.toString(), REGISTRATION.toString(), GO_TO_REGISTRATION_PAGE.toString()));
 
-    private static Logger logger = LogManager.getLogger();
-
+    /**
+     * @param servletRequest for input in filter
+     * @param servletResponse for input in filter
+     * @param filterChain used to intercept servlet initialization
+     * @throws IOException in the case of exception on the method doFilter
+     *
+     */
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        HttpServletRequest request = (HttpServletRequest) servletRequest;
-        HttpServletResponse response = (HttpServletResponse) servletResponse;
-        HttpSession session = request.getSession();
-        String role = (String) session.getAttribute(Parameter.ROLE_PARAM);
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException {
+        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
+        HttpSession session = httpServletRequest.getSession();
+        String type = (String) session.getAttribute(ROLE_PARAM);
+        String command = httpServletRequest.getParameter(PARAM_NAME_COMMAND);
+        String userRole = (type == null ? UNKNOWN_PARAM: type);
         try {
-            if (request.getParameter(COMMAND) != null) {
-                if (role == null) {
-                    if (!ALLOWED_GUEST_PATHS.contains(request.getParameter(COMMAND))) {
-                        response.sendRedirect(request.getContextPath() +request.getServletPath());
-                    }
-                } else if (role.equals(Parameter.USER_PARAM)) {
-                    if (!ALLOWED_USER_PATHS.contains(request.getParameter(COMMAND))) {
-                        response.sendRedirect(request.getContextPath() +request.getServletPath());
-                    }
-                } else if (role.equals(Parameter.ADMIN_PARAM)) {
-                    if (!ALLOWED_ADMIN_PATHS.contains(request.getParameter(COMMAND))) {
-                        response.sendRedirect(request.getContextPath() +request.getServletPath());
-                    }
-                }else  {
-                    if (!ALLOWED_NOONE_PATHS.contains(request.getParameter(COMMAND))) {
-                        response.sendRedirect(request.getContextPath() +request.getServletPath());
-                    }
+            if (command != null) {
+                switch (userRole) {
+                    case ADMIN_PARAM:
+                        if (!ALLOWED_ADMIN_PATHS.contains(command.toUpperCase())) {
+                            ((HttpServletResponse) servletResponse).sendRedirect(httpServletRequest.getServerName() + ":" + httpServletRequest.getServerPort() + httpServletRequest.getContextPath() + httpServletRequest.getServletPath());
+                            return;
+                        }
+                        break;
+                    case USER_PARAM:
+                        if (!ALLOWED_USER_PATHS.contains(command.toUpperCase())) {
+                            ((HttpServletResponse) servletResponse).sendRedirect(httpServletRequest.getServerName() + ":" + httpServletRequest.getServerPort() + httpServletRequest.getContextPath() + httpServletRequest.getServletPath());
+                            return;
+                        }
+                        break;
+                    case GUEST_PARAM:
+                        if (!ALLOWED_GUEST_PATHS.contains(command.toUpperCase())) {
+                            ((HttpServletResponse) servletResponse).sendRedirect(httpServletRequest.getServerName() + ":" + httpServletRequest.getServerPort() + httpServletRequest.getContextPath() + httpServletRequest.getServletPath());
+                            return;
+                        }
+                        break;
+                   default:
+                        if (!ALLOWED_UNKNOWN_PATHS.contains(command.toUpperCase())) {
+                            ((HttpServletResponse) servletResponse).sendRedirect(httpServletRequest.getServerName() + ":" + httpServletRequest.getServerPort() + httpServletRequest.getContextPath() + httpServletRequest.getServletPath());
+                            return;
+                        }
+                        break;
                 }
             }
             filterChain.doFilter(servletRequest, servletResponse);
-        } catch (Exception e) {// FIXME: 6/6/2019
-            logger.error(" Exception in SecurityFilter ", e);
+        } catch (Exception e) {
             e.printStackTrace();
-           response.sendRedirect(request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath() +"/default.jsp");
+            LOGGER.warn(" Exception in SecurityFilter ", e);
+            ((HttpServletResponse) servletResponse).sendRedirect(httpServletRequest.getServerName() + ":" + httpServletRequest.getServerPort() + httpServletRequest.getContextPath() + httpServletRequest.getServletPath());
         }
     }
 }
-
-*/

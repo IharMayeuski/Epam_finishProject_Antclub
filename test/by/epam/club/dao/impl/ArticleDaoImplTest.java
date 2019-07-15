@@ -52,7 +52,7 @@ public class ArticleDaoImplTest {
         Assert.assertNotNull(articleDao.takeAllByTypeNewsNotBannedNotDeleted(TYPE_NEWS));
     }
 
-    @Test
+ /*   @Test
     public void testUpdate() throws DaoException {
         Assert.assertTrue(articleDao.update("1","1", 2,1));
     }
@@ -61,5 +61,5 @@ public class ArticleDaoImplTest {
     public void testCheck() throws DaoException {
      //   System.out.println(articleDao.checkUser(3));
         Assert.assertNotNull(articleDao.check(3));
-    }
+    }*/
 }

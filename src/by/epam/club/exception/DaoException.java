@@ -1,8 +1,12 @@
 package by.epam.club.exception;
 
-public class DaoException extends Exception{
+/**
+ * Exception of the level business logic
+ * @author Maeuski Igor
+ * @version 1.0
+ */
 
-	private static final long serialVersionUID = 1L;
+public class DaoException extends Exception{
 
 	public DaoException() {
 		super();

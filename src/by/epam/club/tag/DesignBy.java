@@ -1,25 +1,36 @@
 package by.epam.club.tag;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
-import java.util.GregorianCalendar;
-import java.util.Locale;
-import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 
+import static by.epam.club.entity.Parameter.UNKNOWN_MISTAKE_MESSAGE;
+
+/**
+ * Here I created special tag for next creating 'footer' on .jsp page
+ *
+ * @author Maeuski Igor
+ * @version 1.0
+ */
 
 @SuppressWarnings("serial")
 public class DesignBy extends TagSupport {
-
+    private static final Logger LOGGER = LogManager.getLogger(DesignBy.class);
+    private static final String TAG = "<em> © Epam, Minsk 2019 Designed by Maevski Igor </em>";
+    /**
+     *
+     * @return information and print own tag
+     */
     @Override
     public int doStartTag() {
-        String time = "<em> © Epam, Minsk 2019 Designed by Maevski Igor </em>";
-
-        JspWriter out = pageContext.getOut();
+         JspWriter out = pageContext.getOut();
         try {
-            out.write(time);
+            out.write(TAG);
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.warn(UNKNOWN_MISTAKE_MESSAGE, e);
         }
         return SKIP_BODY;
     }

@@ -13,7 +13,11 @@
 
 <fmt:setLocale value="${sessionScope.local}"/>
 <fmt:setBundle basename="resource.locale" var="loc"/>
-<fmt:message bundle="${loc}" key="locale.default.registration" var="registration_button"/>
+<fmt:message bundle="${loc}" key="locale.registration.registration" var="registration_button"/>
+<fmt:message bundle="${loc}" key="locale.lookarticle.addphoto" var="addphoto"/>
+<fmt:message bundle="${loc}" key="locale.header.submit" var="submit"/>
+<fmt:message bundle="${loc}" key="locale.new_article_picture.name" var="name"/>
+<fmt:message bundle="${loc}" key="locale.new_type.newtype" var="newtype"/>
 
 <html lang="en" class="no-js">
 <head>
@@ -53,17 +57,18 @@
                     <form action="UploadImage" method="POST" enctype="multipart/form-data"
                           id="myFormFormUpdating">
                         <input type="hidden" name="type" value="new">
-                        <h1> Новый вид </h1>
+                        <h1>${newtype}</h1>
                         <p>
-                            <label class="uname" >Наименование</label>
+                            <label class="uname" >${name}</label>
                             <input id="usernamesignup1" name="text" required="required" type="text" placeholder="name"/>
                         </p>
                         <tr>
-                            <td class="active">Добавить фото:</td>
+                            <td class="active">${addphoto}:</td>
                             <td><input type="file" id="tF" required="required" name="image"/><br>
                         </tr>
                         <p class="signin button">
                             <input type="submit" value="Submin"/>
+
                         </p>
                     </form>
                 </div>
@@ -72,7 +77,13 @@
 
     </section>
 </div>
-
+<script>
+    document.onkeydown = function (e) {
+        if (e.keyCode === 116) {
+            return false;
+        }
+    };
+</script>
 
 </body>
-<footer><c:import url="footer.jsp"/></footer>
+

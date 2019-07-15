@@ -7,23 +7,30 @@ import by.epam.club.pool.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.servlet.http.Part;
-import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 import static by.epam.club.entity.Parameter.*;
 
+/**
+ * Class for upload picture to data base
+ *
+ * @author Maeuski Igor
+ * @version 1.0
+ */
 public abstract class BaseDao<T extends Entity> {
     private static Logger LOGGER = LogManager.getLogger(BaseDao.class);
     private Connection connection;
     private boolean inAction;
 
+    /**
+     *
+     * @param sqlQuery real SQL query script
+     * @param values for insert in SQL query by preparedStatement
+     * @throws DaoException for catching it on the logic level in the case of exception
+     */
     public void create(String sqlQuery, String... values) throws DaoException {
         if (!inAction) {
             setConnection(ConnectionPool.getInstance().takeConnection());
@@ -36,13 +43,21 @@ public abstract class BaseDao<T extends Entity> {
             }
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
+            LOGGER.warn(SQL_EXCEPTION_MESSAGE, e);
             throw new DaoException(SQL_EXCEPTION_MESSAGE);
         } finally {
             if (!inAction) closeResources(preparedStatement, connection);
         }
     }
 
-    public void uploadPicInTransaction(String sqlQuery, InputStream is, String id) throws DaoException {
+    /**
+     *
+     * @param sqlQuery real SQL query script
+     * @param is byte code of Picture
+     * @param values for insert in SQL query
+     * @throws DaoException for catching it on the logic level in the case of exception
+     */
+    public void uploadPic(String sqlQuery, InputStream is, String... values) throws DaoException {
         if (!inAction) {
             setConnection(ConnectionPool.getInstance().takeConnection());
         }
@@ -50,16 +65,26 @@ public abstract class BaseDao<T extends Entity> {
         try {
             preparedStatement = connection.prepareStatement(sqlQuery);
             preparedStatement.setBlob(1, is);
-            preparedStatement.setString(2, id);
+            for (int i = 0; i < values.length; i++) {
+                preparedStatement.setString(i + 2, values[i]);
+            }
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.warn(SQL_EXCEPTION_MESSAGE, e);
             throw new DaoException(SQL_EXCEPTION_MESSAGE);
         } finally {
             if (!inAction) closeResources(preparedStatement, connection);
         }
     }
 
+    /**
+     *
+     * @param sqlQuery real SQL query script
+     * @param table this table necessary for EntityCreator
+     * @param values for insert in SQL query
+     * @return {@code List<Entity>}
+     * @throws DaoException for catching it on the logic level in the case of exception
+     */
     public List<T> find(String sqlQuery, String table, String... values) throws DaoException {
         List<T> entities = new ArrayList<>();
         if (!inAction) {
@@ -79,6 +104,7 @@ public abstract class BaseDao<T extends Entity> {
                 entities.add(entity);
             }
         } catch (SQLException e) {
+            LOGGER.warn(SQL_EXCEPTION_MESSAGE, e);
             throw new DaoException(SQL_EXCEPTION_MESSAGE);
         } finally {
             if (!inAction) {
@@ -88,17 +114,33 @@ public abstract class BaseDao<T extends Entity> {
         return entities;
     }
 
-    public void closeResources(PreparedStatement ps, Connection connection) {
+    /**
+     *
+     * @param ps we close preparedStatement
+     * @param connection  we close our connetion
+     */
+    private void closeResources(PreparedStatement ps, Connection connection) {
         closeResources(ps);
         closeResources(connection);
     }
 
+    /**
+     *
+     * @param ps we close preparedStatement
+     * @param connection  we close our connetion
+     * @param rs we clode our resultSet
+     */
     public void closeResources(PreparedStatement ps, Connection connection, ResultSet rs) {
         closeResources(rs, ps);
         closeResources(connection);
     }
 
-    public void closeResources(ResultSet rs, PreparedStatement ps) {
+    /**
+     *
+     * @param rs we clode our resultSet
+     * @param ps we close preparedStatement
+     */
+    public void closeResources(ResultSet rs, Statement ps) {
         try {
             if (rs != null) {
                 rs.close();
@@ -109,7 +151,11 @@ public abstract class BaseDao<T extends Entity> {
         closeResources(ps);
     }
 
-    public void closeResources(PreparedStatement ps) {
+    /**
+     *
+     * @param ps we close preparedStatement
+     */
+    public void closeResources(Statement ps) {
         try {
             if (ps != null) {
                 ps.close();
@@ -119,22 +165,18 @@ public abstract class BaseDao<T extends Entity> {
         }
     }
 
-    public void closeResources(Connection connection) {
+    /**
+     *
+     * @param connection  we close our connetion
+     */
+    private void closeResources(Connection connection) {
         if (connection != null) {
             ConnectionPool.getInstance().returnConnection(connection);
         }
     }
 
-   /* public Connection getConnection() {
-        return connection;
-    }*/
-
     public void setConnection(Connection connection) {
         this.connection = connection;
-    }
-
-    public boolean isInAction() {
-        return inAction;
     }
 
     public void setInAction(boolean inAction) {

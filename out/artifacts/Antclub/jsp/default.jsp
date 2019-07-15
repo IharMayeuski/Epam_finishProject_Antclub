@@ -6,7 +6,18 @@
 
 <fmt:setLocale value="${sessionScope.local}"/>
 <fmt:setBundle basename="resource.locale" var="loc"/>
-<fmt:message bundle="${loc}" key="locale.default.registration" var="registration_button"/>
+<fmt:message bundle="${loc}" key="locale.registration.registration" var="registration_button"/>
+<fmt:message bundle="${loc}" key="locale.lookarticle.read" var="look_article"/>
+<fmt:message bundle="${loc}" key="locale.default.signin" var="sign_in"/>
+<fmt:message bundle="${loc}" key="locale.default.login" var="login"/>
+<fmt:message bundle="${loc}" key="locale.default.password" var="pass"/>
+<fmt:message bundle="${loc}" key="locale.default.forgetpass" var="forget"/>
+<fmt:message bundle="${loc}" key="locale.default.restorepass" var="restore"/>
+<fmt:message bundle="${loc}" key="locale.header.submit" var="submit"/>
+<fmt:message bundle="${loc}" key="locale.default.haveaccount" var="haveaccount"/>
+<fmt:message bundle="${loc}" key="locale.default.email" var="email"/>
+<fmt:message bundle="${loc}" key="locale.default.cometosite" var="cometosite"/>
+
 
 <html lang="en" class="no-js">
 <head>
@@ -16,59 +27,36 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style3.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/animate-custom.css"/>
     <link rel="stylesheet" href="http://bootstraptema.ru/plugins/2015/bootstrap3/bootstrap.min.css"/>
-    <%--<link rel="stylesheet" href="http://bootstraptema.ru/plugins/font-awesome/4-4-0/font-awesome.min.css"/>--%>
-    <link rel="stylesheet" href="http://bootstraptema.ru/plugins/2015/bootstrap3/bootstrap.min.css"/>
-    <%--<link rel="stylesheet" href="http://bootstraptema.ru/plugins/font-awesome/4-4-0/font-awesome.min.css"/>--%>
     <link rel="stylesheet" href="http://bootstraptema.ru/snippets/font/2016/pe-icon-stroke/Pe-icon-7-stroke.css">
     <link href="http://bootstraptema.ru/_sf/3/391.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.1/masonry.pkgd.min.js"></script>
     <script src="http://bootstraptema.ru/plugins/jquery/jquery-1.11.3.min.js"></script>
     <script src="http://bootstraptema.ru/plugins/2015/b-v3-3-6/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/js/jquery.min.js"/>">
+    <script src="${pageContext.request.contextPath}/js/masonry.js"></script>
+    <script rel="stylesheet" href="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+    <script rel="stylesheet" href="${pageContext.request.contextPath}/js/bootstrap.js"></script>
 
 </head>
 
 <body>
-<%--Появляющаяся узкая форма, не подходит--%>
-<%--<div id="dialog" title="Basic dialog">
-   54654646
-</div>
-<div><input type='button' value='форма'></div>
-&lt;%&ndash;<script src="http://code.jquery.com/jquery-1.10.2.js"></script>&ndash;%&gt;
-<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
-<script>
-    var dialog = $("#dialog").dialog({autoOpen: false});
-    $("input[type=button]").click(function ()
-    {
-        dialog.dialog( "open" );
-    });
-</script>--%>
+
 <br><br><br>
 <style>
     body {
         background: url(http://bootstraptema.ru/images/bg/bg-1.png)
     }
+
 </style>
 <c:import url="header.jsp"/>
 
-<%--Спрятать форму--%>
-<%--<form id="form1" style="display: none;">
-    <input type="text" value="Я тут">
-</form>
-
-<li class="nav navbar-nav"><a onclick="disp(document.getElementById('form1'))">Input new
-    type<span class="sr-only">(current)</span></a>
-</li>
-<br>--%>
-
-<p class="text-left text-info font-weight-bold">${requestScope.registration}</p>
-<p class="text-left text-info font-weight-bold">${requestScope.account_deleted}</p>
-<p class="text-left text-info font-weight-bold">${requestScope.All_is_ok}</p>
-<p class="text-left text-danger font-weight-bold">${requestScope.error}</p>
-
+<div class="text-message">
+    <script> $('.text-message').delay(3000).animate({'opacity': '0'}, 500);</script>
+    ${requestScope.registration}
+    ${requestScope.account_deleted}
+    ${requestScope.All_is_ok}
+    ${requestScope.error}
+</div>
 <br>
-
 <%--Все статьи на главном экране--%>
 <c:if test="${not empty role}">
     <div class="wrapper">
@@ -84,11 +72,21 @@
                     <div class="content text-center">
                         <p class="description">${types.typeNews}</p>
                     </div>
+                        <%--<div class="footer text-center">
+                            <a href="controller?command=article&link_id=${types.id}"
+                               class="btn btn-danger btn-fill btn-round">${look_article}</a>
+                        </div>--%>
+
                     <div class="footer text-center">
-                        <a href="controller?command=article&link_id=${types.id}"
-                           class="btn btn-danger btn-fill btn-round">Read
-                            article</a>
+                        <form action="controller" method="post" role="form">
+                            <input type="hidden" name="link_id" value="${types.id}">
+                            <button class="btn btn-danger btn-fill btn-round" type="submit" name="command"
+                                    value="article">${look_article}
+                            </button>
+                        </form>
                     </div>
+
+
                     <div class="filter"></div>
                 </div> <!-- end card -->
             </div>
@@ -96,7 +94,6 @@
         </c:forEach>
     </div>
 </c:if>
-
 
 <%--ВХОД--%>
 <%--@elvariable id="role" type=""--%>
@@ -112,25 +109,20 @@
                         <form action="controller" method="post" role="form" class="form-horizontal" id="login4"
                               autocomplete="on">
                             <input type="hidden" name="command" value="find_user">
-                                <%-- <form action="mysuperscript.php" autocomplete="on">--%>
-                            <h1>Вход</h1>
+                            <h1>${sign_in}</h1>
                             <p>
-                                <label for="username" class="uname" data-icon="u"> Ваш логин</label>
-                                <input id="username" name="login" required="required" type="text"
-                                       placeholder="sitehere "/>
+                                <label for="username" class="uname">${login}</label>
+                                <input id="username" name="login" required="required" type="text"/>
                             </p>
                             <p>
-                                <label for="password" class="youpasswd" data-icon="p"> Ваш пароль </label>
-                                <input id="password" name="password" required="required" type="password"
-                                       placeholder="например 123456"/>
+                                <label for="password" class="youpasswd">${pass}</label>
+                                <input id="password" name="password" required="required" type="password"/>
                             </p>
-
                             <p class="login button">
-                                <input type="submit" value="Войти"/>
+                                <input type="submit" value=${submit}>
                             </p>
-                            <p class="change_link">
-                                Забыли пароль?
-                                <a href="#toregister" class="to_forget_password">Восстановление</a>
+                            <p class="change_link">${forget}
+                                <a href="#toregister" class="to_forget_password">${restore}</a>
                             </p>
                             <p class="text-left text-info font-weight-bold">${requestScope.registration}</p>
                             <p class="text-left text-info font-weight-bold">${requestScope.account_deleted}</p>
@@ -139,28 +131,18 @@
                     </div>
 
                     <div id="register" class="animate form">
-                        <h1>Забыли пароль</h1>
+                        <h1>${forget}</h1>
                         <form action="controller" method="post" role="form" class="form-horizontal" id="registration"
                               autocomplete="on">
                             <input type="hidden" name="command" value="new_password">
-
-
                             <p>
-                                <label for="username" class="uname" data-icon="u"> Ваш емэйл</label>
-                                <input id="username2" name="email" required="required" type="text"
-                                       placeholder="sitehere "/>
+                                <label for="username" class="uname"> ${email}</label>
+                                <input id="username2" name="email" required="required" type="text"/>
                             </p>
-
-                            <p class="login button">
-                                <input type="submit" value="Войти"/>
+                            <p class="login button"><input type="submit" value=${submit}></p>
+                            <p class="change_link">${haveaccount}
+                                <a href="#tologin" class="to_register">${cometosite}</a>
                             </p>
-                            <p class="change_link">
-                                Уже зарегистрированы ?
-                                <a href="#tologin" class="to_register"> Войдите на сайт </a>
-                            </p>
-                            <p class="text-left text-info font-weight-bold">${requestScope.registration}</p>
-                            <p class="text-left text-info font-weight-bold">${requestScope.account_deleted}</p>
-                            <p class="text-left text-danger font-weight-bold">${requestScope.error}</p>
                         </form>
                     </div>
                 </div>
@@ -170,20 +152,16 @@
     </div>
 </c:if>
 
-<script>
+<script type="text/javascript">
     $(document).ready(function () {
         window_width = $(window).width();
-
         // Make the images from the card fill the hole space
         hipster_cards.fitBackgroundForCards();
-
     });
-
     hipster_cards = {
         misc: {
             navbar_menu_visible: 0
         },
-
         fitBackgroundForCards: function () {
             $('[data-background="image"]').each(function () {
                 $this = $(this);
@@ -196,7 +174,6 @@
                         "background-position": "center center",
                         "background-size": "cover"
                     };
-
                     $this.css(new_css);
                 }
             });
@@ -204,9 +181,7 @@
             $('.card .header img').each(function () {
                 $card = $(this).parent().parent();
                 $header = $(this).parent();
-
                 background_src = $(this).attr("src");
-
                 if (background_src !== "undefined") {
                     new_css = {
                         "background-image": "url('" + background_src + "')",
@@ -216,12 +191,19 @@
                     $header.css(new_css);
                 }
             });
-
         }
     }
 </script>
+<script type="text/javascript">
+    document.onkeydown = function (e) {
+        if (e.keyCode === 116) {
+            return false;
+        }
+    };
+</script>
+
 </body>
 <footer>
-    <%--<c:import url="footer.jsp"/></footer>--%>
+    <p><c:import url="footer.jsp"/></p>
 </footer>
 </html>

@@ -14,15 +14,27 @@ import java.sql.SQLException;
 
 import static by.epam.club.entity.Parameter.SQL_EXCEPTION_MESSAGE;
 import static by.epam.club.entity.Parameter.UNKNOWN_MISTAKE_MESSAGE;
-
+/**
+ * Class for upload picture to data base
+ *
+ * @author Maeuski Igor
+ * @version 1.0
+ */
 public class BaseUploadPic extends BaseDao {
 
     private static final Logger LOGGER = LogManager.getLogger(BaseUploadPic.class);
 
+    /**
+     *
+     * @param query SQL query for script
+     * @param part out picture
+     * @param id user's id
+     * @throws DaoException for catching it on the logic level in the case of exception
+     */
+
     public void uploadPicture(String query, Part part, String id) throws DaoException {
         ConnectionPool connectionPool = ConnectionPool.getInstance();
         PreparedStatement ps = null;
-
         try (Connection con = connectionPool.takeConnection()) {
             ps = con.prepareStatement(query);
             InputStream is = part.getInputStream();

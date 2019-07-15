@@ -6,7 +6,12 @@
 
 <fmt:setLocale value="${sessionScope.local}"/>
 <fmt:setBundle basename="resource.locale" var="loc"/>
-<fmt:message bundle="${loc}" key="locale.default.registration" var="registration_button"/>
+<fmt:message bundle="${loc}" key="locale.registration.registration" var="registration"/>
+<fmt:message bundle="${loc}" key="locale.default.login" var="login"/>
+<fmt:message bundle="${loc}" key="locale.default.password" var="pass"/>
+<fmt:message bundle="${loc}" key="locale.default.passwordagain" var="pass2"/>
+<fmt:message bundle="${loc}" key="locale.header.submit" var="submit"/>
+<fmt:message bundle="${loc}" key="locale.default.email" var="email"/>
 
 <head>
     <meta charset="UTF-8"/>
@@ -28,15 +33,16 @@
     body {
         background: url(http://bootstraptema.ru/images/bg/bg-1.png)
     }
-
-
 </style>
 
 <c:import url="header.jsp"/>
 
-<p class="text-left text-info font-weight-bold">${requestScope.registration}</p>
-<p class="text-left text-info font-weight-bold">${requestScope.account_deleted}</p>
-<p class="text-left text-danger font-weight-bold">${requestScope.error}</p>
+<div class="text-message">
+    <script> $('.text-message').delay(3000).animate({'opacity': '0'}, 500);</script>
+    ${requestScope.error}
+    ${requestScope.account_deleted}
+    ${requestScope.registration}
+</div>
 
 <%--Таблица регистрация--%>
 <%--@elvariable id="role" type=""--%>
@@ -51,31 +57,29 @@
                         <form action="controller" method="post" role="form" class="form-horizontal" id="registration1"
                               autocomplete="on">
                             <input type="hidden" name="command" value="registration">
-
-                            <h1> Регистрация </h1>
+                            <h1>${registration}</h1>
                             <p>
-                                <label for="usernamesignup" class="uname" data-icon="u">Ваш логин</label>
+                                <label for="usernamesignup" class="uname" >${login}</label>
                                 <input id="usernamesignup1" name="login" required="required" type="text"
                                        placeholder="myname1"/>
                             </p>
                             <p>
-                                <label for="emailsignup" class="youmail" data-icon="e"> Ваш e-mail</label>
+                                <label for="emailsignup" class="youmail" >${email}</label>
                                 <input id="emailsignup1" name="email" required="required" type="email"
                                        placeholder="sitehere.ru@my.com"/>
                             </p>
                             <p>
-                                <label for="passwordsignup" class="youpasswd" data-icon="p">Ваш пароль </label>
+                                <label for="passwordsignup" class="youpasswd" >${pass}</label>
                                 <input id="passwordsignup1" name="password1" required="required" type="password"
-                                       placeholder="123456"/>
+                                       placeholder="******"/>
                             </p>
                             <p>
-                                <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Подтвердите ваш
-                                    пароль </label>
+                                <label for="passwordsignup_confirm" class="youpasswd" >${pass2}</label>
                                 <input id="passwordsignup_confirm1" name="password2" required="required"
-                                       type="password" placeholder="123456"/>
+                                       type="password" placeholder="******"/>
                             </p>
                             <p class="signin button">
-                                <input type="submit" value="Регистрация"/>
+                                <input type="submit" value=${registration}>
                             </p>
                         </form>
                     </div>
@@ -84,41 +88,45 @@
                               autocomplete="on">
                             <input type="hidden" name="command" value="registration">
 
-                            <h1> Регистрация </h1>
+                            <h1>${registration}</h1>
                             <p>
-                                <label for="usernamesignup" class="uname" data-icon="u">Ваш логин</label>
+                                <label for="usernamesignup" class="uname" >${login}</label>
                                 <input id="usernamesignup" name="login" required="required" type="text"
                                        placeholder="myname1"/>
                             </p>
                             <p>
-                                <label for="emailsignup" class="youmail" data-icon="e"> Ваш e-mail</label>
+                                <label for="emailsignup" class="youmail" >${email}</label>
                                 <input id="emailsignup" name="email" required="required" type="email"
                                        placeholder="sitehere.ru@my.com"/>
                             </p>
                             <p>
-                                <label for="passwordsignup" class="youpasswd" data-icon="p">Ваш пароль </label>
+                                <label for="passwordsignup" class="youpasswd" >${pass}</label>
                                 <input id="passwordsignup" name="password1" required="required" type="password"
-                                       placeholder="123456"/>
+                                       placeholder="******"/>
                             </p>
                             <p>
-                                <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Подтвердите ваш
-                                    пароль </label>
+                                <label for="passwordsignup_confirm" class="youpasswd" >${pass2}</label>
                                 <input id="passwordsignup_confirm" name="password2" required="required"
-                                       type="password" placeholder="123456"/>
+                                       type="password" placeholder="******"/>
                             </p>
                             <p class="signin button">
-                                <input type="submit" value="Регистрация"/>
+                                <input type="submit" value=${registration}>
                             </p>
                         </form>
                     </div>
                 </div>
             </div>
-
         </section>
     </div>
 </c:if>
 
+<script>
+    document.onkeydown = function (e) {
+        if (e.keyCode === 116) {
+            return false;
+        }
+    };
+</script>
 </body>
-<footer>
-    <c:import url="footer.jsp"/></footer>
+
 

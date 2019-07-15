@@ -7,19 +7,28 @@
     <servlet>
         <servlet-name>Controller</servlet-name>
         <servlet-class>by.epam.club.controller.Controller</servlet-class>
-
     </servlet>
 
     <servlet>
         <servlet-name>UploadImage</servlet-name>
         <servlet-class>by.epam.club.controller.UploadImage</servlet-class>
-
     </servlet>
+
     <servlet>
         <servlet-name>TakePictureFromDB</servlet-name>
         <servlet-class>by.epam.club.controller.TakePictureFromDB</servlet-class>
-
     </servlet>
+
+    <servlet>
+        <servlet-name>AjaxController</servlet-name>
+        <servlet-class>by.epam.club.controller.AjaxController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AjaxController</servlet-name>
+        <url-pattern>/AjaxController</url-pattern>
+    </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>TakePictureFromDB</servlet-name>
         <url-pattern>/TakePictureFromDB</url-pattern>
@@ -42,8 +51,8 @@
         </taglib>
     </jsp-config>
 
-   <!-- <error-page>
-        <location>/error.jsp</location>
-    </error-page>-->
+    <error-page>
+        <location>/jsp/error.jsp</location>
+    </error-page>
 </web-app>
 

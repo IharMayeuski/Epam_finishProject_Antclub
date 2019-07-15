@@ -9,11 +9,23 @@ import org.apache.logging.log4j.Logger;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import static by.epam.club.entity.Parameter.SQL_TRANSACTION_EXCEPTION_MESSAGE;
+
+/**
+ * The special class for making transaction operations
+ *
+ * @author Maeuski Igor
+ * @version 1.0
+ */
 public class TransactionHelper {
     private static Logger logger = LogManager.getLogger();
     private Connection connection = ConnectionPool.getInstance().takeConnection();
     private BaseDao[] daosArray;
 
+    /**
+     * @param daos take difference quantity of BaseDao for transaction
+     * @throws DaoException for catching on the service level
+     */
     public void beginTransaction(BaseDao... daos) throws DaoException {
         try {
             connection.setAutoCommit(false);
@@ -23,11 +35,14 @@ public class TransactionHelper {
                 d.setInAction(true);
             }
         } catch (SQLException e) {
-            logger.error("SQL beginTransaction exception ", e);
-            throw new DaoException("SQL beginTransaction exception ", e);
+            logger.error(SQL_TRANSACTION_EXCEPTION_MESSAGE, e);
+            throw new DaoException(SQL_TRANSACTION_EXCEPTION_MESSAGE);
         }
     }
 
+    /**
+     * @throws DaoException for catching on service level
+     */
     public void endTransaction() throws DaoException {
         try {
             connection.setAutoCommit(true);
@@ -37,27 +52,33 @@ public class TransactionHelper {
                 d.setInAction(false);
             }
         } catch (SQLException e) {
-            logger.error("SQL endTransaction exception ", e);
+            logger.error(SQL_TRANSACTION_EXCEPTION_MESSAGE, e);
 
-            throw new DaoException("SQL endTransaction exception ", e);
+            throw new DaoException(SQL_TRANSACTION_EXCEPTION_MESSAGE);
         }
     }
 
+    /**
+     * @throws DaoException for catching on service level
+     */
     public void commit() throws DaoException {
         try {
             connection.commit();
         } catch (SQLException e) {
-            logger.error("SQL commit exception ", e);
-            throw new DaoException("SQL commit exception ", e);
+            logger.error(SQL_TRANSACTION_EXCEPTION_MESSAGE, e);
+            throw new DaoException(SQL_TRANSACTION_EXCEPTION_MESSAGE);
         }
     }
 
+    /**
+     * @throws DaoException for catching on service level
+     */
     public void rollback() throws DaoException {
         try {
             connection.rollback();
         } catch (SQLException e) {
-            logger.error("SQL rollback exception ", e);
-            throw new DaoException("SQL rollback exception ", e);
+            logger.error(SQL_TRANSACTION_EXCEPTION_MESSAGE, e);
+            throw new DaoException(SQL_TRANSACTION_EXCEPTION_MESSAGE);
         }
     }
 }

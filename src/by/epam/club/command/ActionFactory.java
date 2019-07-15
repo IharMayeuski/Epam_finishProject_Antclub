@@ -1,15 +1,58 @@
+///** The action command. */
+//private static ActionCommand actionCommand = new ActionCommand();
+//private static final String NAME_COMMAND = "command";
+//private static final String ERROR_ATTRIBUTE="error";
+//private static final String LOCALE="locale";
+//
+///**
+// * Instantiates a new action command.
+// */
+//private ActionCommand() {
+//        }
+//
+///**
+// * Gets the single instance of ActionCommand.
+// *
+// * @return single instance of ActionCommand
+// */
+//public static ActionCommand getInstance() {
+//        return actionCommand;
+//        }
+//
+//        /**
+//         * Define command.
+//         *
+//         * @param content
+//         *            the request
+//         * @return the i command
+//         * @throws CommandException
+//         *             the command exception
+//         */
+
 package by.epam.club.command;
 
 import by.epam.club.bundlemanager.MessageManager;
-import by.epam.club.command.forward.DefaultPageCommand;
+import by.epam.club.command.forward.global.DefaultPageCommand;
 import by.epam.club.controller.RequestContent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import static by.epam.club.entity.Parameter.*;
 
+/**
+ * The class for defining name of the command
+ *
+ * @author Maeuski Igor
+ * @version 1.0
+ */
+
 public class ActionFactory {
     private static Logger LOGGER = LogManager.getLogger(ActionFactory.class);
+
+    /**
+     * @param content of the class RequestContent
+     * @return current it is a command that choose user by button in .jsp
+     */
 
     public static ActionCommand defineCommand(RequestContent content) {
         ActionCommand current;

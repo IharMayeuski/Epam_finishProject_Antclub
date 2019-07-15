@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN">
+<Configuration status="INFO">
     <Properties>
         <Property name="logPath">log/</Property>
         <Property name="rollingFileName">log</Property>
     </Properties>
     <Appenders>
         <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout pattern="[%highlight{%-5level}] %d{dd.MM.yyyy HH:mm:ss} %L  %c{1}.%M() - %m%n%throwable{short.lineNumber}"/>
+            <PatternLayout pattern="%d{HH:mm:ss} %highlight{%-5level}{FATAL=bg_red, ERROR=red, WARN=yellow, INFO=green, DEBUG=blue} %logger{10} - %msg%n"
+                           disableAnsi="false"/>
         </Console>
         <RollingFile name="rollingFile"
                      immediateFlush="false"
                      fileName="${logPath}/${rollingFileName}.txt"
                      filePattern="${logPath}/${rollingFileName}_%d{yyyy-MM-dd}.txt">
-            <PatternLayout pattern="[%highlight{%-5level}] %d{dd.MM.yyyy HH:mm:ss} %c{1}.%M() - %m%n%throwable{short.lineNumber}"/>
-            <Policies>
-                <OnStartupTriggeringPolicy/>
-                <TimeBasedTriggeringPolicy interval="2" modulate="true"/>
-            </Policies>
+            <PatternLayout pattern="%d{dd.MM.yyyy HH:mm:ss} [%-5level] %c{1}.%M() - %m%n"/>
+            <SizeBasedTriggeringPolicy size="200kb" />
         </RollingFile>
     </Appenders>
     <Loggers>
