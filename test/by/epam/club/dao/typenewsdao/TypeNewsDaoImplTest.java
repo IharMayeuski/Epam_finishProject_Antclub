@@ -105,4 +105,5 @@ public class TypeNewsDaoImplTest {
             LOGGER.info(NEGATIVE_TEST);
         }
     }
+
 }
