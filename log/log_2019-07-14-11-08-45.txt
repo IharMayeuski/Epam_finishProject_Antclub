@@ -1,7 +1,0 @@
-[INFO ] 14.07.2019 23:08:45 UserDaoImplTest.testCheckUserNegative() - Negative test createUser is completed successfully
-[INFO ] 14.07.2019 23:08:45 UserDaoImplTest.testCheckUserPositive() - Positive test is completed successfully
-[WARN ] 14.07.2019 23:08:45 BaseDao.create() - SQL_exception
-965[INFO ] 14.07.2019 23:08:45 UserDaoImplTest.testCreateIdInUserInfoNegative() - Negative test createUser is completed successfully
-[INFO ] 14.07.2019 23:08:45 UserDaoImplTest.testCreateIdInUserInfoPositive() - Positive test is completed successfully
-[WARN ] 14.07.2019 23:08:45 BaseDao.create() - SQL_exception
--2[INFO ] 14.07.2019 23:08:45 UserDaoImplTest.testCreateUserNegative() - Negative test createUser is completed successfully

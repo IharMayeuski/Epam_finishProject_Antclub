@@ -1,1 +1,0 @@
-[INFO ] 14.07.2019 02:10:39 UserDaoImplTest.testCheckUserNegative() - nullNegative test checkUser user is completed successfully

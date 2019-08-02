@@ -1,2 +1,0 @@
-[INFO ] 14.07.2019 03:33:13 UserDaoImplTest.testCheckUserNegative() - Negative test createUser is completed successfully
-[INFO ] 14.07.2019 03:33:13 UserDaoImplTest.testCheckUserPositive() - Positive test is completed successfully

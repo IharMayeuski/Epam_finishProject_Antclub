@@ -1,2 +1,0 @@
-[INFO ] 14.07.2019 00:14:45 UserDaoImplTest.testCheckUserNegative() - Negative test checkUser user is completed successfully - user.login.password.uncorrect
-[INFO ] 14.07.2019 00:14:45 UserDaoImplTest.testCheckUserPositive() - Positive test checkUser user is completed successfully

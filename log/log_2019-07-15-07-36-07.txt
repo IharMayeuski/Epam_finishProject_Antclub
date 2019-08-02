@@ -1,6 +1,0 @@
-[INFO ] 15.07.2019 19:36:07 UserDaoImplTest.testNewPasswordPositive() - Positive test is completed successfully
-[INFO ] 15.07.2019 19:36:07 UserDaoImplTest.testTakeAllUserBanned() - Positive test is completed successfully, totally count of users: 1
-[INFO ] 15.07.2019 19:36:07 UserDaoImplTest.testTakeAllUserDeletedPositive() - Positive test is completed successfully, totally count of users: 4
-[INFO ] 15.07.2019 19:36:07 UserDaoImplTest.testTakeAllUserPositive() - Positive test is completed successfully, totally count of users: 7
-[INFO ] 15.07.2019 19:36:07 UserDaoImplTest.testTakeAllUserUndeletedPositive() - Positive test is completed successfully, totally count of users: 1
-[INFO ] 15.07.2019 19:36:07 UserDaoImplTest.testUpdateUserInfo() - Positive test is completed successfully
