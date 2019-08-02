@@ -8,18 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ba503b07-050b-4dda-95d0-98b057528f44" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/log_2019-07-14-02-07-19.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/log_2019-07-14-02-08-35.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/log_2019-07-14-02-10-39.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/log_2019-07-14-03-33-13.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/log_2019-07-14-11-08-45.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/log_2019-07-14-11-42-29.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/log_2019-07-14-12-14-45.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/log_2019-07-15-07-36-05.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/log_2019-07-15-07-36-07.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/log_2019-07-15-12-04-59.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/log_2019-07-16-08-58-21.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/log_2019-07-16-08-59-41.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,15 +70,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/articledao/ArticleDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="33" column="95" selection-start-line="33" selection-start-column="95" selection-end-line="33" selection-end-column="95" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/by/epam/club/tool/CreateDate.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="209">
@@ -101,11 +81,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/log/log_2019-07-16-12-53-17.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="60" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
+            <state relative-caret-position="187">
+              <caret line="11" column="57" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -226,7 +215,7 @@
           <entry type="REMOTE">
             <value>
               <list>
-                <branch-info repo="$PROJECT_DIR$" source="origin/16.06" />
+                <branch-info repo="$PROJECT_DIR$" source="origin/primary" />
               </list>
             </value>
           </entry>
@@ -257,7 +246,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/by/epam/club/entity/Comment.java" />
         <option value="$PROJECT_DIR$/src/by/epam/club/entity/Dislaker.java" />
         <option value="$PROJECT_DIR$/src/by/epam/club/entity/Liker.java" />
         <option value="$PROJECT_DIR$/src/by/epam/club/entity/Parameter.java" />
@@ -308,6 +296,7 @@
         <option value="$PROJECT_DIR$/web/jsp/header.jsp" />
         <option value="$PROJECT_DIR$/web/jsp/update_article.jsp" />
         <option value="$PROJECT_DIR$/src/by/epam/club/tag/ContentTagPages.java" />
+        <option value="$PROJECT_DIR$/web/index.jsp" />
       </list>
     </option>
   </component>
@@ -603,7 +592,7 @@
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564778282714" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564778608569" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect" value="MySQL" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="TestNG" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.TestNG" value="" />
@@ -1130,7 +1119,7 @@
       <workItem from="1564521079294" duration="594000" />
       <workItem from="1564597687504" duration="587000" />
       <workItem from="1564681758111" duration="6924000" />
-      <workItem from="1564774593275" duration="3677000" />
+      <workItem from="1564774593275" duration="4002000" />
     </task>
     <task id="LOCAL-00001" summary="21-05-19">
       <created>1558435672203</created>
@@ -1258,7 +1247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564777790329</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="git">
+      <created>1564778333366</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1564778333366</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1294,7 +1290,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1515728000" />
+    <option name="totallyTimeSpent" value="1516053000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1394,13 +1390,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/jsp/look_article.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="311" selection-start-line="311" selection-end-line="311" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/by/epam/club/command/CommandEnum.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -1776,8 +1765,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/log/log_2019-07-16-12-53-17.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="60" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
+        <state relative-caret-position="187">
+          <caret line="11" column="57" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
         </state>
       </provider>
     </entry>

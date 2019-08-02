@@ -5,9 +5,6 @@
 
 <html>
 <body>
-<%--<c:redirect url="controller?command=go_to_default_page" />--%>
 <jsp:forward page="/jsp/default.jsp"/>
-
-
 </body>
 </html>
