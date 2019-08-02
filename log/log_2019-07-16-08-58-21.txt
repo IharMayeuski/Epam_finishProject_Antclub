@@ -1,0 +1,1 @@
+[INFO ] 16.07.2019 20:58:21 LetterDaoImplTest.testSendLetterPositive() - Positive test is completed successfully

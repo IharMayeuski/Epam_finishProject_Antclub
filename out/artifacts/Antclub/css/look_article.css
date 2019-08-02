@@ -1,0 +1,106 @@
+/* CSS */
+.media-body .author {
+    display: inline-block;
+    font-size: 1.5rem;
+    color: #000;
+    font-weight: 700;
+}
+
+.media-body .metadata {
+    display: inline-block;
+    margin-left: .5rem;
+    color: #777;
+    font-size: 1.5rem;
+}
+
+.footer-comment {
+    color: #777;
+}
+
+.vote.plus:hover {
+    color: green;
+}
+
+.vote.minus:hover {
+    color: red;
+}
+
+.vote {
+    cursor: pointer;
+}
+
+.comment-reply a {
+    color: #777;
+}
+
+.comment-reply a:hover, .comment-reply a:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.devide {
+    padding: 0px 4px;
+    font-size: 0.9em;
+}
+
+.media-text {
+    margin-bottom: 0.25rem;
+}
+
+.title-comments {
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1.3rem;
+    color: rgba(0, 0, 0, .87);
+    margin-bottom: 1rem;
+    padding-bottom: .25rem;
+    border-bottom: 1px solid rgba(34, 36, 38, .15);
+}
+
+
+/* !*скрытая форма*!
+ .popup {
+     position: fixed;
+     top: 35%;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     z-index: 1050;
+     display: none;
+     outline: 0;
+     overflow: auto;
+ }
+ .popup .popup_width {
+     width: 500px;
+ }
+ .popup .controls_width {
+     width: 450px;
+ }
+ .popup .color {
+     width: max-content;
+     padding-bottom: 0px;
+     margin-right: 10px;
+ }
+ .popup .removeborder {
+     border: none;
+ }
+ .popup .footerview {
+     display: inline-block;
+ }
+ .popup .footercontrol {
+     list-style-type: none;
+     display: flex;
+     width: 100%;
+     padding: 0;
+ }
+ .popup .footercontrol li {
+     padding-right: 10px;
+ }
+ .popup .footercontrol .dropdown-menu .delete_note {
+     margin: auto;
+ }
+ .popup .footercontrol li:last-child {
+     margin-left: 290px;
+     padding: 0;
+ }
+*/

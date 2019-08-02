@@ -1,0 +1,14 @@
+[INFO ] 16.07.2019 21:07:06 UserDaoImplTest.testCreateUserPositive() - Positive test is completed successfully
+[INFO ] 16.07.2019 21:07:06 UserDaoImplTest.testFindUserByEmailNegative() - Negative test is completed successfully
+[INFO ] 16.07.2019 21:07:06 UserDaoImplTest.testFindUserByEmailPositive() - Positive test is completed successfully
+[INFO ] 16.07.2019 21:07:06 UserDaoImplTest.testFindUserByLoginNegative() - Negative test is completed successfully
+[INFO ] 16.07.2019 21:07:06 UserDaoImplTest.testFindUserByLoginPositive() - Positive test is completed successfully
+[INFO ] 16.07.2019 21:07:06 UserDaoImplTest.testFindUserIdForRegistrationTransactionNegative() - Negative test is completed successfully
+[INFO ] 16.07.2019 21:07:06 UserDaoImplTest.testFindUserIdForRegistrationTransactionPositive() - Positive test is completed successfully
+[INFO ] 16.07.2019 21:07:06 UserDaoImplTest.testMarkAdminPositive() - Positive test is completed successfully
+[INFO ] 16.07.2019 21:07:06 UserDaoImplTest.testMarkUserBannedPositive() - Positive test is completed successfully
+[INFO ] 16.07.2019 21:07:06 UserDaoImplTest.testMarkUserDeletedPositive() - Positive test is completed successfully
+[INFO ] 16.07.2019 21:07:06 UserDaoImplTest.testMarkUserPositive() - Positive test is completed successfully
+[INFO ] 16.07.2019 21:07:06 UserDaoImplTest.testMarkUserUnbannedPositive() - Positive test is completed successfully
+[INFO ] 16.07.2019 21:07:06 UserDaoImplTest.testMarkUserUndeletedPositive() - Positive test is completed successfully
+[INFO ] 16.07.2019 21:07:06 UserDaoImpl.newPassword() - user is empty

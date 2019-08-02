@@ -1,0 +1,21 @@
+[INFO ] 16.07.2019 00:53:16 UserDaoImplTest.testCheckUserNegative() - Negative test is completed successfully
+[INFO ] 16.07.2019 00:53:16 UserDaoImplTest.testCheckUserPositive() - Positive test is completed successfully
+[WARN ] 16.07.2019 00:53:16 BaseDao.create() - SQL_exception
+965[INFO ] 16.07.2019 00:53:16 UserDaoImplTest.testCreateIdInUserInfoNegative() - Negative test is completed successfully
+[INFO ] 16.07.2019 00:53:17 UserDaoImplTest.testCreateIdInUserInfoPositive() - Positive test is completed successfully
+[WARN ] 16.07.2019 00:53:17 BaseDao.create() - SQL_exception
+-2[INFO ] 16.07.2019 00:53:17 UserDaoImplTest.testCreateUserNegative() - Negative test is completed successfully
+[INFO ] 16.07.2019 00:53:17 UserDaoImplTest.testCreateUserPositive() - Positive test is completed successfully
+[INFO ] 16.07.2019 00:53:17 UserDaoImplTest.testFindUserByEmailNegative() - Negative test is completed successfully
+[INFO ] 16.07.2019 00:53:17 UserDaoImplTest.testFindUserByEmailPositive() - Positive test is completed successfully
+[INFO ] 16.07.2019 00:53:17 UserDaoImplTest.testFindUserByLoginNegative() - Negative test is completed successfully
+[INFO ] 16.07.2019 00:53:17 UserDaoImplTest.testFindUserByLoginPositive() - Positive test is completed successfully
+[INFO ] 16.07.2019 00:53:17 UserDaoImplTest.testFindUserIdForRegistrationTransactionNegative() - Negative test is completed successfully
+[INFO ] 16.07.2019 00:53:17 UserDaoImplTest.testFindUserIdForRegistrationTransactionPositive() - Positive test is completed successfully
+[INFO ] 16.07.2019 00:53:17 UserDaoImplTest.testMarkAdminPositive() - Positive test is completed successfully
+[INFO ] 16.07.2019 00:53:17 UserDaoImplTest.testMarkUserBannedPositive() - Positive test is completed successfully
+[INFO ] 16.07.2019 00:53:17 UserDaoImplTest.testMarkUserDeletedPositive() - Positive test is completed successfully
+[INFO ] 16.07.2019 00:53:17 UserDaoImplTest.testMarkUserPositive() - Positive test is completed successfully
+[INFO ] 16.07.2019 00:53:17 UserDaoImplTest.testMarkUserUnbannedPositive() - Positive test is completed successfully
+[INFO ] 16.07.2019 00:53:17 UserDaoImplTest.testMarkUserUndeletedPositive() - Positive test is completed successfully
+[INFO ] 16.07.2019 00:53:17 UserDaoImpl.newPassword() - user is empty
