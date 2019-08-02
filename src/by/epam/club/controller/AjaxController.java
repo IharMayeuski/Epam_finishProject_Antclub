@@ -30,6 +30,7 @@ public class AjaxController extends HttpServlet {
      * @param request method doGet receives this parameter HttpServletRequest
      * @param response method doGet receives this parameter HttpServletResponse
      */
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         String jsonResponse;
         String newsId = request.getParameter(ID_NEWS_PARAM);

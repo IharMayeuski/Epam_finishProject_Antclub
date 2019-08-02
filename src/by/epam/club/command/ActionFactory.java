@@ -1,34 +1,3 @@
-///** The action command. */
-//private static ActionCommand actionCommand = new ActionCommand();
-//private static final String NAME_COMMAND = "command";
-//private static final String ERROR_ATTRIBUTE="error";
-//private static final String LOCALE="locale";
-//
-///**
-// * Instantiates a new action command.
-// */
-//private ActionCommand() {
-//        }
-//
-///**
-// * Gets the single instance of ActionCommand.
-// *
-// * @return single instance of ActionCommand
-// */
-//public static ActionCommand getInstance() {
-//        return actionCommand;
-//        }
-//
-//        /**
-//         * Define command.
-//         *
-//         * @param content
-//         *            the request
-//         * @return the i command
-//         * @throws CommandException
-//         *             the command exception
-//         */
-
 package by.epam.club.command;
 
 import by.epam.club.bundlemanager.MessageManager;

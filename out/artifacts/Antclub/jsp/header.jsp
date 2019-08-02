@@ -32,7 +32,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
+<link rel="stylesheet" href="http://bootstraptema.ru/snippets/style/2015/bootswatch/bootstrap-spacelab-v-3.3.6.css"
+      media="screen">
+<link rel="stylesheet" href="http://bootstraptema.ru/snippets/style/2015/bootswatch/custom.min.css">
 
 <style>
     @media only screen and (min-width: 168px) {
@@ -43,19 +45,11 @@
     }
 </style>
 
-
-<link rel="stylesheet" href="http://bootstraptema.ru/snippets/style/2015/bootswatch/bootstrap-spacelab-v-3.3.6.css"
-      media="screen">
-<link rel="stylesheet" href="http://bootstraptema.ru/snippets/style/2015/bootswatch/custom.min.css">
-
-
 <nav class="navbar navbar-expand-lg  bg-light navbar-default navbar-fixed-top">
     <div class="col-lg-12">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand">
-                    <%--href="controller?command=go_to_default_page">AntClub</a>--%>
-
                     <form action="controller" method="post" role="form"
                           style="display: inline-block;">
                         <button class="btn-link" type="submit"
@@ -95,9 +89,7 @@
 
 
                                 <c:if test="${role eq 'admin'}">
-                                    <%-- <a class="dropdown-item" method="POST" href="controller?command=go_admin_control">${adminpanel}--%>
-
-                                    <a>
+                                      <a>
                                         <form action="controller" method="post" role="form"
                                               style="display: inline-block;">
                                             <button class="btn-link" type="submit"
@@ -121,8 +113,7 @@
                     <c:if test="${empty role}">
                         <li class="nav-item">
                             <a class="nav-link">
-                                    <%-- href="controller?command=go_to_registration_page">${registration_button}</a>--%>
-                                <form action="controller" method="post" role="form"
+                               <form action="controller" method="post" role="form"
                                       style="display: inline-block;">
                                     <button class="btn-link" type="submit"
                                             name="command" value="go_to_registration_page">${registration_button}
@@ -132,7 +123,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link">
-                                    <%-- href="controller?command=i_am_guest">${guest}</a>--%>
                                 <form action="controller" method="post" role="form"
                                       style="display: inline-block;">
                                     <button class="btn-link" type="submit"
@@ -157,9 +147,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item">
-                                        <%-- href="controller?command=logOut">${logout}</a>--%>
-
-                                    <form action="controller" method="post" role="form"
+                                   <form action="controller" method="post" role="form"
                                           style="display: inline-block;">
                                         <button class="btn-link" type="submit"
                                                 name="command" value="logOut">${logout}
@@ -180,19 +168,17 @@
                                       style="display: inline-block;">
                                     <input type="hidden" name="path" value="${pageContext.request.servletPath}">
                                     <input type="hidden" name="locale" value="2">
-                                    <button class="btn btn-outline-success" type="submit"
+                                    <button class="btn-link" type="submit"
                                             name="command" value="change_locale">Русский
                                     </button>
                                 </form>
                             </a>
                             <a class="dropdown-item">
-                                <%-- href="controller?command=change_locale&locale=1&path=${pageContext.request.servletPath}">English</a>--%>
-
-                                <form action="controller" method="post" role="form"
+                                  <form action="controller" method="post" role="form"
                                       style="display: inline-block;">
                                     <input type="hidden" name="path" value="${pageContext.request.servletPath}">
                                     <input type="hidden" name="locale" value="1">
-                                    <button class="btn btn-outline-success" type="submit"
+                                    <button class="btn-link" type="submit"
                                             name="command" value="change_locale">English
                                     </button>
                                 </form>

@@ -314,8 +314,4 @@ public class UserDaoImplTest {
         LOGGER.info(POSITIVE_TEST);
     }
 
-    // FIXME: 7/15/2019 удалить
-//    @Test
-//    public void testCreateUserUploade() throws DaoException {
-//    }
 }

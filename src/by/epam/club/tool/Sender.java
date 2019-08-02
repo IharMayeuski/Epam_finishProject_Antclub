@@ -44,6 +44,7 @@ public class Sender {
      */
     public void send(String newPassword, String toEmail) throws MessagingException {
         Session session = Session.getInstance(properties, new Authenticator() {
+            @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(USERNAME, PASSWORD);
             }

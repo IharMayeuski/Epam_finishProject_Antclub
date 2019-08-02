@@ -98,7 +98,6 @@ public class SecurityFilter extends GenericFilter {
             }
             filterChain.doFilter(servletRequest, servletResponse);
         } catch (Exception e) {
-            e.printStackTrace();
             LOGGER.warn(" Exception in SecurityFilter ", e);
             ((HttpServletResponse) servletResponse).sendRedirect(httpServletRequest.getServerName() + ":" + httpServletRequest.getServerPort() + httpServletRequest.getContextPath() + httpServletRequest.getServletPath());
         }

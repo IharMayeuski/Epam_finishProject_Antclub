@@ -315,7 +315,7 @@
                             <div class="tab-pane fade" id="all_types">
                                 <table class="table table-th-block">
                                     <tbody>
-                                    <td>${photo}</td>
+                                    <td class="active">${photo}</td>
                                     <td class="active">${typetext}:</td>
                                     <td class="active">${deleted}:</td>
                                     <td class="active">${delete}</td>
@@ -405,4 +405,5 @@
 </script>
 
 </body>
+
 </html>

@@ -15,7 +15,6 @@ class DbResourceManager {
     static final String DB_PASSWORD = "db.password";
     static final String DB_POOL_SIZE = "db.poolsize";
     private static final String PATH = "resource.db";
-
     private final static DbResourceManager instance = new DbResourceManager();
     private ResourceBundle jdbcProperties = ResourceBundle.getBundle(PATH);
 

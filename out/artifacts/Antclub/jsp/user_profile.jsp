@@ -159,39 +159,44 @@
                                         <tr>
                                             <td class="active">${name}:</td>
                                             <td><label>
-                                                <input type="text" name="firstname" placeholder="${user.firstname}">
+                                                <input type="text" name="firstname" placeholder="${user.firstname}"
+                                                       maxlength="45">
                                             </label></td>
                                         </tr>
                                         <tr>
                                             <td class="active">${familyname}:</td>
                                             <td><label>
                                                 <input type="text" name="familyname"
-                                                       placeholder="${user.familyname}">
+                                                       placeholder="${user.familyname}" maxlength="45">
                                             </label></td>
                                         </tr>
                                         <tr>
                                             <td class="active">${login}:</td>
                                             <td><label>
-                                                <input type="text" name="login" placeholder="${user.login}">
+                                                <input type="text" name="login" placeholder="${user.login}"
+                                                       maxlength="45">
                                             </label></td>
                                         </tr>
                                         <tr>
                                             <td class="active">${email}:</td>
                                             <td><label>
-                                                <input type="email" name="email" placeholder="${user.email}">
+                                                <input type="email" name="email" placeholder="${user.email}"
+                                                       maxlength="45">
                                             </label></td>
                                         </tr>
 
                                         <tr>
                                             <td class="active">${changepassword}:</td>
                                             <td><label>
-                                                <input type="password" name="password1" placeholder="***** ">
+                                                <input type="password" name="password1" placeholder="***** "
+                                                       maxlength="45">
                                             </label></td>
                                         </tr>
                                         <tr>
                                             <td class="active">${passagain}:</td>
                                             <td><label>
-                                                <input type="password" name="password2" placeholder="*****">
+                                                <input type="password" name="password2" placeholder="*****"
+                                                       maxlength="45">
                                             </label></td>
                                         </tr>
                                         <tr>
@@ -211,11 +216,12 @@
                                     <tbody>
                                     <form action="UploadImage" method="POST" enctype="multipart/form-data"
                                           id="myFormFormUpdating">
-                                        <input type="hidden" name="userId" value="${user.id}"/>
+                                        <input type="hidden" name="userId" value="${user.id}" maxlength="45"/>
                                         <tr>
                                             <td class="active">${changephoto}:</td>
                                             <td><input type="file" id="tF" name="image"/><br>
-                                                <input type="submit" class="btn btn-success" value=${submit}></td>
+                                                <input type="submit" class="btn btn-success" value=${submit}>
+                                            </td>
                                         </tr>
                                     </form>
                                     </tbody>
@@ -254,7 +260,7 @@
                                                         <a href="#" onclick="swal('${letter.text}')">;)</a>
                                                     </c:if>
                                                     <c:if test="${not empty letter.title}">
-                                                       <a href="#" onclick="swal('${letter.text}')">${letter.title}</a>
+                                                        <a href="#" onclick="swal('${letter.text}')">${letter.title}</a>
                                                     </c:if>
                                                 </td>
                                                     <%--<td>${letter.text}</td>--%>
@@ -290,8 +296,6 @@
                                         <c:forEach items="${letter_from}" var="letter" varStatus="theCount">
                                             <tr>
                                                 <td>
-                                                        <%-- <a href="controller?command=find_user_by_login&search=${letter.toUser}">${letter.toUser}</a>--%>
-
                                                     <a>
                                                         <form action="controller" method="post" role="form"
                                                               style="display: inline-block;">
@@ -316,10 +320,6 @@
 
                                                 <td>${letter.date}</td>
                                                 <td>
-                                                        <%-- <a class="btn btn-outline-success"
-                                                            href="controller?command=delete_letter&letter_id=${letter.id}"
-                                                            role="button">${delete}</a>--%>
-
                                                     <a>
                                                         <form action="controller" method="post" role="form"
                                                               style="display: inline-block;">
@@ -394,5 +394,7 @@
 </script>
 
 </body>
-
+<footer>
+    <p><c:import url="footer.jsp"/></p>
+</footer>
 </html>

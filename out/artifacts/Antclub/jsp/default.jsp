@@ -72,12 +72,7 @@
                     <div class="content text-center">
                         <p class="description">${types.typeNews}</p>
                     </div>
-                        <%--<div class="footer text-center">
-                            <a href="controller?command=article&link_id=${types.id}"
-                               class="btn btn-danger btn-fill btn-round">${look_article}</a>
-                        </div>--%>
-
-                    <div class="footer text-center">
+                     <div class="footer text-center">
                         <form action="controller" method="post" role="form">
                             <input type="hidden" name="link_id" value="${types.id}">
                             <button class="btn btn-danger btn-fill btn-round" type="submit" name="command"
@@ -85,8 +80,6 @@
                             </button>
                         </form>
                     </div>
-
-
                     <div class="filter"></div>
                 </div> <!-- end card -->
             </div>
@@ -112,11 +105,13 @@
                             <h1>${sign_in}</h1>
                             <p>
                                 <label for="username" class="uname">${login}</label>
-                                <input id="username" name="login" required="required" type="text"/>
+                                <input id="username" name="login" required="required" type="text"
+                                       minlength="3" maxlength="45"/>
                             </p>
                             <p>
                                 <label for="password" class="youpasswd">${pass}</label>
-                                <input id="password" name="password" required="required" type="password"/>
+                                <input id="password" name="password" required="required" type="password"
+                                       minlength="3" maxlength="45"/>
                             </p>
                             <p class="login button">
                                 <input type="submit" value=${submit}>
@@ -137,7 +132,8 @@
                             <input type="hidden" name="command" value="new_password">
                             <p>
                                 <label for="username" class="uname"> ${email}</label>
-                                <input id="username2" name="email" required="required" type="text"/>
+                                <input id="username2" name="email" required="required" type="text"
+                                       minlength="3" maxlength="45"/>
                             </p>
                             <p class="login button"><input type="submit" value=${submit}></p>
                             <p class="change_link">${haveaccount}

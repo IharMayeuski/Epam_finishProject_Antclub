@@ -12,8 +12,6 @@ import static by.epam.club.entity.Parameter.*;
 
 @SuppressWarnings("unchecked")
 public class ArticleDaoImpl extends BaseDao implements ArticleDao {
-    // FIXME: 7/7/2019
-//    private static final Logger LOGGER = LogManager.getLogger(ArticleDaoImpl.class);
 
     @Override
     public boolean create(String name, String text, long userId, int typeNews) throws DaoException {

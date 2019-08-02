@@ -5,511 +5,85 @@
       <artifact name="Antclub" />
     </artifacts-to-build>
   </component>
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/by/epam/club/entity/Letter.java" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="ba503b07-050b-4dda-95d0-98b057528f44" name="Default Changelist" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/dataSources/919f35c0-e286-475d-9ad6-343b87f3b507.xml&#10;#&#9;src/by/epam/club/dao/ArticleDao.java&#10;#&#9;src/by/epam/club/dao/UserDao.java&#10;#&#9;src/by/epam/club/dao/impl/ArticleDaoImpl.java&#10;#&#9;src/by/epam/club/dao/impl/SqlQuery.java&#10;#&#9;src/by/epam/club/dao/impl/UserDaoImpl.java&#10;#&#9;src/by/epam/club/dao/pool/ConnectionPool.java&#10;#&#9;test/by/epam/club/dao/impl/ArticleDaoImplTest.java&#10;#&#9;test/by/epam/club/dao/impl/UserDaoImplTest.java">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/BlockedUserCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/DeleteArticleCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/DeleteCommentCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/DeletePictureCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/DeleteTypeCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/DeleteUserCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/MarkAdminCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/MarkUserCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/UnBlockedUserCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/UnDeleteUserCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/UndeleteTypeCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/user/AddNewCommentCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/user/DeleteLetterCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/user/PicToArticleCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/user/ToNewCommentCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/user/ToNewTypeArticleCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/user/ToUpdateArticleCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/user/ToUpdateCommentCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/user/UpdateArticleCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/user/UpdateCommentCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/controller/AjaxController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/dao/commentdao/CommentDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/dao/commentdao/CommentDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/entity/Dislaker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/entity/Liker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/service/comment/CommentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/service/comment/CommentServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/service/picture/PictureService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/service/picture/PictureServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/by/epam/club/tag/ContentTagPages.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/by/epam/club/dao/typenewsdao/TypeNewsDaoImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/by/epam/club/dao/userdao/UserDaoImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/gson-2.8.5.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/default.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/look_article.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/jquery-3.4.1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/masonry.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/jsp/new_article.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/jsp/new_article_picture.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/jsp/new_comment.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/jsp/update_comment.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Antclub.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Antclub.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/919f35c0-e286-475d-9ad6-343b87f3b507.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/919f35c0-e286-475d-9ad6-343b87f3b507/storage_v2/_src_/schema/base.0QYuAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/919f35c0-e286-475d-9ad6-343b87f3b507/storage_v2/_src_/schema/epam.F5ovAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/919f35c0-e286-475d-9ad6-343b87f3b507/storage_v2/_src_/schema/epam1.-qjDBQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/919f35c0-e286-475d-9ad6-343b87f3b507/storage_v2/_src_/schema/jd2_task3.h-7v9Q.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/919f35c0-e286-475d-9ad6-343b87f3b507/storage_v2/_src_/schema/jd2_task4.iO7v9Q.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/919f35c0-e286-475d-9ad6-343b87f3b507/storage_v2/_src_/schema/jd2_task5.ie7v9Q.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/919f35c0-e286-475d-9ad6-343b87f3b507/storage_v2/_src_/schema/les4_task22.CvHeUg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/919f35c0-e286-475d-9ad6-343b87f3b507/storage_v2/_src_/schema/library2.13IcMw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/919f35c0-e286-475d-9ad6-343b87f3b507/storage_v2/_src_/schema/new_schema.IHWLKw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/919f35c0-e286-475d-9ad6-343b87f3b507/storage_v2/_src_/schema/test1.302SBg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/919f35c0-e286-475d-9ad6-343b87f3b507/storage_v2/_src_/schema/webepam.a5vzSA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/javax_annotation.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/by/epam/club/dao/articledao/ArticleDaoImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/by/epam/club/dao/commentdao/CommentDaoImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Antclub.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Antclub.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javax.annotation.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javax.ejb.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javax.jms.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javax.persistence.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javax.resource.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javax.servlet.jsp.jar" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/javax.servlet.jsp.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/javax.transaction.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/Basket/antview.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/Basket/default.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/Basket/header.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/Basket/registration.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/Basket/user_page.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/bundlemanager/ConfigurationManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/bundlemanager/ConfigurationManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/bundlemanager/MessageManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/bundlemanager/MessageManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/ActionFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/ActionFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/CommandEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/Router.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/Router.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/TakeTypeNews.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/forward/AccountUpdateCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/forward/AuthorizationCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/forward/ChangeLocaleCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/forward/DefaultPageCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/forward/DeleteAccountCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/forward/FindArticleCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/forward/FindUserByLoginCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/forward/NewPasswordCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/forward/RegistrationCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/forward/RegistrationPageCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/forward/SendLetterCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/forward/ToAdminControlCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/forward/ToBeGuestCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/forward/ToNewTypeNewsCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/forward/UserLetterCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/forward/UserProfileCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/redirect/LogoutCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/command/redirect/LogoutCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/controller/RequestContent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/controller/RequestContent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/controller/TakePictureFromDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/controller/TakePictureFromDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/controller/TransmisionType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/controller/TransmisionType.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/controller/UploadImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/controller/UploadImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/CloseStatementResultSet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/SqlQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/SqlQuery.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/TransactionHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/TransactionHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/articledao/ArticleDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/articledao/ArticleDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/articledao/ArticleDaoImpl$sortArticle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/articledao/ArticleDaoImpl$sortArticle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/articledao/ArticleDaoImpl$sortComment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/articledao/ArticleDaoImpl$sortComment.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/articledao/ArticleDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/articledao/ArticleDaoImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/basedao/BaseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/basedao/BaseDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/basedao/BaseDaoTakeImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/basedao/BaseDaoTakeImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/basedao/BaseUploadPic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/basedao/BaseUploadPic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/letterdao/LetterDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/letterdao/LetterDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/letterdao/LetterDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/letterdao/LetterDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/picturedao/PictureDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/picturedao/PictureDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/picturedao/PictureDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/picturedao/PictureDaoImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/typenewsdao/TypeNewsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/typenewsdao/TypeNewsDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/typenewsdao/TypeNewsDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/typenewsdao/TypeNewsDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/userdao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/userdao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/userdao/UserDaoImpl$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/userdao/UserDaoImpl$sortUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/userdao/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/dao/userdao/UserDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/entity/Article.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/entity/Article.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/entity/CommentToArticle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/entity/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/entity/Entity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/entity/EntityCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/entity/EntityCreator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/entity/Letter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/entity/Letter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/entity/Parameter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/entity/Parameter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/entity/Picture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/entity/Picture.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/entity/TypeNews.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/entity/TypeNews.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/exception/DaoException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/exception/DaoException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/exception/ServiceException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/exception/ServiceException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/filter/EncodingFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/filter/EncodingFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/filter/XssFilter$AntClubHttpRequestWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/filter/XssFilter$AntClubHttpRequestWrapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/filter/XssFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/filter/XssFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/listener/ContextListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/listener/ContextListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/pool/ConnectionPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/pool/ConnectionPool.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/pool/ConnectionProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/pool/ConnectionProxy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/pool/DBResourceManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/pool/DBResourceManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/service/ServiceTakeImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/service/ServiceTakeImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/service/article/ArticleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/service/article/ArticleService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/service/article/ArticleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/service/article/ArticleServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/service/letter/LetterService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/service/letter/LetterService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/service/letter/LetterServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/service/letter/LetterServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/service/type/TypeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/service/type/TypeService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/service/type/TypeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/service/type/TypeServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/service/user/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/service/user/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/service/user/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/service/user/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tag/DesignBy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tag/DesignBy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tool/CreateDate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tool/CreateDate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tool/CredentialValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tool/CredentialValidator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tool/PasswordEncryption.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tool/PasswordEncryption.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tool/Sender$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tool/Sender$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tool/Sender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tool/Sender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tools/need_to_delete_other_view/Account.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tools/need_to_delete_other_view/CreatorFullURL.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tools/need_to_delete_other_view/FromBlobToPicture.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tools/need_to_delete_other_view/Message.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tools/need_to_delete_other_view/adminMain.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tools/need_to_delete_other_view/content_ver2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tools/need_to_delete_other_view/for_using/RequestContent_myne.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tools/need_to_delete_other_view/guestMain.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/by/epam/club/tools/need_to_delete_other_view/userMain.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/log4j2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/resource/ant_var2_from_23.05.19.mwb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/resource/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/resource/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/resource/locale_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/resource/locale_en.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/resource/locale_rus.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/resource/locale_rus.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/resource/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/resource/messages_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/resource/messages_rus.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/classes/resource/messages_rus.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/lib/Statistic-3.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/log4j2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/css/demo.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/css/demo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/fonts/BebasNeue-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/fonts/BebasNeue-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/fonts/Dharma Type Font License.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/fonts/fontomas-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/fonts/fontomas-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/fonts/fontomas-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/fonts/fontomas-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/fonts/franchise-bold-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/fonts/franchise-bold-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/fonts/franchise-bold-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/fonts/franchise-bold-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/img/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/img/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/img/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/img/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/img/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/img/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/img/bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/img/bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/js/bootstrap.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/js/bootstrap.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/js/bootstrap.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/jsp/admin_view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/jsp/admin_view.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/jsp/default.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/jsp/default.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/jsp/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/jsp/error.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/jsp/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/jsp/footer.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/jsp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/jsp/header.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/jsp/look_article.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/jsp/look_article.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/jsp/new_type.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/jsp/new_type.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/jsp/registration.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/jsp/registration.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/jsp/search_user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/jsp/search_user.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Antclub/jsp/user_profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Antclub/jsp/user_profile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/bundlemanager/ConfigurationManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/bundlemanager/ConfigurationManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/bundlemanager/MessageManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/bundlemanager/MessageManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/ActionFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/ActionFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/CommandEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/Router.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/Router.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/TakeTypeNews.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/forward/AccountUpdateCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/forward/AuthorizationCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/forward/ChangeLocaleCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/forward/DefaultPageCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/forward/DeleteAccountCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/forward/FindArticleCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/forward/FindUserByLoginCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/forward/NewPasswordCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/forward/RegistrationCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/forward/RegistrationPageCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/forward/SendLetterCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/forward/ToAdminControlCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/forward/ToBeGuestCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/forward/ToNewTypeNewsCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/forward/UserLetterCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/forward/UserProfileCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/redirect/LogoutCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/command/redirect/LogoutCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/controller/RequestContent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/controller/RequestContent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/controller/TakePictureFromDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/controller/TakePictureFromDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/controller/TransmisionType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/controller/TransmisionType.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/controller/UploadImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/controller/UploadImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/CloseStatementResultSet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/SqlQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/SqlQuery.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/TransactionHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/TransactionHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/articledao/ArticleDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/articledao/ArticleDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/articledao/ArticleDaoImpl$sortArticle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/articledao/ArticleDaoImpl$sortArticle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/articledao/ArticleDaoImpl$sortComment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/articledao/ArticleDaoImpl$sortComment.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/articledao/ArticleDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/articledao/ArticleDaoImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/basedao/BaseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/basedao/BaseDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/basedao/BaseDaoTakeImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/basedao/BaseDaoTakeImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/basedao/BaseUploadPic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/basedao/BaseUploadPic.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/letterdao/LetterDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/letterdao/LetterDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/letterdao/LetterDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/letterdao/LetterDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/picturedao/PictureDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/picturedao/PictureDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/picturedao/PictureDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/picturedao/PictureDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/typenewsdao/TypeNewsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/typenewsdao/TypeNewsDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/typenewsdao/TypeNewsDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/typenewsdao/TypeNewsDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/userdao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/userdao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/userdao/UserDaoImpl$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/userdao/UserDaoImpl$sortUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/userdao/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/dao/userdao/UserDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/entity/Article.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/entity/Article.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/entity/CommentToArticle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/entity/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/entity/Entity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/entity/EntityCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/entity/EntityCreator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/entity/Letter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/entity/Letter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/entity/Parameter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/entity/Parameter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/entity/Picture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/entity/Picture.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/entity/TypeNews.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/entity/TypeNews.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/exception/DaoException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/exception/DaoException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/exception/ServiceException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/exception/ServiceException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/filter/EncodingFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/filter/EncodingFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/filter/XssFilter$AntClubHttpRequestWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/filter/XssFilter$AntClubHttpRequestWrapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/filter/XssFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/filter/XssFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/listener/ContextListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/listener/ContextListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/pool/ConnectionPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/pool/ConnectionPool.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/pool/ConnectionProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/pool/ConnectionProxy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/pool/DBResourceManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/pool/DBResourceManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/service/ServiceTakeImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/service/ServiceTakeImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/service/article/ArticleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/service/article/ArticleService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/service/article/ArticleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/service/article/ArticleServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/service/letter/LetterService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/service/letter/LetterService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/service/letter/LetterServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/service/letter/LetterServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/service/type/TypeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/service/type/TypeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/service/type/TypeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/service/type/TypeServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/service/user/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/service/user/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/service/user/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/service/user/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tag/DesignBy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tag/DesignBy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tool/CreateDate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tool/CreateDate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tool/CredentialValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tool/CredentialValidator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tool/PasswordEncryption.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tool/PasswordEncryption.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tool/Sender$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tool/Sender$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tool/Sender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tool/Sender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tools/need_to_delete_other_view/Account.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tools/need_to_delete_other_view/CreatorFullURL.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tools/need_to_delete_other_view/FromBlobToPicture.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tools/need_to_delete_other_view/Message.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tools/need_to_delete_other_view/adminMain.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tools/need_to_delete_other_view/content_ver2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tools/need_to_delete_other_view/for_using/RequestContent_myne.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tools/need_to_delete_other_view/guestMain.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/by/epam/club/tools/need_to_delete_other_view/userMain.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/log4j2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/resource/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/resource/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/resource/locale_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/resource/locale_en.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Antclub/resource/locale_rus.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/resource/locale_rus.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/resource/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/resource/messages_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Antclub/resource/messages_rus.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Antclub/resource/messages_rus.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Antclub/by/epam/club/dao/basedao/BaseDaoTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Antclub/by/epam/club/dao/impl/ArticleDaoImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Antclub/by/epam/club/dao/impl/ArticleDaoImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Antclub/by/epam/club/dao/impl/PictureDaoImplTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Antclub/by/epam/club/dao/impl/UserDaoImplTest$A.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Antclub/by/epam/club/dao/impl/UserDaoImplTest$B.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Antclub/by/epam/club/dao/impl/UserDaoImplTest$C.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Antclub/by/epam/club/dao/impl/UserDaoImplTest$Z.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Antclub/by/epam/club/dao/impl/UserDaoImplTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/bundlemanager/ConfigurationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/bundlemanager/ConfigurationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/bundlemanager/MessageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/bundlemanager/MessageManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/ActionCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/ActionCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Antclub/by/epam/club/dao/impl/ArticleDaoImplTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/ActionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/ActionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/CommandEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/CommandEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/Router.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/TakeTypeNews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/TakeTypeNews.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/forward/AccountUpdateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/user/AccountUpdateCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/forward/AuthorizationCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/global/AuthorizationCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/forward/ChangeLocaleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/global/ChangeLocaleCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/forward/DefaultPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/global/DefaultPageCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/forward/DeleteAccountCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/user/DeleteAccountCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/forward/FindArticleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/global/FindArticleCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/forward/FindUserByLoginCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/user/FindUserByLoginCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/forward/NewPasswordCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/user/NewPasswordCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/forward/RegistrationCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/global/RegistrationCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/forward/RegistrationPageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/global/RegistrationPageCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/forward/SendLetterCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/user/SendLetterCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/forward/ToAdminControlCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/ToAdminControlCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/forward/ToBeGuestCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/global/ToBeGuestCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/forward/ToNewTypeNewsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/ToNewTypeNewsCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/forward/UserLetterCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/forward/UserProfileCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/forward/user/UserProfileCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/command/redirect/LogoutCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/command/redirect/LogoutCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/epam/club/controller/AjaxController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/controller/AjaxController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/by/epam/club/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/controller/RequestContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/controller/RequestContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/controller/TakePictureFromDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/controller/TakePictureFromDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/controller/TransmisionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/controller/TransmisionType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/by/epam/club/controller/UploadImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/controller/UploadImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/CloseStatementResultSet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/SqlQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/SqlQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/TransactionHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/TransactionHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/articledao/ArticleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/articledao/ArticleDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/articledao/ArticleDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/articledao/ArticleDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/basedao/BaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/basedao/BaseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/basedao/BaseDaoTakeImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/basedao/BaseDaoTakeImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/basedao/BaseUploadPic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/basedao/BaseUploadPic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/letterdao/LetterDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/letterdao/LetterDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/letterdao/LetterDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/letterdao/LetterDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/picturedao/PictureDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/picturedao/PictureDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/picturedao/PictureDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/picturedao/PictureDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/typenewsdao/TypeNewsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/typenewsdao/TypeNewsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/typenewsdao/TypeNewsDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/typenewsdao/TypeNewsDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/userdao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/userdao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/dao/userdao/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/dao/userdao/UserDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/entity/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/entity/Article.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/entity/CommentToArticle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/entity/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/by/epam/club/entity/EntityCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/entity/EntityCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/entity/Letter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/entity/Letter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/entity/Parameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/entity/Parameter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/entity/Picture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/entity/Picture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/entity/TypeNews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/entity/TypeNews.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/exception/DaoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/exception/DaoException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/exception/ServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/exception/ServiceException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/filter/EncodingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/filter/EncodingFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/by/epam/club/filter/SecurityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/filter/SecurityFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/filter/XssFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/filter/XssFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/listener/ContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/listener/ContextListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/by/epam/club/pool/ConnectionPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/pool/ConnectionPool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/by/epam/club/pool/ConnectionProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/pool/ConnectionProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/pool/DBResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/pool/DbResourceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/service/ServiceTakeImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/service/ServiceTakeImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/service/article/ArticleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/service/article/ArticleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/service/article/ArticleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/service/article/ArticleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/service/letter/LetterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/service/letter/LetterService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/service/letter/LetterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/service/letter/LetterServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/service/type/TypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/service/type/TypeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/service/type/TypeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/service/type/TypeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/service/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/service/user/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/epam/club/pool/DbResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/pool/DbResourceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/by/epam/club/service/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/service/user/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tag/DesignBy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tag/DesignBy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tag/ContentTagPages.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/CreateDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/CreateDate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/CredentialValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/CredentialValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/PasswordEncryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/PasswordEncryption.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/by/epam/club/tool/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/by/epam/club/tool/Sender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/Account.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/AdminPage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/CreatorFullURL.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/ErrorTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/FromBlobToPicture.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/LoginCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/LoginCommand1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/LogoutCommand1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/Message.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/RequestContent2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/ServiceExemple.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/TransactionHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/adminMain.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/content_ver2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/exempleForPicJSP.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/for_using/RequestContent_myne.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/for_using/commandProvideer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/for_using/controller/UploadController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/for_using/filter/AntClubAuthFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/for_using/filter/AntClubXssFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/guestMain.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/impl_old/AuthorizationUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/impl_old/ChangeLocale.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/impl_old/LogOut.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/impl_old/RegistrationUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/myExampleJSP_page.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/myExample_servlet_pic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/myExample_webXML.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/service/AccountLogic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/servlet_exemple_code.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/by/epam/club/tools/need_to_delete_other_view/userMain.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/log4j2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resource/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resource/locale_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/locale_en.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resource/locale_rus.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/locale_rus.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resource/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/messages_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resource/messages_rus.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resource/messages_rus.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/by/epam/club/dao/basedao/BaseDaoTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/by/epam/club/dao/impl/ArticleDaoImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/by/epam/club/dao/impl/ArticleDaoImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/by/epam/club/dao/impl/PictureDaoImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/by/epam/club/dao/impl/PictureDaoImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/by/epam/club/dao/impl/UserDaoImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/Basket/antview.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/Basket/default.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/Basket/header.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/Basket/registration.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/Basket/user_page.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/update_article.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/lib/Statistic-3.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/log4j2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/demo.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/demo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/fonts/BebasNeue-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/fonts/BebasNeue-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/fonts/Dharma Type Font License.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/fonts/fontomas-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/fonts/fontomas-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/fonts/fontomas-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/fonts/fontomas-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/fonts/franchise-bold-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/fonts/franchise-bold-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/fonts/franchise-bold-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/fonts/franchise-bold-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/img/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/img/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/img/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/img/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/img/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/img/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/img/bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/web/img/bgg.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/img/bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/by/epam/club/dao/impl/ArticleDaoImplTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/by/epam/club/dao/impl/PictureDaoImplTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/by/epam/club/dao/typenewsdao/TypeNewsDaoImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/by/epam/club/dao/typenewsdao/TypeNewsDaoImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/by/epam/club/dao/userdao/UserDaoImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/by/epam/club/dao/userdao/UserDaoImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/bootstrap.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/bootstrap.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/jquery-3.4.1.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/jquery-3.4.1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/jsp/admin_view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/admin_view.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/jsp/default.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/default.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/jsp/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/error.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/jsp/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/footer.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/jsp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/header.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/jsp/look_article.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/look_article.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/jsp/new_type.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/new_type.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/jsp/registration.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/registration.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/jsp/search_user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/search_user.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/jsp/user_profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/user_profile.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -557,122 +131,94 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="ant: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="ant@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="ant: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="letter: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="ant@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="ant: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="picture: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="ant@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="ant: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="type: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="ant@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="ant: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="user: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="ant@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="ant: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="userinfo: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/by/epam/club/dao/userdao/UserDaoImplTest.java">
+        <entry file="file://$PROJECT_DIR$/web/jsp/update_article.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="110" column="5" lean-forward="true" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
+            <state relative-caret-position="85">
+              <caret line="44" selection-start-line="44" selection-end-line="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/articledao/ArticleDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="33" column="95" selection-start-line="33" selection-start-column="95" selection-end-line="33" selection-end-column="95" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/epam/club/tool/CreateDate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/typenewsdao/TypeNewsDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1162">
-              <caret line="99" column="63" selection-start-line="99" selection-start-column="63" selection-end-line="99" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/by/epam/club/dao/typenewsdao/TypeNewsDaoImplTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="das://509d349e-9621-4da9-8fda-51588b129de8/schema/ant/table/type">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+        <entry file="file://$PROJECT_DIR$/log/log_2019-07-16-12-53-17.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="58">
+              <caret line="15" column="68" lean-forward="true" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/userdao/UserDaoImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/by/epam/club/tag/DesignBy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-269">
-              <caret line="300" column="16" selection-start-line="300" selection-start-column="16" selection-end-line="300" selection-end-column="16" />
+            <state relative-caret-position="186">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/epam/club/service/type/TypeServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/by/epam/club/service/article/ArticleServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="80" column="61" selection-start-line="80" selection-start-column="50" selection-end-line="80" selection-end-column="61" />
+            <state relative-caret-position="170">
+              <caret line="28" column="3" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/basedao/BaseDao.java">
+        <entry file="file://$PROJECT_DIR$/src/by/epam/club/command/forward/global/ChangeLocaleCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="116" column="7" lean-forward="true" selection-start-line="116" selection-start-column="7" selection-end-line="116" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="527">
+              <caret line="37" column="56" selection-start-line="37" selection-start-column="56" selection-end-line="37" selection-end-column="56" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/epam/club/command/forward/TakeTypeNews.java">
+        <entry file="file://$PROJECT_DIR$/src/by/epam/club/filter/EncodingFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="34" column="59" lean-forward="true" selection-start-line="34" selection-start-column="59" selection-end-line="34" selection-end-column="59" />
+            <state relative-caret-position="255">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/img/TitlePage.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/img/bgg.jpg">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -691,15 +237,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>delete</find>
-      <find>logou</find>
-      <find>log</find>
-      <find>main</find>
-      <find>myTab</find>
-      <find>myTabContent</find>
-      <find>detail</find>
-      <find>contact</find>
-      <find>real-estates-detail</find>
       <find>author</find>
       <find>я тут</find>
       <find>requestSco</find>
@@ -721,6 +258,15 @@
       <find>path</find>
       <find>closeResources</find>
       <find>scrypt</find>
+      <find>findArticles</find>
+      <find>40</find>
+      <find>ddnewty</find>
+      <find>init()</find>
+      <find>connection</find>
+      <find>resultSe</find>
+      <find>50</find>
+      <find>nav-link</find>
+      <find>dropdown-toggle</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -729,12 +275,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="16.07.19" />
+        <entry key="$PROJECT_DIR$" value="16-2.07.2019" />
       </map>
     </option>
     <favorite-branches>
       <branch-storage>
         <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="general" />
+              </list>
+            </value>
+          </entry>
           <entry type="REMOTE">
             <value>
               <list>
@@ -748,6 +301,13 @@
     <excluded-from-favorite>
       <branch-storage>
         <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
           <entry type="REMOTE">
             <value>
               <list>
@@ -762,36 +322,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/DeleteUserCommand.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/MarkAdminCommand.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/MarkUserCommand.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/ToAdminControlCommand.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/ToNewTypeNewsCommand.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/UnBlockedUserCommand.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/UndeleteTypeCommand.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/command/forward/admin/UnDeleteUserCommand.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/command/forward/global/AuthorizationCommand.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/command/forward/global/ChangeLocaleCommand.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/command/forward/global/FindArticleCommand.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/command/forward/global/RegistrationPageCommand.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/command/forward/global/RegistrationCommand.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/command/forward/global/ToBeGuestCommand.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/command/ActionCommand.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/command/ActionFactory.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/command/CommandEnum.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/command/Router.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/dao/userdao/UserDao.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/dao/letterdao/LetterDao.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/dao/picturedao/PictureDao.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/dao/picturedao/PictureDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/dao/typenewsdao/TypeNewsDao.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/dao/letterdao/LetterDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/dao/commentdao/CommentDao.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/dao/commentdao/CommentDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/dao/basedao/BaseUploadPic.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/dao/basedao/BaseDaoTakeImage.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/entity/Entity.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/entity/Article.java" />
         <option value="$PROJECT_DIR$/src/by/epam/club/entity/Comment.java" />
         <option value="$PROJECT_DIR$/src/by/epam/club/entity/Dislaker.java" />
         <option value="$PROJECT_DIR$/src/by/epam/club/entity/Liker.java" />
@@ -800,19 +330,49 @@
         <option value="$PROJECT_DIR$/src/by/epam/club/entity/TypeNews.java" />
         <option value="$PROJECT_DIR$/src/by/epam/club/entity/Picture.java" />
         <option value="$PROJECT_DIR$/src/by/epam/club/entity/Letter.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/dao/basedao/BaseDao.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/509d349e-9621-4da9-8fda-51588b129de8/console.sql" />
         <option value="$PROJECT_DIR$/web/WEB-INF/log4j2.xml" />
         <option value="$PROJECT_DIR$/src/by/epam/club/dao/userdao/UserDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/controller/UploadImage.java" />
         <option value="$PROJECT_DIR$/src/by/epam/club/controller/TakePictureFromDB.java" />
+        <option value="$PROJECT_DIR$/src/by/epam/club/dao/typenewsdao/TypeNewsDaoImpl.java" />
+        <option value="$PROJECT_DIR$/test/by/epam/club/dao/typenewsdao/TypeNewsDaoImplTest.java" />
+        <option value="$PROJECT_DIR$/test/by/epam/club/dao/letterdao/LetterDaoImplTest.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/509d349e-9621-4da9-8fda-51588b129de8/console.sql" />
+        <option value="$PROJECT_DIR$/test/by/epam/club/dao/articledao/ArticleDaoImplTest.java" />
+        <option value="$PROJECT_DIR$/test/by/epam/club/dao/commentdao/CommentDaoTest.java" />
+        <option value="$PROJECT_DIR$/test/by/epam/club/dao/commentdao/CommentDaoImplTest.java" />
+        <option value="$PROJECT_DIR$/test/by/epam/club/dao/userdao/UserDaoImplTest.java" />
+        <option value="$PROJECT_DIR$/src/by/epam/club/entity/EntityCreator.java" />
+        <option value="$PROJECT_DIR$/src/by/epam/club/dao/articledao/ArticleDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/by/epam/club/dao/articledao/ArticleDao.java" />
+        <option value="$PROJECT_DIR$/web/js/bootstrap.bundle.js" />
+        <option value="$PROJECT_DIR$/web/js/jquery-3.4.1.js" />
+        <option value="$PROJECT_DIR$/web/js/bootstrap.js" />
+        <option value="$PROJECT_DIR$/web/jsp/registration.jsp" />
+        <option value="$PROJECT_DIR$/web/jsp/default.jsp" />
+        <option value="$PROJECT_DIR$/web/jsp/look_article.jsp" />
+        <option value="$PROJECT_DIR$/web/jsp/admin_view.jsp" />
+        <option value="$PROJECT_DIR$/src/by/epam/club/dao/basedao/BaseDao.java" />
+        <option value="$PROJECT_DIR$/web/jsp/user_profile.jsp" />
+        <option value="$PROJECT_DIR$/src/by/epam/club/command/ActionFactory.java" />
+        <option value="$PROJECT_DIR$/src/by/epam/club/controller/AjaxController.java" />
+        <option value="$PROJECT_DIR$/src/by/epam/club/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/by/epam/club/controller/UploadImage.java" />
+        <option value="$PROJECT_DIR$/src/by/epam/club/tool/CredentialValidator.java" />
+        <option value="$PROJECT_DIR$/src/by/epam/club/tool/Sender.java" />
+        <option value="$PROJECT_DIR$/src/by/epam/club/entity/Article.java" />
+        <option value="$PROJECT_DIR$/src/by/epam/club/dao/basedao/BaseDaoTakeImage.java" />
+        <option value="$PROJECT_DIR$/src/by/epam/club/filter/SecurityFilter.java" />
+        <option value="$PROJECT_DIR$/src/by/epam/club/pool/ConnectionPool.java" />
+        <option value="$PROJECT_DIR$/src/by/epam/club/pool/ConnectionProxy.java" />
+        <option value="$PROJECT_DIR$/src/by/epam/club/pool/DbResourceManager.java" />
+        <option value="$PROJECT_DIR$/src/by/epam/club/service/type/TypeServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/by/epam/club/service/user/UserServiceImpl.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/src/by/epam/club/tool/CreateDate.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/entity/EntityCreator.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/service/type/TypeServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/by/epam/club/dao/typenewsdao/TypeNewsDaoImpl.java" />
-        <option value="$PROJECT_DIR$/test/by/epam/club/dao/userdao/UserDaoImplTest.java" />
-        <option value="$PROJECT_DIR$/test/by/epam/club/dao/typenewsdao/TypeNewsDaoImplTest.java" />
+        <option value="$PROJECT_DIR$/src/resource/locale_rus.properties" />
+        <option value="$PROJECT_DIR$/web/jsp/header.jsp" />
+        <option value="$PROJECT_DIR$/web/jsp/update_article.jsp" />
+        <option value="$PROJECT_DIR$/src/by/epam/club/tag/ContentTagPages.java" />
       </list>
     </option>
   </component>
@@ -840,9 +400,9 @@
     <servers />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="1273" />
-    <option name="height" value="819" />
+    <option name="x" value="840" />
+    <option name="width" value="755" />
+    <option name="height" value="867" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -850,6 +410,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -912,6 +473,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="club" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="articledao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Antclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Antclub" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="club" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
               <item name="basedao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -920,7 +489,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="club" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="typenewsdao" type="462c0819:PsiDirectoryNode" />
+              <item name="commentdao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Antclub" type="b2602c69:ProjectViewProjectNode" />
@@ -936,6 +505,65 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="club" type="462c0819:PsiDirectoryNode" />
               <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Antclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Antclub" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="club" type="462c0819:PsiDirectoryNode" />
+              <item name="filter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Antclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Antclub" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="club" type="462c0819:PsiDirectoryNode" />
+              <item name="listener" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Antclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Antclub" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="club" type="462c0819:PsiDirectoryNode" />
+              <item name="pool" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Antclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Antclub" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="club" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Antclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Antclub" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="club" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="picture" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Antclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Antclub" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="club" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="type" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Antclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Antclub" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="club" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Antclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Antclub" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="club" type="462c0819:PsiDirectoryNode" />
+              <item name="tag" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Antclub" type="b2602c69:ProjectViewProjectNode" />
@@ -960,7 +588,21 @@
               <item name="Antclub" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
+              <item name="articledao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Antclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Antclub" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="commentdao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Antclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Antclub" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="letterdao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Antclub" type="b2602c69:ProjectViewProjectNode" />
@@ -985,6 +627,18 @@
               <item name="Antclub" type="b2602c69:ProjectViewProjectNode" />
               <item name="Antclub" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Antclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Antclub" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="jsp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Antclub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Antclub" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -995,7 +649,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -1003,19 +656,20 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="Downloaded.Files.Path" value="C:\Users\Maevskiy\Desktop\Antclub\web\WEB-INF\lib" />
     <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563230375261" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564777184382" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect" value="MySQL" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="TestNG" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.TestNG" value="" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib/gson-2.8.5.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -1023,14 +677,15 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="by.epam.club.dao.commentdao" />
+      <recent name="by.epam.club.dao.articledao" />
+      <recent name="by.epam.club.dao.letterdao" />
       <recent name="by.epam.club.dao.typenewsdao" />
       <recent name="by.epam.club.dao.userdao" />
-      <recent name="by.epam.club.dao.basedao" />
-      <recent name="by.epam.club.dao.impl" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -1081,34 +736,34 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.TypeNewsDaoImplTest">
-    <configuration name="TypeNewsDaoImplTest" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.13">
+    <configuration name="ArticleDaoImplTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Antclub" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="by.epam.club.dao.typenewsdao.*" />
+          <option name="PATTERN" value="by.epam.club.dao.articledao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="by.epam.club.dao.typenewsdao" />
-      <option name="MAIN_CLASS_NAME" value="by.epam.club.dao.typenewsdao.TypeNewsDaoImplTest" />
+      <option name="PACKAGE_NAME" value="by.epam.club.dao.articledao" />
+      <option name="MAIN_CLASS_NAME" value="by.epam.club.dao.articledao.ArticleDaoImplTest" />
       <properties />
       <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TypeNewsDaoImplTest.testCreate" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ArticleDaoImplTest.testTakeAllByTypeNews" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Antclub" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="by.epam.club.dao.typenewsdao.*" />
+          <option name="PATTERN" value="by.epam.club.dao.articledao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="by.epam.club.dao.typenewsdao" />
-      <option name="MAIN_CLASS_NAME" value="by.epam.club.dao.typenewsdao.TypeNewsDaoImplTest" />
-      <option name="METHOD_NAME" value="testCreate" />
+      <option name="PACKAGE_NAME" value="by.epam.club.dao.articledao" />
+      <option name="MAIN_CLASS_NAME" value="by.epam.club.dao.articledao.ArticleDaoImplTest" />
+      <option name="METHOD_NAME" value="testTakeAllByTypeNews" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -1116,17 +771,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TypeNewsDaoImplTest.testMarkDeletedPositive" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ArticleDaoImplTest.testTakeAllByTypeNewsNegative" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Antclub" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="by.epam.club.dao.typenewsdao.*" />
+          <option name="PATTERN" value="by.epam.club.dao.articledao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="by.epam.club.dao.typenewsdao" />
-      <option name="MAIN_CLASS_NAME" value="by.epam.club.dao.typenewsdao.TypeNewsDaoImplTest" />
-      <option name="METHOD_NAME" value="testMarkDeletedPositive" />
+      <option name="PACKAGE_NAME" value="by.epam.club.dao.articledao" />
+      <option name="MAIN_CLASS_NAME" value="by.epam.club.dao.articledao.ArticleDaoImplTest" />
+      <option name="METHOD_NAME" value="testTakeAllByTypeNewsNegative" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -1134,17 +789,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TypeNewsDaoImplTest.testMarkUndeletedPositive" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ArticleDaoImplTest.testUpdateArticle" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Antclub" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="by.epam.club.dao.typenewsdao.*" />
+          <option name="PATTERN" value="by.epam.club.dao.articledao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="by.epam.club.dao.typenewsdao" />
-      <option name="MAIN_CLASS_NAME" value="by.epam.club.dao.typenewsdao.TypeNewsDaoImplTest" />
-      <option name="METHOD_NAME" value="testMarkUndeletedPositive" />
+      <option name="PACKAGE_NAME" value="by.epam.club.dao.articledao" />
+      <option name="MAIN_CLASS_NAME" value="by.epam.club.dao.articledao.ArticleDaoImplTest" />
+      <option name="METHOD_NAME" value="testUpdateArticle" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -1152,16 +807,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserDaoImplTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="CommentDaoImplTest.testCreateOneComment" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Antclub" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="by.epam.club.dao.userdao.*" />
+          <option name="PATTERN" value="by.epam.club.dao.commentdao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="by.epam.club.dao.userdao" />
-      <option name="MAIN_CLASS_NAME" value="by.epam.club.dao.userdao.UserDaoImplTest" />
+      <option name="PACKAGE_NAME" value="by.epam.club.dao.commentdao" />
+      <option name="MAIN_CLASS_NAME" value="by.epam.club.dao.commentdao.CommentDaoImplTest" />
+      <option name="METHOD_NAME" value="testCreateOneComment" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -1279,6 +936,7 @@
     <configuration name="Tomcat 9.0.13" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.13" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8081/Antclub/controller" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="START_JAVASCRIPT_DEBUGGER" value="true" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="Antclub">
@@ -1416,20 +1074,20 @@
     </configuration>
     <list>
       <item itemvalue="TestNG.positive_test" />
+      <item itemvalue="TestNG.ArticleDaoImplTest" />
+      <item itemvalue="TestNG.ArticleDaoImplTest.testTakeAllByTypeNewsNegative" />
+      <item itemvalue="TestNG.ArticleDaoImplTest.testTakeAllByTypeNews" />
+      <item itemvalue="TestNG.ArticleDaoImplTest.testUpdateArticle" />
+      <item itemvalue="TestNG.CommentDaoImplTest.testCreateOneComment" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.13" />
-      <item itemvalue="TestNG.TypeNewsDaoImplTest.testMarkDeletedPositive" />
-      <item itemvalue="TestNG.TypeNewsDaoImplTest" />
-      <item itemvalue="TestNG.UserDaoImplTest" />
-      <item itemvalue="TestNG.TypeNewsDaoImplTest.testMarkUndeletedPositive" />
-      <item itemvalue="TestNG.TypeNewsDaoImplTest.testCreate" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.TypeNewsDaoImplTest" />
-        <item itemvalue="TestNG.TypeNewsDaoImplTest.testCreate" />
-        <item itemvalue="TestNG.TypeNewsDaoImplTest.testMarkDeletedPositive" />
-        <item itemvalue="TestNG.TypeNewsDaoImplTest.testMarkUndeletedPositive" />
-        <item itemvalue="TestNG.UserDaoImplTest" />
+        <item itemvalue="TestNG.CommentDaoImplTest.testCreateOneComment" />
+        <item itemvalue="TestNG.ArticleDaoImplTest.testTakeAllByTypeNewsNegative" />
+        <item itemvalue="TestNG.ArticleDaoImplTest" />
+        <item itemvalue="TestNG.ArticleDaoImplTest.testUpdateArticle" />
+        <item itemvalue="TestNG.ArticleDaoImplTest.testTakeAllByTypeNews" />
       </list>
     </recent_temporary>
   </component>
@@ -1519,7 +1177,19 @@
       <workItem from="1562959030459" duration="15525000" />
       <workItem from="1563046432578" duration="18166000" />
       <workItem from="1563128571365" duration="13680000" />
-      <workItem from="1563207757674" duration="10304000" />
+      <workItem from="1563207757674" duration="10819000" />
+      <workItem from="1563294883204" duration="5503000" />
+      <workItem from="1563470363051" duration="10537000" />
+      <workItem from="1563744279915" duration="644000" />
+      <workItem from="1563819870558" duration="1885000" />
+      <workItem from="1563998666729" duration="756000" />
+      <workItem from="1564000984268" duration="7916000" />
+      <workItem from="1564264345756" duration="586000" />
+      <workItem from="1564345338357" duration="2345000" />
+      <workItem from="1564521079294" duration="594000" />
+      <workItem from="1564597687504" duration="587000" />
+      <workItem from="1564681758111" duration="6924000" />
+      <workItem from="1564774593275" duration="2714000" />
     </task>
     <task id="LOCAL-00001" summary="21-05-19">
       <created>1558435672203</created>
@@ -1619,43 +1289,57 @@
       <option name="project" value="LOCAL" />
       <updated>1561534589440</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/dataSources/919f35c0-e286-475d-9ad6-343b87f3b507.xml&#10;#&#9;src/by/epam/club/dao/ArticleDao.java&#10;#&#9;src/by/epam/club/dao/UserDao.java&#10;#&#9;src/by/epam/club/dao/impl/ArticleDaoImpl.java&#10;#&#9;src/by/epam/club/dao/impl/SqlQuery.java&#10;#&#9;src/by/epam/club/dao/impl/UserDaoImpl.java&#10;#&#9;src/by/epam/club/dao/pool/ConnectionPool.java&#10;#&#9;test/by/epam/club/dao/impl/ArticleDaoImplTest.java&#10;#&#9;test/by/epam/club/dao/impl/UserDaoImplTest.java">
+      <created>1563230596744</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1563230596744</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/dataSources/919f35c0-e286-475d-9ad6-343b87f3b507.xml&#10;#&#9;src/by/epam/club/dao/ArticleDao.java&#10;#&#9;src/by/epam/club/dao/UserDao.java&#10;#&#9;src/by/epam/club/dao/impl/ArticleDaoImpl.java&#10;#&#9;src/by/epam/club/dao/impl/SqlQuery.java&#10;#&#9;src/by/epam/club/dao/impl/UserDaoImpl.java&#10;#&#9;src/by/epam/club/dao/pool/ConnectionPool.java&#10;#&#9;test/by/epam/club/dao/impl/ArticleDaoImplTest.java&#10;#&#9;test/by/epam/club/dao/impl/UserDaoImplTest.java">
+      <created>1563230786338</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1563230786338</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TypeNewsDaoImplTest_testMarkDeletedPositive - 2019.07.16 at 00h 54m 28s.xml">
-      <configuration name="TypeNewsDaoImplTest.testMarkDeletedPositive" configurationId="TestNG" />
+    <history-entry file="ArticleDaoImplTest_testTakeAllByTypeNews - 2019.07.18 at 21h 33m 11s.xml">
+      <configuration name="ArticleDaoImplTest.testTakeAllByTypeNews" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TypeNewsDaoImplTest_testMarkDeletedPositive - 2019.07.16 at 00h 54m 57s.xml">
-      <configuration name="TypeNewsDaoImplTest.testMarkDeletedPositive" configurationId="TestNG" />
+    <history-entry file="ArticleDaoImplTest_testTakeAllByTypeNews - 2019.07.18 at 21h 34m 47s.xml">
+      <configuration name="ArticleDaoImplTest.testTakeAllByTypeNews" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TypeNewsDaoImplTest_testMarkDeletedPositive - 2019.07.16 at 00h 55m 27s.xml">
-      <configuration name="TypeNewsDaoImplTest.testMarkDeletedPositive" configurationId="TestNG" />
+    <history-entry file="ArticleDaoImplTest_testTakeAllByTypeNewsNegative - 2019.07.18 at 21h 34m 59s.xml">
+      <configuration name="ArticleDaoImplTest.testTakeAllByTypeNewsNegative" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TypeNewsDaoImplTest - 2019.07.16 at 00h 56m 29s.xml">
-      <configuration name="TypeNewsDaoImplTest" configurationId="TestNG" />
+    <history-entry file="ArticleDaoImplTest_testTakeAllByTypeNewsNegative - 2019.07.18 at 21h 35m 26s.xml">
+      <configuration name="ArticleDaoImplTest.testTakeAllByTypeNewsNegative" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TypeNewsDaoImplTest - 2019.07.16 at 00h 58m 13s.xml">
-      <configuration name="TypeNewsDaoImplTest" configurationId="TestNG" />
+    <history-entry file="ArticleDaoImplTest_testUpdateArticle - 2019.07.18 at 21h 36m 43s.xml">
+      <configuration name="ArticleDaoImplTest.testUpdateArticle" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TypeNewsDaoImplTest - 2019.07.16 at 00h 59m 23s.xml">
-      <configuration name="TypeNewsDaoImplTest" configurationId="TestNG" />
+    <history-entry file="ArticleDaoImplTest - 2019.07.18 at 21h 36m 59s.xml">
+      <configuration name="ArticleDaoImplTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TypeNewsDaoImplTest - 2019.07.16 at 01h 00m 51s.xml">
-      <configuration name="TypeNewsDaoImplTest" configurationId="TestNG" />
+    <history-entry file="ArticleDaoImplTest_testTakeAllByTypeNewsNegative - 2019.07.18 at 21h 38m 01s.xml">
+      <configuration name="ArticleDaoImplTest.testTakeAllByTypeNewsNegative" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TypeNewsDaoImplTest_testCreate - 2019.07.16 at 01h 05m 34s.xml">
-      <configuration name="TypeNewsDaoImplTest.testCreate" configurationId="TestNG" />
+    <history-entry file="CommentDaoImplTest_testCreateOneComment - 2019.07.18 at 21h 51m 32s.xml">
+      <configuration name="CommentDaoImplTest.testCreateOneComment" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TypeNewsDaoImplTest - 2019.07.16 at 01h 07m 44s.xml">
-      <configuration name="TypeNewsDaoImplTest" configurationId="TestNG" />
+    <history-entry file="CommentDaoImplTest_testCreateOneComment - 2019.07.18 at 21h 51m 59s.xml">
+      <configuration name="CommentDaoImplTest.testCreateOneComment" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="TypeNewsDaoImplTest - 2019.07.16 at 01h 09m 09s.xml">
-      <configuration name="TypeNewsDaoImplTest" configurationId="TestNG" />
+    <history-entry file="CommentDaoImplTest_testCreateOneComment - 2019.07.18 at 22h 12m 06s.xml">
+      <configuration name="CommentDaoImplTest.testCreateOneComment" configurationId="TestNG" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1473259000" />
+    <option name="totallyTimeSpent" value="1514765000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1667,9 +1351,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2922636" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2657078" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -1679,23 +1364,24 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info id="Learn" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4871407" weight="0.789557" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8488539" weight="0.5222222" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.7518911" weight="0.43055555" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4871407" weight="0.71805555" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8488539" weight="0.31805557" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.7518911" weight="0.33333334" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Statistic" order="6" sideWeight="0.6439828" weight="0.079931974" />
-      <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49920633" weight="0.1125" />
+      <window_info anchor="bottom" id="Statistic" order="6" sideWeight="0.6439828" weight="0.1388889" />
+      <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49920633" weight="0.041666668" />
       <window_info anchor="bottom" id="Application Servers" order="8" weight="0.3236111" />
       <window_info anchor="bottom" id="Database Console" order="9" sideWeight="0.73495704" weight="0.2137834" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49928367" visible="true" weight="0.14166667" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49928367" visible="true" weight="0.7329932" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5007163" side_tool="true" weight="0.3349131" />
-      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49167928" weight="0.17721519" />
+      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49167928" weight="0.17638889" />
       <window_info anchor="bottom" id="Java Enterprise" order="14" weight="0.3282313" />
       <window_info anchor="bottom" id="Database Changes" order="15" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="16" sideWeight="0.49856734" weight="0.3243607" />
+      <window_info anchor="bottom" id="Version Control" order="16" sideWeight="0.49856734" weight="0.53911567" />
       <window_info anchor="bottom" id="Duplicate detector" order="17" weight="0.3282313" />
+      <window_info anchor="bottom" id="SonarLint" order="18" weight="0.30277777" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24886535" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1704,48 +1390,10 @@
       <window_info anchor="right" id="Maven" order="5" weight="0.32980332" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="right" id="Database" order="8" sideWeight="0.8615071" visible="true" weight="0.15830946" />
+      <window_info anchor="right" id="Database" order="8" sideWeight="0.8615071" visible="true" weight="0.070401214" />
       <window_info anchor="right" id="Coverage" order="9" sideWeight="0.13849287" side_tool="true" visible="true" weight="0.1452345" />
+      <window_info anchor="right" id="Key Promoter X" order="10" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20411818" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Capture Tool" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info id="Image Layers" order="6" />
-      <window_info id="Web" order="7" side_tool="true" />
-      <window_info id="Learn" order="8" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4871407" weight="0.789557" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8488539" visible="true" weight="0.95780593" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.7518911" weight="0.43055555" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Statistic" order="6" sideWeight="0.6439828" weight="0.079931974" />
-      <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49920633" weight="0.1125" />
-      <window_info anchor="bottom" id="Application Servers" order="8" weight="0.325" />
-      <window_info anchor="bottom" id="Database Console" order="9" sideWeight="0.73495704" weight="0.2137834" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49928367" weight="0.33843538" />
-      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5007163" side_tool="true" weight="0.3349131" />
-      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49167928" weight="0.17721519" />
-      <window_info anchor="bottom" id="Java Enterprise" order="14" weight="0.3282313" />
-      <window_info anchor="bottom" id="Database Changes" order="15" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="16" sideWeight="0.49856734" weight="0.3243607" />
-      <window_info anchor="bottom" id="Duplicate detector" order="17" weight="0.3282313" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.24886535" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven" order="5" weight="0.32980332" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="right" id="Database" order="8" sideWeight="0.8615071" weight="0.13160251" />
-      <window_info anchor="right" id="Coverage" order="9" sideWeight="0.13849287" side_tool="true" visible="true" weight="0.1452345" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1762,6 +1410,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/dataSources/919f35c0-e286-475d-9ad6-343b87f3b507.xml&#10;#&#9;src/by/epam/club/dao/ArticleDao.java&#10;#&#9;src/by/epam/club/dao/UserDao.java&#10;#&#9;src/by/epam/club/dao/impl/ArticleDaoImpl.java&#10;#&#9;src/by/epam/club/dao/impl/SqlQuery.java&#10;#&#9;src/by/epam/club/dao/impl/UserDaoImpl.java&#10;#&#9;src/by/epam/club/dao/pool/ConnectionPool.java&#10;#&#9;test/by/epam/club/dao/impl/ArticleDaoImplTest.java&#10;#&#9;test/by/epam/club/dao/impl/UserDaoImplTest.java" />
     <option name="UPDATE_GROUP_BY_PACKAGES" value="true" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/by/epam/club/service/user/UserServiceImpl.java</url>
+          <line>160</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
       <path>
@@ -1776,175 +1436,263 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/commentdao/CommentDao.java">
+    <entry file="file://$PROJECT_DIR$/web/jsp/look_article.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="4" selection-start-line="4" selection-end-line="9" selection-end-column="3" />
+        <state relative-caret-position="398">
+          <caret line="311" selection-start-line="311" selection-end-line="311" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/picturedao/PictureDao.java">
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/command/CommandEnum.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="50" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
+        <state relative-caret-position="184">
+          <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/picturedao/PictureDaoImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/command/ActionFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="4" selection-start-line="17" selection-start-column="5" selection-end-line="18" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/basedao/BaseDaoTakeImage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/basedao/BaseUploadPic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="50" column="12" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/userdao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" selection-start-line="8" selection-end-line="13" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/entity/Liker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="6" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/entity/Picture.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/entity/TypeNews.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/entity/Comment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/entity/Entity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/entity/Letter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/testng-6.14.3.jar!/org/testng/Assert.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
-          <folding>
-            <element signature="e#815#816#0" expanded="true" />
-            <element signature="e#861#862#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/service/user/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://509d349e-9621-4da9-8fda-51588b129de8/schema/ant/table/userinfo">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/command/forward/global/RegistrationCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/TransactionHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-391">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/entity/Article.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/entity/Dislaker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://509d349e-9621-4da9-8fda-51588b129de8/schema/ant/table/letter">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+        <state relative-caret-position="-44">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/by/epam/club/command/forward/global/AuthorizationCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-160">
+        <state relative-caret-position="117">
           <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/log4j2.xml">
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/controller/AjaxController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="47" lean-forward="true" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
+        <state relative-caret-position="109">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/509d349e-9621-4da9-8fda-51588b129de8/console.sql">
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="39" lean-forward="true" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+        <state relative-caret-position="160">
+          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/controller/RequestContent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="62" column="54" selection-start-line="62" selection-start-column="54" selection-end-line="62" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/controller/TakePictureFromDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/controller/TransmisionType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/controller/UploadImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="72" column="117" selection-start-line="72" selection-start-column="117" selection-end-line="72" selection-end-column="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/tool/CredentialValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/tool/PasswordEncryption.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/tool/Sender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+          <folding>
+            <element signature="e#1654#1845#0" expanded="true" />
+            <element signature="e#1844#1845#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/entity/Comment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/entity/Dislaker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-239">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/commentdao/CommentDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/userdao/UserDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="250" column="48" selection-start-line="250" selection-start-column="48" selection-end-line="250" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/basedao/BaseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/basedao/BaseDaoTakeImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/basedao/BaseUploadPic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-161">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/command/Router.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/filter/SecurityFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="99" column="31" selection-start-line="99" selection-start-column="31" selection-end-line="99" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/filter/XssFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/listener/ContextListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/pool/ConnectionPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="106" column="47" selection-start-line="106" selection-start-column="47" selection-end-line="106" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/pool/ConnectionProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/service/picture/PictureServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/service/type/TypeServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="82" column="12" selection-start-line="82" selection-start-column="12" selection-end-line="82" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/pool/DbResourceManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://509d349e-9621-4da9-8fda-51588b129de8/schema/ant/table/comment">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="5" column="98326" selection-start-line="5" selection-start-column="98324" selection-end-line="5" selection-end-column="98326" />
+          <folding>
+            <element signature="e#25768#26002#2" expanded="true" />
+            <element signature="e#26806#26959#1" expanded="true" />
+            <element signature="e#26999#27233#1" expanded="true" />
+            <element signature="e#30239#30515#2" expanded="true" />
+            <element signature="e#31347#31500#1" expanded="true" />
+            <element signature="e#31540#31816#1" expanded="true" />
+            <element signature="e#61072#61259#2" expanded="true" />
+            <element signature="e#61488#61624#2" expanded="true" />
+            <element signature="e#62027#62160#2" expanded="true" />
+            <element signature="e#63642#63795#1" expanded="true" />
+            <element signature="e#75788#76018#2" expanded="true" />
+            <element signature="e#76885#77121#2" expanded="true" />
+            <element signature="e#106714#106891#2" expanded="true" />
+            <element signature="e#106937#107114#2" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="2445" column="36" selection-start-line="2445" selection-start-column="21" selection-end-line="2445" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://509d349e-9621-4da9-8fda-51588b129de8/schema/ant/table/article">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1955,194 +1703,123 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/entity/Parameter.java">
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/service/user/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+        <state relative-caret-position="3604">
+          <caret line="228" selection-start-line="228" selection-end-line="228" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/by/epam/club/dao/impl/UserDaoImplTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/controller/TakePictureFromDB.java">
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/command/forward/user/AccountUpdateCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="36" column="67" selection-start-line="36" selection-start-column="67" selection-end-line="36" selection-end-column="67" />
+        <state relative-caret-position="680">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/controller/UploadImage.java">
+    <entry file="file://$PROJECT_DIR$/web/jsp/header.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="52" column="53" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
+        <state relative-caret-position="17">
+          <caret line="48" column="25" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/service/type/TypeService.java">
+    <entry file="file://$PROJECT_DIR$/src/resource/locale_en.properties">
+      <provider editor-type-id="ResourceBundle" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        <state relative-caret-position="85">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/by/epam/club/dao/impl/PictureDaoImplTest.java">
+    <entry file="file://$PROJECT_DIR$/src/resource/locale_rus.properties">
+      <provider editor-type-id="ResourceBundle" />
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="85">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/entity/Article.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
           <folding>
-            <element signature="e#0#2642#0" expanded="true" />
+            <element signature="e#614#615#0" expanded="true" />
+            <element signature="e#639#640#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/by/epam/club/dao/impl/ArticleDaoImplTest.java">
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/articledao/ArticleDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="425">
+          <caret line="33" column="95" selection-start-line="33" selection-start-column="95" selection-end-line="33" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/service/article/ArticleServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="28" column="3" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/command/forward/global/ChangeLocaleCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="37" column="56" selection-start-line="37" selection-start-column="56" selection-end-line="37" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/filter/EncodingFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/img/TitlePage.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/img/bgg.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/jsp/update_article.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/tag/DesignBy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/epam/club/tag/ContentTagPages.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="40" column="45" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/by/epam/club/tool/CreateDate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/entity/EntityCreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="319" column="98" selection-start-line="319" selection-start-column="98" selection-end-line="319" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/command/forward/global/FindArticleCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="51" column="31" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/typenewsdao/TypeNewsDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/SqlQuery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/command/forward/TakeTypeNews.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="34" column="59" lean-forward="true" selection-start-line="34" selection-start-column="59" selection-end-line="34" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/basedao/BaseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="116" column="7" lean-forward="true" selection-start-line="116" selection-start-column="7" selection-end-line="116" selection-end-column="7" />
+        <state relative-caret-position="209">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/testng-6.14.3.jar!/org/testng/TestNG.class">
+    <entry file="file://$PROJECT_DIR$/log/log_2019-07-16-12-53-17.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="903" selection-start-line="903" selection-end-line="903" />
-          <folding>
-            <element signature="e#32662#32663#0" expanded="true" />
-            <element signature="e#32708#32709#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/testng-6.14.3.jar!/org/testng/SuiteRunnerWorker.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-          <folding>
-            <element signature="e#2034#2035#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/testng-6.14.3.jar!/org/testng/SuiteRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="296" column="16" selection-start-line="296" selection-start-column="16" selection-end-line="296" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/testng-6.14.3.jar!/org/testng/TestRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="349" column="16" selection-start-line="349" selection-start-column="16" selection-end-line="349" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/testng-6.14.3.jar!/org/testng/internal/TestMethodWorker.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="89" selection-start-line="89" selection-end-line="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/testng-6.14.3.jar!/org/testng/internal/Invoker.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="864" selection-start-line="864" selection-end-line="864" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/service/type/TypeServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="80" column="61" selection-start-line="80" selection-start-column="50" selection-end-line="80" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/userdao/UserDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-269">
-          <caret line="300" column="16" selection-start-line="300" selection-start-column="16" selection-end-line="300" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/by/epam/club/dao/userdao/UserDaoImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="110" column="5" lean-forward="true" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/epam/club/dao/typenewsdao/TypeNewsDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1162">
-          <caret line="99" column="63" selection-start-line="99" selection-start-column="63" selection-end-line="99" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/by/epam/club/dao/typenewsdao/TypeNewsDaoImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://509d349e-9621-4da9-8fda-51588b129de8/schema/ant/table/type">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+        <state relative-caret-position="58">
+          <caret line="15" column="68" lean-forward="true" selection-start-line="15" selection-start-column="68" selection-end-line="15" selection-end-column="68" />
         </state>
       </provider>
     </entry>

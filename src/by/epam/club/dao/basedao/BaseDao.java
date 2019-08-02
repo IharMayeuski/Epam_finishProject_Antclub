@@ -105,6 +105,7 @@ public abstract class BaseDao<T extends Entity> {
             }
         } catch (SQLException e) {
             LOGGER.warn(SQL_EXCEPTION_MESSAGE, e);
+            e.printStackTrace();
             throw new DaoException(SQL_EXCEPTION_MESSAGE);
         } finally {
             if (!inAction) {

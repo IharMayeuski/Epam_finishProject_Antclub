@@ -18,12 +18,12 @@ import java.util.List;
 
 import static by.epam.club.entity.Parameter.*;
 
-    /**
-     * Class of business logic
-     *
-     * @author Maeuski Igor
-     * @version 1.0
-     */
+/**
+ * Class of business logic
+ *
+ * @author Maeuski Igor
+ * @version 1.0
+ */
 public class UserServiceImpl implements UserService {
     private static final Logger LOGGER = LogManager.getLogger(UserServiceImpl.class);
 
@@ -132,7 +132,6 @@ public class UserServiceImpl implements UserService {
             try {
                 transactionHelper.rollback();
             } catch (DaoException e1) {
-                e.printStackTrace(); // FIXME: 7/7/2019 
                 throw new ServiceException(e1.getMessage());
             }
             throw new ServiceException(e.getMessage());
@@ -143,7 +142,7 @@ public class UserServiceImpl implements UserService {
                 LOGGER.error(UNKNOWN_MISTAKE_MESSAGE);
             }
         }
-        return true; // FIXME: 6/15/2019  может убрать ретурн?
+        return true;
     }
 
     /**
@@ -160,7 +159,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void updateUser(User user, String email, String login, String password1, String password2, String firstname, String familyname) throws ServiceException {
         CredentialValidator credentialValidator = new CredentialValidator();
-        UserDao userDao = new UserDaoImpl(); // fixme ИН правильно ли создавать несколько дао, если несколько разных запросов в методе
+        UserDao userDao = new UserDaoImpl();
         UserDao userDaoCheckEmail = new UserDaoImpl();
         UserDao userDaoUpdateEmailLogin = new UserDaoImpl();
         UserDao userDaoUpdateInfo = new UserDaoImpl();
@@ -191,7 +190,8 @@ public class UserServiceImpl implements UserService {
             User checkSuchlogin = null;
             try {
                 checkSuchlogin = userDao.findUserByLogin(login);
-            } catch (DaoException ignored) {
+            } catch (DaoException e) {
+                LOGGER.warn(UNKNOWN_MISTAKE_MESSAGE);
             }
             if (checkSuchlogin != null) {
                 throw new ServiceException(USER_LOGIN_MESSAGE);
@@ -205,16 +205,18 @@ public class UserServiceImpl implements UserService {
             try {
                 checkSuchEmail = userDaoCheckEmail.findUserByEmail(email);
             } catch (DaoException ignored) {
+                LOGGER.warn(UNKNOWN_MISTAKE_MESSAGE);
             }
             if (checkSuchEmail != null) {
                 throw new ServiceException(USER_EMAIL_MESSAGE);
             }
         }
         try {
-            if ((password1 == null && password2 == null)) {
+            if ((password1 == null && password2 == null || password1.isEmpty()&&password2.isEmpty())) {
                 userDaoUpdateEmailLogin.updateUserLoginEmail(user, login, email);
                 userDaoUpdateInfo.updateUserInfo(user, firstname, familyname);
-            } else if (password1 != null && password2 != null && !password1.equals(password2)) {
+            } else if ((password1 != null && password2 != null && !password1.equals(password2))&&
+                    ((!password1.isEmpty() && !password2.isEmpty() && !password1.equals(password2)))){
                 throw new ServiceException(USER_PASSWORD_UNCORRECT_MESSAGE);
             } else {
                 newPass = encryption.create(password1);

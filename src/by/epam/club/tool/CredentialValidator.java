@@ -6,7 +6,7 @@ package by.epam.club.tool;
  * @author Maeuski Igor
  * @version 1.0
  */
-// FIXME: 7/12/2019
+
 public class CredentialValidator {
     /**
      * @param login for checking

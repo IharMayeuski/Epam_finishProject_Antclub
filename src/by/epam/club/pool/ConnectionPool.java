@@ -153,6 +153,7 @@ public class ConnectionPool {
                 connection = POOL_CONNECTION_PROXY_AVAILABLE.take();
             } catch (InterruptedException e) {
                 LOGGER.error("Interrupted Exception", e);
+                Thread.currentThread().interrupt();
             }
             if (connection != null) {
                 try {

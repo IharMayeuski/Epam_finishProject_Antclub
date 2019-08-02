@@ -61,22 +61,22 @@
                             <p>
                                 <label for="usernamesignup" class="uname" >${login}</label>
                                 <input id="usernamesignup1" name="login" required="required" type="text"
-                                       placeholder="myname1"/>
+                                       minlength="3" maxlength="45"/>
                             </p>
                             <p>
                                 <label for="emailsignup" class="youmail" >${email}</label>
                                 <input id="emailsignup1" name="email" required="required" type="email"
-                                       placeholder="sitehere.ru@my.com"/>
+                                       minlength="3" maxlength="45"/>
                             </p>
                             <p>
                                 <label for="passwordsignup" class="youpasswd" >${pass}</label>
                                 <input id="passwordsignup1" name="password1" required="required" type="password"
-                                       placeholder="******"/>
+                                       minlength="3" maxlength="45"/>
                             </p>
                             <p>
                                 <label for="passwordsignup_confirm" class="youpasswd" >${pass2}</label>
                                 <input id="passwordsignup_confirm1" name="password2" required="required"
-                                       type="password" placeholder="******"/>
+                                       minlength="3" maxlength="45"/>
                             </p>
                             <p class="signin button">
                                 <input type="submit" value=${registration}>
@@ -92,22 +92,22 @@
                             <p>
                                 <label for="usernamesignup" class="uname" >${login}</label>
                                 <input id="usernamesignup" name="login" required="required" type="text"
-                                       placeholder="myname1"/>
+                                       minlength="3" maxlength="45"/>
                             </p>
                             <p>
                                 <label for="emailsignup" class="youmail" >${email}</label>
                                 <input id="emailsignup" name="email" required="required" type="email"
-                                       placeholder="sitehere.ru@my.com"/>
+                                       minlength="3" maxlength="45"/>
                             </p>
                             <p>
                                 <label for="passwordsignup" class="youpasswd" >${pass}</label>
                                 <input id="passwordsignup" name="password1" required="required" type="password"
-                                       placeholder="******"/>
+                                       minlength="3" maxlength="45"/>
                             </p>
                             <p>
                                 <label for="passwordsignup_confirm" class="youpasswd" >${pass2}</label>
                                 <input id="passwordsignup_confirm" name="password2" required="required"
-                                       type="password" placeholder="******"/>
+                                       type="password"   minlength="3" maxlength="45"/>
                             </p>
                             <p class="signin button">
                                 <input type="submit" value=${registration}>

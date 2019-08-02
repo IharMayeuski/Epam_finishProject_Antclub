@@ -22,7 +22,7 @@ import static by.epam.club.entity.Parameter.*;
 @SuppressWarnings("unchecked")
 public class EntityCreator<T> {
     private static final Logger LOGGER = LogManager.getLogger(EntityCreator.class);
-    public T create(String table, ResultSet rs) throws DaoException {//fixme не нравится метод, приходит разных размеров резалтСет
+    public T create(String table, ResultSet rs) throws DaoException {
         Entity entity;
         switch (table) {
             case USER_PARAM:

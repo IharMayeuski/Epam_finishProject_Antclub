@@ -53,7 +53,7 @@ public class UploadImage extends HttpServlet {
             Part part = request.getPart(IMAGE_PARAM);
             if (type != null && type.equals(NEW_PARAM)) {
                 TypeService typeService = new TypeServiceImpl();
-                typeService.createNewType(text, part); // FIXME: 7/1/2019
+                typeService.createNewType(text, part);
                 dispatcher = request.getRequestDispatcher(ConfigurationManager.getProperty(DEFAULT_PAGE_FORVARD));
             } else if (article != null && article.equals(NEW_PARAM)) {
                 String title = request.getParameter(TITLE_PARAM);
@@ -71,7 +71,6 @@ public class UploadImage extends HttpServlet {
                 uploadImage.createUserPic(userId, part);
             }
             request.setAttribute(UPDATE_ALL_IS_OK_PARAM, MessageManager.getProperty(UPDATE_ALL_IS_OK_PARAM, locale));
-            // FIXME: 6/25/2019 по причине редиректа - сообщения не доходят
         } catch (ServiceException e) {
             LOGGER.info(e.getMessage(), e);
             request.setAttribute(ERROR_PARAM, MessageManager.getProperty(e.getMessage(), locale));

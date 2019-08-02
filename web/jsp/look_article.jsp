@@ -309,7 +309,5 @@
 <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 </body>
-<footer>
-    <p><c:import url="footer.jsp"/></p>
-</footer>
+
 </html>

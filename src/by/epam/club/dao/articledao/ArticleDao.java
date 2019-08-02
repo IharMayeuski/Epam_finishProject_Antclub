@@ -14,7 +14,7 @@ public interface ArticleDao {
 
     List<Article> takeAllByTypeNewsNotBannedNotDeleted(int typeNews) throws DaoException;
 
-    Article findArticles(String title) throws DaoException;// FIXME: 7/3/2019
+    Article findArticles(String title) throws DaoException;
 
     void delete(String articleId) throws DaoException;
 

@@ -3,7 +3,6 @@ package by.epam.club.controller;
 import by.epam.club.command.ActionCommand;
 import by.epam.club.command.ActionFactory;
 import by.epam.club.command.Router;
-import by.epam.club.entity.Parameter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -33,6 +32,7 @@ public class Controller extends HttpServlet {
      * @throws ServletException this method cant throw this exception
      * @throws IOException this method cant throw IOException
      */
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response, new RequestContent());
     }
@@ -43,6 +43,7 @@ public class Controller extends HttpServlet {
      * @throws ServletException this method cant throw this exception
      * @throws IOException this method cant throw this exception
      */
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response, new RequestContent());
     }
